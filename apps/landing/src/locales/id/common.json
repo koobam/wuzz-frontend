@@ -1,0 +1,39 @@
+{
+  "language": {
+    "label": "Bahasa"
+  },
+  "tag": "Segera hadir · Q2 2027",
+  "title1": "Sesuatu yang seru",
+  "title2": "sedang disiapkan.",
+  "lead": "Kami berencana rilis pada kuartal kedua 2027. Tinggalkan email Anda dan kami kabari begitu pintunya dibuka.",
+  "progress": {
+    "label": "Progres menuju peluncuran",
+    "toLaunch": "menuju rilis"
+  },
+  "daysLeft": "{{count}} hari lagi",
+  "earlyBird": "Early Bird",
+  "countdown": "Hitung mundur peluncuran",
+  "units": {
+    "days": "hari",
+    "hours": "jam",
+    "minutes": "menit",
+    "seconds": "detik"
+  },
+  "form": {
+    "placeholder": "email@anda.com",
+    "label": "Alamat email",
+    "submit": "Kabari saya",
+    "thanks": "Terima kasih. Kami akan menghubungi {{email}} saat peluncuran.",
+    "closed": "Pendaftaran belum dibuka. Coba lagi nanti.",
+    "failed": "Gagal mendaftar. Coba lagi sebentar lagi.",
+    "invalid": "Alamat email tidak valid."
+  },
+  "characters": {
+    "man": "Karakter pria berambut abu-abu memeluk tumpukan buku",
+    "cat": "Karakter kucing abu-abu yang melompat",
+    "bald": "Karakter pria berjas yang duduk",
+    "girl": "Karakter perempuan berkacamata merah membawa bunga",
+    "ham": "Karakter hamster kecil",
+    "boy": "Karakter anak laki-laki berambut cokelat yang mengedipkan mata"
+  }
+}
