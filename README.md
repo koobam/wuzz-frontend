@@ -8,7 +8,7 @@ pnpm + Nx monorepo.
 | `apps/station` | station app (React Native) | Android / iOS |
 | `apps/pos` | point of sale (Vite) | pos-stg.wuzz.care |
 | `apps/backoffice` | admin (Vite) | admin-stg.wuzz.care |
-| `apps/landing` | marketing page (Vite) | not deployed yet |
+| `apps/landing` | public landing, coming-soon page (Vite) | wuzz.care |
 
 ## Environments
 

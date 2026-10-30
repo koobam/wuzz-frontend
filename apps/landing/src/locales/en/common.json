@@ -1,0 +1,39 @@
+{
+  "language": {
+    "label": "Language"
+  },
+  "tag": "Coming soon · Q2 2027",
+  "title1": "Something fun",
+  "title2": "is in the works.",
+  "lead": "We plan to launch in the second quarter of 2027. Leave your email and we will let you know the moment the doors open.",
+  "progress": {
+    "label": "Progress toward launch",
+    "toLaunch": "to launch"
+  },
+  "daysLeft": "{{count}} days to go",
+  "earlyBird": "Early Bird",
+  "countdown": "Launch countdown",
+  "units": {
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes",
+    "seconds": "seconds"
+  },
+  "form": {
+    "placeholder": "you@email.com",
+    "label": "Email address",
+    "submit": "Notify me",
+    "thanks": "Thank you. We will email {{email}} at launch.",
+    "closed": "Sign-up is not open yet. Please try again later.",
+    "failed": "Could not sign you up. Please try again shortly.",
+    "invalid": "That email address is not valid."
+  },
+  "characters": {
+    "man": "Grey-haired man hugging a stack of books",
+    "cat": "Grey cat mid-jump",
+    "bald": "Seated man in a suit",
+    "girl": "Woman in red glasses holding flowers",
+    "ham": "Small hamster",
+    "boy": "Brown-haired boy winking"
+  }
+}
