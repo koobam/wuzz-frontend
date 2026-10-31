@@ -1,22 +1,23 @@
 import { ID, US } from 'country-flag-icons/react/3x2';
-import { Select } from '@/components/select';
-import { LANGUAGES, setLanguage, useTranslation, type LanguageCode } from '@/core/i18n';
+import { LANGUAGES, setLanguage, useTranslation } from '@/core/i18n';
 
-// A language is not a country; these are the flags the picker shows for them.
+// A language is not a country; these are the flags the switch shows for them.
 const FLAGS = { US, ID } as const;
 
+/** Two tabs side by side; the current language is the filled one. */
 export function LanguageSwitch() {
   const { t, i18n } = useTranslation();
   return (
-    <Select
-      compact
-      ariaLabel={t('language.label')}
-      value={i18n.language as LanguageCode}
-      onChange={setLanguage}
-      options={LANGUAGES.map((l) => {
+    <div role="tablist" aria-label={t('language.label')} className="cs-lang">
+      {LANGUAGES.map((l) => {
         const Flag = FLAGS[l.country];
-        return { value: l.code, label: l.label, icon: <Flag className="h-3 w-4 rounded-[2px]" aria-hidden /> };
+        return (
+          <button key={l.code} type="button" role="tab" aria-selected={i18n.language === l.code} aria-label={l.label} onClick={() => setLanguage(l.code)}>
+            <Flag aria-hidden />
+            {l.code.toUpperCase()}
+          </button>
+        );
       })}
-    />
+    </div>
   );
 }

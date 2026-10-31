@@ -35,5 +35,10 @@
     "girl": "Woman in red glasses holding flowers",
     "ham": "Small hamster",
     "boy": "Brown-haired boy winking"
+  },
+  "wait": {
+    "label": "Waitlist",
+    "text": "people are on the waitlist",
+    "you": "You"
   }
 }

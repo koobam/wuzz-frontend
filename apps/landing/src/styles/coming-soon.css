@@ -1,4 +1,4 @@
-/* Coming-soon page. Flat surfaces and thin borders only: no box-shadows.
+/* Coming-soon page. Flat surfaces and thin borders, except the email field and the button, which are raised 3D keys as in the design.
    The copy sits in the middle column; three characters are stacked on each side.
    Under 1000px the copy comes first and the characters wrap into a grid below. */
 .cs {
@@ -8,7 +8,7 @@
   --cs-b1: #6e95ff; --cs-b2: #a6dcff; --cs-b3: #c9b2ff; --cs-b4: #ffc6dd; --cs-b5: #ffe2c2; --cs-blob-o: 0.7;
   --cs-top: #f4f6ff; --cs-bot: #fbf5fb; --cs-grain: 0.05;
   --cs-glass: rgba(255, 255, 255, 0.42); --cs-glass-line: rgba(255, 255, 255, 0.85);
-  --cs-field: #fff; --cs-field-line: #b9bfd5;
+  --cs-field: #fff; --cs-field-line: #cdd2e3; --cs-field-top: #e9ecf5; --cs-field-edge: #b9bfd5; --cs-field-edge-dark: #a3aac3;
   --cs-chip: #fff; --cs-chip-fg: #1b2333; --cs-chip-muted: #66708a; --cs-chip-line: #ccd1ff;
   --cs-track: #e6ecf6; --cs-gold: #ffc800;
   --cs-display: 'Bricolage Grotesque', 'Trebuchet MS', system-ui, sans-serif;
@@ -25,7 +25,7 @@
     --cs-b1: #2a45d8; --cs-b2: #1f6aa8; --cs-b3: #5b3bc4; --cs-b4: #8f3168; --cs-b5: #6b4630; --cs-blob-o: 0.5;
     --cs-top: #0b0e1c; --cs-bot: #120d1c; --cs-grain: 0.07;
     --cs-glass: rgba(255, 255, 255, 0.08); --cs-glass-line: rgba(255, 255, 255, 0.22);
-    --cs-field: #1e2236; --cs-field-line: #4a5280;
+    --cs-field-line: #cdd2e3; --cs-field-edge: #b9bfd5; --cs-field-edge-dark: #a3aac3;
     --cs-chip: #1e2236; --cs-chip-fg: #f1f3f8; --cs-chip-muted: #a3adc2; --cs-chip-line: #333a5c; --cs-track: #2a2f5c;
     color-scheme: dark;
   }
@@ -45,7 +45,7 @@
 }
 
 .cs-wrap {
-  --u: clamp(0.3px, 0.043vw, 0.6px);
+  --u: 0.6px;
   position: relative; z-index: 1; max-width: 1320px; margin: 0 auto; min-height: calc(100vh - 64px);
   display: grid; gap: 24px; align-items: center; grid-template-columns: minmax(0, 1fr) minmax(0, 520px) minmax(0, 1fr);
 }
@@ -53,6 +53,11 @@
 .cs-conf { position: absolute; height: auto; rotate: var(--r, 0deg); filter: drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff); }
 
 .cs-top { position: absolute; z-index: 3; top: 14px; right: 14px; }
+.cs-lang { display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: var(--cs-chip); border: 1px solid var(--cs-chip-line); }
+.cs .cs-lang button { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: var(--cs-chip-muted); background: none; border: 0; border-radius: 999px; padding: 6px 11px; cursor: pointer; transition: background-color 0.15s ease, color 0.15s ease; }
+.cs .cs-lang button:hover { color: var(--cs-chip-fg); }
+.cs .cs-lang button[aria-selected='true'] { background: var(--cs-accent); color: var(--cs-accent-fg); }
+.cs .cs-lang svg { width: 16px; height: 12px; border-radius: 2px; }
 
 .cs-cast { position: relative; z-index: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
 .cs-cast-l { grid-column: 1; grid-row: 1; }
@@ -67,7 +72,7 @@
 .cs-c-boy { width: calc(350 * var(--u)); }
 
 .cs-tag { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cs-muted); }
-.cs h1 { margin: 0; color: var(--cs-fg); font-family: var(--cs-display); font-weight: 800; font-size: clamp(1.6rem, 9.4cqi, 3.4rem); line-height: 1.06; letter-spacing: -0.02em; }
+.cs h1 { margin: 0; color: var(--cs-fg); font-family: var(--cs-display); font-weight: 800; font-size: 3.4rem; line-height: 1.06; letter-spacing: -0.02em; }
 .cs h1 span { white-space: nowrap; }
 .cs-lead { color: var(--cs-muted); max-width: 44ch; margin: 0; }
 
@@ -90,19 +95,55 @@
 .cs-cell b { display: block; font-family: var(--cs-display); font-size: 1.9rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
 .cs-cell span { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cs-muted); }
 
-.cs form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 460px; }
-.cs input[type='email'] { flex: 1 1 220px; min-width: 0; font: inherit; color: var(--cs-fg); background: var(--cs-field); border: 1.5px solid var(--cs-field-line); border-radius: 14px; padding: 13px 18px; }
-.cs input[type='email']::placeholder { color: var(--cs-muted); opacity: 0.8; }
-.cs input[type='email']:focus { border-color: var(--cs-accent-text); }
-.cs button.cs-btn { font: inherit; font-weight: 700; color: var(--cs-accent-fg); background: var(--cs-accent); border: 1.5px solid var(--cs-accent); border-radius: 14px; padding: 13px 22px; cursor: pointer; transition: filter 0.12s ease, transform 0.12s ease; }
-.cs button.cs-btn:hover { filter: brightness(1.12); }
-.cs button.cs-btn:active { transform: translateY(1px); }
+.cs form { display: flex; gap: 10px; padding-bottom: 14px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 460px; }
+.cs input[type='email'] { flex: 1 1 220px; min-width: 0; font: inherit; color: #1b2333; background: var(--cs-field); border: 1.5px solid var(--cs-field-edge); border-radius: 14px; padding: 13px 18px; box-shadow: inset 0 2px 4px rgba(20, 30, 70, 0.1), 0 5px 0 var(--cs-field-edge), 0 12px 20px rgba(30, 40, 90, 0.16); transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.cs input[type='email']::placeholder { color: #66708a; opacity: 0.8; }
+.cs input[type='email']:focus { border-color: var(--cs-accent-text); outline: none; transform: translateY(3px); box-shadow: inset 0 3px 6px rgba(20, 30, 70, 0.14), 0 2px 0 var(--cs-field-edge), 0 6px 12px rgba(30, 40, 90, 0.14); }
+.cs button.cs-btn { --edge: #0005a8; position: relative; font: inherit; font-weight: 700; color: var(--cs-accent-fg); text-shadow: 0 1px 0 rgba(0, 0, 40, 0.35); background: linear-gradient(180deg, #3a40ff 0%, var(--cs-accent) 55%, #0007e0 100%); border: 0; border-radius: 14px; padding: 13px 22px; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -2px 0 rgba(0, 0, 60, 0.25), 0 6px 0 var(--edge), 0 10px 18px rgba(0, 8, 255, 0.32); transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease; }
+.cs button.cs-btn:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -2px 0 rgba(0, 0, 60, 0.25), 0 7px 0 var(--edge), 0 13px 22px rgba(0, 8, 255, 0.36); }
+.cs button.cs-btn:active { transform: translateY(5px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 60, 0.25), 0 1px 0 var(--edge), 0 3px 8px rgba(0, 8, 255, 0.28); }
 .cs button.cs-btn:disabled { opacity: 0.6; cursor: default; }
 .cs input:focus-visible, .cs button:focus-visible { outline: 3px solid var(--cs-focus); outline-offset: 2px; }
 .cs-note { min-height: 1.5em; font-size: 15px; color: var(--cs-muted); margin: 0; }
 
+.cs-wait { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.cs-stack { display: flex; align-items: center; }
+.cs-av { flex: none; width: 42px; height: 42px; border-radius: 50%; border: 3px solid #fff; margin-left: -11px; background-repeat: no-repeat; }
+.cs-stack > :first-child { margin-left: 0; }
+.cs-av.you { display: grid; place-items: center; background: var(--cs-accent); color: var(--cs-accent-fg); font-weight: 800; font-size: 15px; }
+.cs-wait-txt { margin: 0; font-size: 14px; color: var(--cs-muted); }
+.cs-wait-txt b { color: var(--cs-fg); font-variant-numeric: tabular-nums; }
+.cs-pop { animation: cs-pop 0.5s ease; }
+@keyframes cs-pop { 40% { transform: scale(1.25); } }
+
+/* On a desktop the page is exactly one screen and never scrolls; a short window shrinks the stage to fit instead of clipping it. */
+@media (min-width: 1001px) {
+  html, body { overflow: hidden; }
+  .cs { height: 100vh; height: 100dvh; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+  .cs-wrap { min-height: 0; }
+}
+@media (min-width: 1001px) and (max-height: 840px) {
+  .cs { padding-block: 16px; }
+  .cs-wrap { --u: 0.5px; }
+  .cs-copy { gap: 16px; }
+  .cs h1 { font-size: 2.7rem; }
+  .cs-cell { padding: 6px; }
+  .cs form { padding-bottom: 10px; }
+}
+@media (min-width: 1001px) and (max-height: 720px) {
+  .cs-wrap { --u: 0.4px; }
+  .cs-copy { gap: 10px; }
+  .cs h1 { font-size: 2.2rem; }
+  .cs { font-size: 15px; }
+  .cs-ring { width: 80px; }
+  .cs-cell b { font-size: 1.5rem; }
+}
 @media (max-width: 1000px) {
-  .cs-wrap { --u: clamp(0.24px, 0.072vw, 0.5px); min-height: 0; grid-template-columns: minmax(0, 1fr); gap: 28px; padding-top: 40px; }
+  .cs-wrap { --u: 0.3px; min-height: 0; grid-template-columns: minmax(0, 1fr); gap: 28px; padding-top: 40px; }
+  .cs h1 { font-size: 2.1rem; }
+  .cs-conf.over { display: none; }
+  .cs form { flex-direction: column; align-items: stretch; }
+  .cs input[type='email'], .cs button.cs-btn { flex: none; width: 100%; }
   .cs-copy { grid-column: 1; grid-row: 1; }
   .cs-cast-l { grid-column: 1; grid-row: 2; }
   .cs-cast-r { grid-column: 1; grid-row: 3; }

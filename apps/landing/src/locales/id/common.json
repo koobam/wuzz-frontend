@@ -35,5 +35,10 @@
     "girl": "Karakter perempuan berkacamata merah membawa bunga",
     "ham": "Karakter hamster kecil",
     "boy": "Karakter anak laki-laki berambut cokelat yang mengedipkan mata"
+  },
+  "wait": {
+    "label": "Daftar tunggu",
+    "text": "orang menunggu di daftar tunggu",
+    "you": "Anda"
   }
 }
