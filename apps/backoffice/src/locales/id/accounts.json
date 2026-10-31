@@ -1,0 +1,40 @@
+{
+  "accounts": {
+    "admins": {
+      "title": "Admin",
+      "subtitle": "Administrator back office: siapa saja, perannya, dan statusnya.",
+      "emptyTitle": "Belum ada admin",
+      "emptyDescription": "Admin ditambahkan lewat seeder atau oleh admin lain, dan menjalankan back office.",
+      "seeOther": "Lihat staf"
+    },
+    "staff": {
+      "title": "Staf",
+      "subtitle": "Kasir dan wuzzer di setiap outlet, beserta perannya dan statusnya.",
+      "emptyTitle": "Belum ada staf",
+      "emptyDescription": "Kasir dan wuzzer ditambahkan oleh admin dan ditempatkan di sebuah outlet.",
+      "seeOther": "Lihat outlet"
+    },
+    "searchPlaceholder": "Cari nama atau nomor HP",
+    "columns": {
+      "name": "Nama",
+      "phone": "Nomor HP",
+      "role": "Peran",
+      "outlet": "Outlet",
+      "status": "Status",
+      "created": "Ditambahkan"
+    },
+    "roles": {
+      "super": "Super admin",
+      "finance": "Keuangan",
+      "support": "Dukungan",
+      "front": "Kasir",
+      "wuzzer": "Wuzzer"
+    },
+    "empty": "Tidak ada yang cocok.",
+    "total_one": "{{count}} orang",
+    "total_other": "{{count}} orang",
+    "allOutlets": "Semua outlet",
+    "refresh": "Muat ulang",
+    "showing": "Menampilkan {{from}}–{{to}} dari {{total}} akun"
+  }
+}

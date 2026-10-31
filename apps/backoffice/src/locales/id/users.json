@@ -1,0 +1,25 @@
+{
+  "users": {
+    "title": "Pengguna",
+    "searchPlaceholder": "Cari nama, username, telepon",
+    "columns": {
+      "user": "Pengguna",
+      "phone": "Telepon",
+      "roles": "Peran",
+      "points": "Poin",
+      "streak": "Streak",
+      "status": "Status",
+      "joined": "Bergabung"
+    },
+    "customer": "pelanggan",
+    "unban": "Buka blokir",
+    "ban": "Blokir",
+    "total_other": "{{count}} pengguna",
+    "subtitle": "Pelanggan yang mendaftar lewat aplikasi Wuzz. Pelanggan bisa diblokir agar tidak bisa masuk.",
+    "showing": "Menampilkan {{from}}–{{to}} dari {{total}} pelanggan",
+    "emptyTitle": "Belum ada pelanggan",
+    "emptyDescription": "Pelanggan muncul di sini setelah mendaftar lewat aplikasi Wuzz.",
+    "refresh": "Muat ulang",
+    "seeOrders": "Lihat pesanan"
+  }
+}

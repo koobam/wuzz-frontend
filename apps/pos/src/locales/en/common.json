@@ -1,0 +1,93 @@
+{
+  "app": {
+    "name": "Wuzz POS",
+    "renderError": "Something went wrong. Reload the page; if it keeps happening, contact an admin.",
+    "notFound": "Page not found."
+  },
+  "nav": {
+    "newOrder": "New order",
+    "orders": "Orders",
+    "chat": "Chat",
+    "signOut": "Sign out",
+    "themeLight": "Switch to light theme",
+    "themeDark": "Switch to dark theme",
+    "outlet": "Outlet {{id}}",
+    "admin": "Admin",
+    "account": "Account",
+    "stock": "Stock"
+  },
+  "status": {
+    "online": "Online",
+    "offline": "Offline — the POS needs an internet connection"
+  },
+  "language": {
+    "label": "Language"
+  },
+  "env": {
+    "production": "Production",
+    "staging": "Staging",
+    "development": "Development"
+  },
+  "common": {
+    "copy": "Click to copy",
+    "copied": "Copied",
+    "prev": "Previous",
+    "next": "Next",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "actions": "Actions",
+    "viewName": "View details of {{name}}",
+    "editName": "Edit {{name}}",
+    "deleteName": "Delete {{name}}"
+  },
+  "range": {
+    "title": "Date range",
+    "today": "Today",
+    "last7": "Last 7 days",
+    "last14": "Last 14 days",
+    "last30": "Last 30 days",
+    "thisMonth": "This month",
+    "apply": "Apply",
+    "pickTwo": "Pick the first and the last day",
+    "days_one": "{{count}} day",
+    "days_other": "{{count}} days",
+    "tooLong": "At most {{count}} days",
+    "all": "All time"
+  },
+  "confirm": {
+    "order": {
+      "place": "Place this order?",
+      "start": "Start order {{code}}?",
+      "ready": "Mark order {{code}} ready?",
+      "pickedUp": "Hand over order {{code}}?",
+      "cancel": "Cancel order {{code}}?",
+      "moveNote": "The order moves to the next step.",
+      "cancelNote": "A cancelled order cannot be reopened.",
+      "placeNote_one": "{{count}} line · {{total}}. It is sent to the server right away.",
+      "placeNote_other": "{{count}} lines · {{total}}. It is sent to the server right away.",
+      "cancelLabel": "Cancel order"
+    },
+    "stock": {
+      "receipt": "Book goods in for {{name}}?",
+      "waste": "Write off {{name}} as waste?",
+      "note": "This is written to the stock history and cannot be edited afterwards."
+    }
+  },
+  "viewer": {
+    "title": "Image",
+    "close": "Close",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "reset": "Fit to screen",
+    "previous": "Previous image",
+    "next": "Next image",
+    "counter": "{{index}} / {{total}}",
+    "loading": "Loading the image",
+    "broken": "This image could not be loaded.",
+    "zoomImage": "View larger",
+    "zoomImageNamed": "View {{name}} larger"
+  },
+  "table": {
+    "search": "Search"
+  }
+}

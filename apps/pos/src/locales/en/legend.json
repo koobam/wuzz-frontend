@@ -1,0 +1,17 @@
+{
+  "legend": {
+    "stock": {
+      "negative": "Recorded stock is below zero: count what is really on the shelf.",
+      "low": "At or under the minimum level: time to reorder."
+    },
+    "kind": {
+      "receipt": "Goods received from a supplier.",
+      "consumption": "Used up by an order.",
+      "consumption_reversal": "A use undone because the order was cancelled.",
+      "waste": "Thrown away: expired, damaged, spilled or lost.",
+      "adjustment": "Corrected after counting the shelf.",
+      "transfer_in": "Came in from another outlet.",
+      "transfer_out": "Went out to another outlet."
+    }
+  }
+}

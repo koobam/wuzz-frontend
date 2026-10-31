@@ -1,0 +1,83 @@
+{
+  "materials": {
+    "title": "Materials",
+    "subtitle": "The materials you use and keep in stock. Enter the purchase price and quantity; the cost per unit is worked out for you.",
+    "add": "Add material",
+    "empty": "No materials yet.",
+    "noMatch": "No materials match.",
+    "search": "Search SKU, name or note...",
+    "showing": "Showing {{from}}–{{to}} of {{total}} materials",
+    "columns": {
+      "id": "ID",
+      "sku": "SKU",
+      "name": "Material",
+      "unit": "Unit",
+      "purchase": "Purchase price",
+      "unitCost": "Cost per unit",
+      "usedIn": "Used in",
+      "status": "Status",
+      "created": "Created",
+      "updated": "Updated"
+    },
+    "category": {
+      "chemical": "Chemical",
+      "packaging": "Packaging",
+      "consumable": "Consumable",
+      "other": "Other"
+    },
+    "unit": {
+      "ml": "ml",
+      "g": "g",
+      "pcs": "pcs",
+      "sheet": "sheet"
+    },
+    "form": {
+      "sku": "SKU",
+      "name": "Material name",
+      "category": "Category",
+      "unit": "Base unit",
+      "price": "Purchase price (Rp)",
+      "qty": "Quantity bought",
+      "qtyHint": "How many base units that price buys, e.g. 5000 for 5 litres in ml",
+      "notes": "Notes",
+      "active": "Active",
+      "skuRequired": "Give the material a SKU",
+      "nameRequired": "Give the material a name",
+      "priceInvalid": "Enter a price of 0 or more",
+      "skuExample": "DET-CAIR-001",
+      "sectionMaterial": "Material",
+      "sectionPurchase": "Purchase",
+      "purchaseDescription": "What one purchase costs and how much it holds. The cost per unit is worked out from these two.",
+      "skuPlaceholder": "e.g. DET-001",
+      "namePlaceholder": "e.g. Liquid detergent",
+      "pricePlaceholder": "e.g. 85000",
+      "qtyPlaceholder": "e.g. 5000",
+      "notesPlaceholder": "e.g. Bought from the regular supplier",
+      "activeTitle": "Active",
+      "activeDescription": "An active material can be used in recipes and stocked. Switch it off to retire it without deleting its history."
+    },
+    "allCategories": "All categories",
+    "allStatus": "All statuses",
+    "active": "Active",
+    "inactive": "Inactive",
+    "bomLines": "{{count}} recipes",
+    "perUnit": "/ {{unit}}",
+    "invalidQty": "The quantity must be a decimal number with at most 4 decimal places, e.g. 5000 or 0.5.",
+    "for": "for",
+    "per": "per",
+    "notUsed": "Not used yet",
+    "emptyTitle": "No materials yet",
+    "emptyDescription": "Add the materials you use and keep in stock, with their SKU and purchase price.",
+    "seeRecipes": "See recipes & costing",
+    "detail": {
+      "notFound": "This material does not exist.",
+      "loading": "Loading…",
+      "createTitle": "Add material",
+      "editTitle": "Edit material",
+      "detailTitle": "Material",
+      "subtitle": "The material, what it costs to buy, and its cost per unit.",
+      "createSubtitle": "Enter the new material and what it costs to buy; the cost per unit is worked out for you.",
+      "editSubtitle": "Change the material or its purchase price; the cost per unit is worked out again."
+    }
+  }
+}

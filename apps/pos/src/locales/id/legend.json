@@ -1,0 +1,17 @@
+{
+  "legend": {
+    "stock": {
+      "negative": "Stok tercatat di bawah nol: hitung yang sebenarnya di rak.",
+      "low": "Sudah di batas minimum atau kurang: saatnya pesan lagi."
+    },
+    "kind": {
+      "receipt": "Barang diterima dari pemasok.",
+      "consumption": "Terpakai oleh pesanan.",
+      "consumption_reversal": "Pemakaian dibatalkan karena pesanan batal.",
+      "waste": "Dibuang: kedaluwarsa, rusak, tumpah, atau hilang.",
+      "adjustment": "Dikoreksi setelah hitung fisik.",
+      "transfer_in": "Masuk dari outlet lain.",
+      "transfer_out": "Keluar ke outlet lain."
+    }
+  }
+}

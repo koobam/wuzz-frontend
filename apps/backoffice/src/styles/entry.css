@@ -1,12 +1,20 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/* The shared web components (tables, selects...) carry Tailwind classes of their own. */
+@source '../../../../libs/web-ui/src';
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
   color-scheme: light;
 
   --radius: 0.625rem;
+
+  /* The "black" of the UI is a soft gradient, as in the design; in dark mode it is a light one. */
+  --ink-from: #4a4743;
+  --ink-to: #0f0e0d;
+  --ink-gradient: linear-gradient(135deg, var(--ink-from), var(--ink-to));
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -51,6 +59,9 @@
 .dark {
   color-scheme: dark;
 
+  --ink-from: #ffffff;
+  --ink-to: #cfcfcf;
+
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
 
@@ -74,8 +85,8 @@
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
 
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
+  --border: oklch(1 0 0 / 6%);
+  --input: oklch(1 0 0 / 10%);
   --ring: oklch(0.556 0 0);
 
   --sidebar: oklch(0.205 0 0);
@@ -84,7 +95,7 @@
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-border: oklch(1 0 0 / 6%);
   --sidebar-ring: oklch(0.556 0 0);
 
   --canvas: var(--background);
@@ -142,5 +153,207 @@
 
   :focus-visible {
     @apply outline-2 outline-offset-1 outline-ring;
+  }
+}
+
+/* A bar grows up from the baseline when it first appears. */
+@keyframes bar-grow {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@utility bg-ink {
+  background-image: var(--ink-gradient);
+}
+
+/* The card over an outlet's pin: the app's flat surface and thin border, no shadow, and it never takes the pointer
+   (a card under the cursor would end the hover and flicker). */
+.outlet-popup,
+.outlet-popup .maplibregl-popup-content {
+  pointer-events: none;
+}
+.outlet-popup .maplibregl-popup-content {
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  color: var(--foreground);
+  box-shadow: none;
+  font: 12px/1.45 inherit;
+}
+.outlet-popup .maplibregl-popup-tip {
+  display: none;
+}
+.outlet-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.outlet-card__name {
+  font-size: 13px;
+  font-weight: 600;
+}
+.outlet-card__line {
+  margin-top: 0.125rem;
+  color: var(--muted-foreground);
+}
+.outlet-card__status {
+  flex-shrink: 0;
+  border-radius: 9999px;
+  padding: 0.0625rem 0.5rem;
+  font-size: 10px;
+}
+.outlet-card__status {
+  color: #fff;
+}
+.outlet-card__status.is-active {
+  background: #047857;
+}
+.outlet-card__status.is-off {
+  background: #b91c1c;
+}
+
+.outlet-card__banner {
+  display: block;
+  width: 100%;
+  height: 96px;
+  margin-bottom: 0.5rem;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  background: var(--muted);
+}
+
+/* The outlet's hover card: drawn in the page body with fixed coordinates, so nothing (the table card over the map's edge, the gradient,
+   the floating bars) can cover or cut it; above those, below modals. Flat, thin border, no shadow. It takes the pointer (it can be
+   hovered and clicked to open the outlet); a strip on the side that faces the marker bridges the gap so moving onto it keeps it open. */
+.outlet-hovercard {
+  position: fixed;
+  z-index: 45;
+  box-sizing: border-box;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  color: var(--foreground);
+  font: 12px/1.45 inherit;
+  cursor: pointer;
+}
+.outlet-hovercard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 14px;
+}
+.outlet-hovercard[data-side='above']::before {
+  top: 100%;
+}
+.outlet-hovercard[data-side='below']::before {
+  bottom: 100%;
+}
+.outlet-hovercard__arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  background: var(--card);
+  transform: rotate(45deg);
+}
+.outlet-hovercard[data-side='above'] .outlet-hovercard__arrow {
+  bottom: -6px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.outlet-hovercard[data-side='below'] .outlet-hovercard__arrow {
+  top: -6px;
+  border-left: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+}
+.outlet-card__hint {
+  margin-top: 0.5rem;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+/* The outlet's card on the map: fixed in the corner, never cut off, and it does not take the pointer. */
+.outlet-panel {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 5;
+  width: min(17rem, calc(100% - 1.5rem));
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 12px;
+  line-height: 1.45;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+.outlet-panel[data-open='1'] {
+  opacity: 1;
+  transform: none;
+}
+
+/* The calendar in the app's colours: the ink for the chosen days, a soft band between them. */
+.rdp-root.app-calendar {
+  --rdp-accent-color: var(--foreground);
+  --rdp-accent-background-color: var(--accent);
+  --rdp-range_start-color: var(--background);
+  --rdp-range_end-color: var(--background);
+  --rdp-day-height: 38px;
+  --rdp-day-width: 38px;
+  --rdp-day_button-height: 36px;
+  --rdp-day_button-width: 36px;
+  --rdp-nav_button-height: 2rem;
+  --rdp-nav_button-width: 2rem;
+  --rdp-nav-height: 2.5rem;
+  --rdp-today-color: var(--brand);
+  font-size: 0.875rem;
+  color: var(--foreground);
+}
+.rdp-root.app-calendar .rdp-chevron {
+  fill: var(--foreground);
+}
+.rdp-root.app-calendar .rdp-caption_label {
+  font-weight: 600;
+}
+.rdp-root.app-calendar .rdp-selected .rdp-day_button {
+  font-weight: 500;
+}
+.rdp-root.app-calendar .rdp-range_start .rdp-day_button,
+.rdp-root.app-calendar .rdp-range_end .rdp-day_button {
+  background-image: var(--ink-gradient);
+  border-color: transparent;
+}
+
+/* The fill of the active progress bar on the sign-in page. */
+@keyframes slide-fill {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* A dialog or menu fades and settles in. */
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }

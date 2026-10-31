@@ -8,3 +8,5 @@ export * from './coverage';
 export * from './coverage.types';
 export * from './member';
 export * from './member.types';
+export * from './banners';
+export * from './banners.types';

@@ -1,0 +1,65 @@
+{
+  "orders": {
+    "title": "Orders",
+    "empty": "No orders.",
+    "columns": {
+      "order": "Order",
+      "customer": "Customer",
+      "outlet": "Outlet",
+      "items": "Items",
+      "total": "Total",
+      "status": "Status",
+      "created": "Created",
+      "trx": "ID"
+    },
+    "line": "{{name}} ×{{qty}}",
+    "moveTo": "→ {{status}}",
+    "total_one": "{{count}} order",
+    "total_other": "{{count}} orders",
+    "search": "Search TRX ID, name or phone",
+    "allOutlets": "All outlets",
+    "more": "+{{count}} more",
+    "subtitle": "Every order across all outlets. Search, sort and move them along here.",
+    "summary": {
+      "total": "Total transactions",
+      "totalSub": "{{open}} in progress, {{done}} fulfilled, {{cancelled}} cancelled",
+      "value": "Total order value",
+      "valueSub": "{{count}} orders matching the filters",
+      "avgValue": "Average value per order",
+      "avgValueSub": "Total value ÷ {{count}} orders",
+      "avgLines": "Average services per order",
+      "avgLinesSub": "{{lines}} services across {{count}} orders",
+      "cancelled": "Cancelled",
+      "cancelledSub": "{{pct}}% of all transactions",
+      "from": "From",
+      "to": "To"
+    },
+    "detail": {
+      "title": "Order detail",
+      "close": "Close",
+      "customer": "Customer",
+      "outlet": "Outlet",
+      "created": "Created",
+      "updated": "Updated",
+      "by": "Created by",
+      "items": "Items ({{count}})",
+      "total": "Total",
+      "note": "The order total is worked out by the server; the per-line subtotals are only a breakdown.",
+      "notFound": "Order not found.",
+      "summary": "Summary",
+      "status": "Status",
+      "subtitle": "The customer, items, total and status of this order."
+    },
+    "action": {
+      "processing": "Start",
+      "ready": "Mark ready",
+      "fulfilled": "Complete",
+      "cancelled": "Cancel"
+    },
+    "emptyTitle": "No orders yet",
+    "emptyDescription": "Orders the cashiers ring up on the POS appear here.",
+    "refresh": "Refresh",
+    "seeDashboard": "Go to Dashboard",
+    "showing": "Showing {{from}}–{{to}} of {{total}} orders"
+  }
+}

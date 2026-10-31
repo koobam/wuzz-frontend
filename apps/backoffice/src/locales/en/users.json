@@ -1,0 +1,26 @@
+{
+  "users": {
+    "title": "Users",
+    "searchPlaceholder": "Search name, username, phone",
+    "columns": {
+      "user": "User",
+      "phone": "Phone",
+      "roles": "Roles",
+      "points": "Points",
+      "streak": "Streak",
+      "status": "Status",
+      "joined": "Joined"
+    },
+    "customer": "customer",
+    "unban": "Unban",
+    "ban": "Ban",
+    "total_one": "{{count}} user",
+    "total_other": "{{count}} users",
+    "subtitle": "Customers who signed up in the Wuzz app. A customer can be blocked from signing in.",
+    "showing": "Showing {{from}}–{{to}} of {{total}} customers",
+    "emptyTitle": "No customers yet",
+    "emptyDescription": "Customers show up here once they sign up in the Wuzz app.",
+    "refresh": "Refresh",
+    "seeOrders": "See orders"
+  }
+}

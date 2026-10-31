@@ -1,0 +1,22 @@
+{
+  "login": {
+    "phone": "Phone number",
+    "code": "Code from SMS",
+    "differentNumber": "Use a different number",
+    "verifying": "Verifying…",
+    "signIn": "Sign in",
+    "sending": "Sending…",
+    "sendCode": "Send code",
+    "hint": "For outlet staff. Ask an administrator to add your number.",
+    "welcome": "Welcome back",
+    "subtitle": "Sign in to your POS account to continue.",
+    "footer": "© 2026 Wuzz",
+    "slides": {
+      "one": "Ring up an order in seconds.",
+      "two": "Every order goes straight to the server and shows on every device.",
+      "three": "One outlet, many cashiers, every order on record."
+    },
+    "phoneRequired": "Enter your phone number",
+    "codeRequired": "Enter the code from the SMS"
+  }
+}

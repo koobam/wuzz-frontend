@@ -1,0 +1,57 @@
+{
+  "home": {
+    "morning": "Good morning, {{name}}",
+    "afternoon": "Good afternoon, {{name}}",
+    "evening": "Good evening, {{name}}",
+    "night": "Good night, {{name}}",
+    "subtitle": "Stay on top of orders, outlets and services."
+  },
+  "dashboard": {
+    "revenue": "Total revenue",
+    "revenueNote_one": "from {{count}} fulfilled order",
+    "revenueNote_other": "from {{count}} fulfilled orders",
+    "viewOrders": "View orders",
+    "viewUsers": "Customers",
+    "outlets": "Outlets",
+    "outletsTotal_one": "{{count}} outlet in total",
+    "outletsTotal_other": "{{count}} outlets in total",
+    "inactive": "Inactive",
+    "totalOrders": "Total orders",
+    "openOrders": "Open orders",
+    "openNote": "Not fulfilled or cancelled yet",
+    "fulfilled": "Fulfilled",
+    "cancelled": "Cancelled",
+    "newCount": "{{count}} new",
+    "share": "{{percent}}% of the orders in this range",
+    "chart": {
+      "heading": "Orders",
+      "title": "Orders per day",
+      "fulfilled": "Fulfilled",
+      "cancelled": "Cancelled",
+      "open": "Open",
+      "toggle": "Show or hide",
+      "total": "Total",
+      "subtitle": "Orders per day, {{from}} – {{to}}"
+    },
+    "rate": {
+      "title": "Fulfilment rate",
+      "done": "{{done}} fulfilled out of {{total}} orders"
+    },
+    "services": "Services",
+    "manage": "Manage",
+    "perUnit": "{{price}} / {{unit}}",
+    "recent": "Recent orders",
+    "search": "Search",
+    "mapFailed": "Map unavailable: the map tiles could not be loaded.",
+    "refresh": "Refresh",
+    "inArea": "{{shown}} in this area of {{total}}",
+    "viewMore": "View more",
+    "quickAccess": "Quick access",
+    "quickAccessEdit": "Edit",
+    "quickAccessDone": "Done",
+    "quickAccessReset": "Reset",
+    "quickAccessAdd": "Add {{name}}",
+    "quickAccessRemove": "Remove {{name}}",
+    "quickAccessDrag": "Drag {{name}} to move it, or use the arrow keys"
+  }
+}

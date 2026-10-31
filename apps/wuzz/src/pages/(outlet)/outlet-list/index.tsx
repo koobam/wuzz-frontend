@@ -149,6 +149,18 @@ const OutletList = memo((props: any) => {
   // Sumber kebenaran selection = context global (di-init dari nearest, diubah
   // saat pilih dari daftar).
   const { selectedOutlet, setSelectedOutlet } = useSelectedOutlet();
+
+  // Opened by a link to one outlet (wuzz://outlet/3, a banner): pick it once the list has it. Only once, so
+  // it never overrides what the customer picks afterwards; an outlet the list does not have picks nothing.
+  const linkedOutletId: string | undefined = props.route?.params?.outletId;
+  const linkedOutletApplied = useRef(false);
+  useEffect(() => {
+    if (!linkedOutletId || linkedOutletApplied.current) return;
+    const linked = outletList.find((o) => String(o.id) === linkedOutletId);
+    if (!linked) return;
+    linkedOutletApplied.current = true;
+    setSelectedOutlet(linked);
+  }, [linkedOutletId, outletList, setSelectedOutlet]);
   const selectedOutletId = selectedOutlet?.id ?? null;
 
   // Kamera fokus mengikuti outlet terpilih (selectedOutletId). Kalau tidak ada

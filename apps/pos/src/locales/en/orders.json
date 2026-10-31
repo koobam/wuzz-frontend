@@ -1,0 +1,36 @@
+{
+  "orders": {
+    "title": "Orders",
+    "empty": "No orders yet.",
+    "items_one": "{{count}} item",
+    "items_other": "{{count}} items",
+    "needsConnection": "Needs a connection",
+    "action": {
+      "start": "Start",
+      "cancel": "Cancel",
+      "ready": "Ready",
+      "pickedUp": "Picked up"
+    },
+    "status": {
+      "created": "Order Created",
+      "processing": "Order Processing",
+      "ready": "Order Ready",
+      "fulfilled": "Order Completed",
+      "cancelled": "Order Cancelled"
+    },
+    "subtitle": "This outlet's orders, as the server has them.",
+    "statusHead": "Status",
+    "total": "Total",
+    "statusHelp": {
+      "created": "Received, not started yet.",
+      "processing": "Being washed or worked on.",
+      "ready": "Done, waiting to be picked up or delivered.",
+      "fulfilled": "Handed over to the customer.",
+      "cancelled": "Cancelled; it will not be done."
+    },
+    "trx": "ID",
+    "customerHead": "Customer",
+    "itemsHead": "Items",
+    "more": "+{{count}} more"
+  }
+}

@@ -1,12 +1,20 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/* The shared web components (tables, selects...) carry Tailwind classes of their own. */
+@source '../../../../libs/web-ui/src';
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
   color-scheme: light;
 
   --radius: 0.625rem;
+
+  /* The "black" of the UI is a soft gradient, as in the design; in dark mode it is a light one. */
+  --ink-from: #4a4743;
+  --ink-to: #0f0e0d;
+  --ink-gradient: linear-gradient(135deg, var(--ink-from), var(--ink-to));
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -51,6 +59,9 @@
 .dark {
   color-scheme: dark;
 
+  --ink-from: #ffffff;
+  --ink-to: #cfcfcf;
+
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
 
@@ -74,8 +85,8 @@
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
 
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
+  --border: oklch(1 0 0 / 6%);
+  --input: oklch(1 0 0 / 10%);
   --ring: oklch(0.556 0 0);
 
   --sidebar: oklch(0.205 0 0);
@@ -84,7 +95,7 @@
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-border: oklch(1 0 0 / 6%);
   --sidebar-ring: oklch(0.556 0 0);
 
   --canvas: var(--background);
@@ -142,5 +153,31 @@
 
   :focus-visible {
     @apply outline-2 outline-offset-1 outline-ring;
+  }
+}
+
+@utility bg-ink {
+  background-image: var(--ink-gradient);
+}
+
+/* A dialog fades and settles in. */
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* The fill of the active progress bar on the sign-in page. */
+@keyframes slide-fill {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }

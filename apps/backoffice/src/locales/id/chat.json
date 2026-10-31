@@ -1,0 +1,17 @@
+{
+  "chat": {
+    "with": "Chat dengan {{name}}",
+    "minimize": "Kecilkan",
+    "close": "Tutup",
+    "placeholder": "Tulis pesan",
+    "send": "Kirim",
+    "empty": "Sapa {{name}}.",
+    "today": "Hari ini",
+    "yesterday": "Kemarin",
+    "sent": "Terkirim",
+    "read": "Dibaca",
+    "newMessages_one": "+{{count}} pesan baru",
+    "newMessages_other": "+{{count}} pesan baru",
+    "error": "Chat tidak dapat dibuka. Coba lagi sebentar lagi."
+  }
+}

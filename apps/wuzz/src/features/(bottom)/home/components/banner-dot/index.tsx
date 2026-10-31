@@ -5,11 +5,12 @@ import {
   interpolate,
   useAnimatedStyle,
 } from 'react-native-reanimated';
-import { BANNER_IMAGES, DOT_WIDTH_ACTIVE, DOT_WIDTH_INACTIVE } from '../../utils';
+import { DOT_WIDTH_ACTIVE, DOT_WIDTH_INACTIVE } from '../../utils';
 import type { BannerDotProps } from './banner-dot.types';
 
 export const BannerDot = memo(({
   index,
+  count,
   scrollOffsetX,
   screenWidth,
   onPress,
@@ -47,7 +48,7 @@ export const BannerDot = memo(({
     <Pressable
       onPress={handlePress}
       accessibilityRole="button"
-      accessibilityLabel={`Slide ${index + 1} of ${BANNER_IMAGES.length}`}
+      accessibilityLabel={`Slide ${index + 1} of ${count}`}
     >
       <Flex
         borderRadius={999}

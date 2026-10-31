@@ -13,8 +13,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "country-flag-icons": "^1.6.20",
+    "i18next": "26.3.3",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-i18next": "16.6.6",
+    "react-select": "^5.10.2"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

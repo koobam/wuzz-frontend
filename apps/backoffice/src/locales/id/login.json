@@ -1,0 +1,23 @@
+{
+  "login": {
+    "title": "Wuzz Backoffice",
+    "phonePlaceholder": "Nomor telepon",
+    "codePlaceholder": "Kode dari SMS",
+    "useDifferentNumber": "Gunakan nomor lain",
+    "verifying": "Memverifikasi…",
+    "signIn": "Masuk",
+    "sending": "Mengirim…",
+    "sendCode": "Kirim kode",
+    "adminNote": "Untuk administrator. Minta administrator lain menambahkan nomormu.",
+    "welcome": "Selamat datang kembali",
+    "subtitle": "Masuk ke akun admin untuk melanjutkan.",
+    "footer": "© 2026 Wuzz",
+    "slides": {
+      "one": "Pesanan, outlet, dan layanan dalam satu layar.",
+      "two": "Lihat siapa yang sedang bekerja, dan ajak bicara.",
+      "three": "Jaga katalog dan harga tetap benar untuk semua outlet."
+    },
+    "phoneRequired": "Isi nomor telepon",
+    "codeRequired": "Isi kode dari SMS"
+  }
+}

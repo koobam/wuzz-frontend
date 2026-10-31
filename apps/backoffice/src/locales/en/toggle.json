@@ -1,0 +1,32 @@
+{
+  "toggle": {
+    "on": "Turn on",
+    "off": "Turn off",
+    "onName": "Turn on {{name}}",
+    "offName": "Turn off {{name}}",
+    "titleOn": "Turn on {{kind}} \"{{name}}\"?",
+    "titleOff": "Turn off {{kind}} \"{{name}}\"?",
+    "note": {
+      "service": {
+        "on": "It goes back on sale in the POS and the customer app.",
+        "off": "It disappears from the POS and the customer app. Its data and past orders are kept."
+      },
+      "outlet": {
+        "on": "The outlet takes orders again and shows in the app.",
+        "off": "The outlet takes no orders and is hidden from the app."
+      },
+      "material": {
+        "on": "It can be picked for recipes and stock again.",
+        "off": "It cannot be picked for new recipes or stock. Existing ones are kept."
+      },
+      "banner": {
+        "on": "Once active, it shows whenever its schedule allows.",
+        "off": "It stops showing in the app. It is kept and can be turned on again."
+      },
+      "voucher": {
+        "on": "Customers can claim and use it again, whenever its window allows.",
+        "off": "Customers can no longer claim or use it. Wallets that hold it keep it, and it can be turned on again."
+      }
+    }
+  }
+}

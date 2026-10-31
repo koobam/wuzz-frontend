@@ -1,0 +1,142 @@
+{
+  "activity": {
+    "view": "Lihat aktivitas",
+    "close": "Tutup",
+    "subtitle": "Siapa melakukan apa, terbaru dulu. Hanya administrator yang bisa melihat ini.",
+    "search": "Cari orang atau nama",
+    "showing": "Menampilkan {{from}}–{{to}} dari {{total}}",
+    "allActions": "Semua aksi",
+    "allOutcomes": "Semua hasil",
+    "filterOutcome": "Hasil",
+    "filterAction": "Aksi",
+    "outcome": {
+      "ok": "Berhasil",
+      "failed": "Gagal"
+    },
+    "failedWith": "Gagal ({{status}})",
+    "details": "Rincian",
+    "unknownActor": "Seseorang",
+    "loading": "Memuat aktivitas…",
+    "empty": "Belum ada aktivitas.",
+    "forbidden": "Hanya administrator yang bisa melihat aktivitas.",
+    "fallback": "{{action}}: {{entity}} {{subject}}",
+    "audience": {
+      "backoffice": "Back office",
+      "pos": "Kasir"
+    },
+    "actions": {
+      "create": "Dibuat",
+      "update": "Diubah",
+      "delete": "Dihapus",
+      "status": "Ubah status",
+      "receive": "Stok masuk",
+      "waste": "Buang",
+      "adjust": "Penyesuaian hitung",
+      "transfer": "Transfer",
+      "set_min": "Atur minimum",
+      "sign_in": "Masuk",
+      "sign_out": "Keluar",
+      "reorder": "Urutan diubah",
+      "inject": "Kirim voucher"
+    },
+    "entities": {
+      "outlet": "outlet",
+      "service": "layanan",
+      "variant_group": "varian",
+      "modifier_group": "modifier",
+      "material": "bahan",
+      "bom": "resep",
+      "stock": "stok",
+      "order": "pesanan",
+      "user": "pelanggan",
+      "session": "sesi",
+      "media": "foto",
+      "banner": "banner",
+      "voucher": "voucher"
+    },
+    "entityTitle": {
+      "outlet": "Aktivitas outlet",
+      "service": "Aktivitas layanan",
+      "variant_group": "Aktivitas varian",
+      "modifier_group": "Aktivitas modifier",
+      "material": "Aktivitas bahan",
+      "bom": "Aktivitas resep",
+      "stock": "Aktivitas stok",
+      "order": "Aktivitas pesanan",
+      "user": "Aktivitas pelanggan",
+      "session": "Aktivitas masuk",
+      "media": "Aktivitas foto",
+      "banner": "Aktivitas banner",
+      "voucher": "Aktivitas voucher"
+    },
+    "bomOwner": {
+      "service": "layanan",
+      "variant_option": "opsi varian",
+      "modifier_option": "opsi modifier"
+    },
+    "outlet": {
+      "create": "Menambah outlet “{{name}}”",
+      "update": "Mengubah outlet “{{name}}”",
+      "delete": "Menghapus outlet {{subject}}"
+    },
+    "service": {
+      "create": "Menambah layanan “{{name}}”",
+      "update": "Mengubah layanan “{{name}}”",
+      "delete": "Menghapus layanan {{subject}}"
+    },
+    "variant_group": {
+      "create": "Menambah varian “{{name}}”",
+      "update": "Mengubah varian “{{name}}”",
+      "delete": "Menghapus varian {{subject}}"
+    },
+    "modifier_group": {
+      "create": "Menambah modifier “{{name}}”",
+      "update": "Mengubah modifier “{{name}}”",
+      "delete": "Menghapus modifier {{subject}}"
+    },
+    "material": {
+      "create": "Menambah bahan “{{name}}”",
+      "update": "Mengubah bahan “{{name}}”",
+      "delete": "Menghapus bahan {{subject}}"
+    },
+    "bom": {
+      "update": "Menyimpan resep {{subject}}"
+    },
+    "stock": {
+      "receive": "Menerima {{qty}} {{subject}} di {{outlet}}",
+      "waste": "Membuang {{qty}} {{subject}} di {{outlet}}",
+      "adjust": "Menghitung {{subject}} di {{outlet}}: {{counted}}",
+      "transfer": "Memindahkan {{qty}} {{subject}} dari {{from}} ke {{to}}",
+      "set_min": "Mengatur minimum {{subject}} di {{outlet}} menjadi {{min}}"
+    },
+    "order": {
+      "create": "Membuat pesanan {{code}}",
+      "status": "Memindahkan pesanan {{code}} ke “{{status}}”"
+    },
+    "user": {
+      "status": "Mengubah pelanggan {{subject}} menjadi “{{status}}”"
+    },
+    "session": {
+      "sign_in": "Masuk",
+      "sign_out": "Keluar"
+    },
+    "recipeTitle": "Aktivitas resep",
+    "media": {
+      "create": "Mengunggah foto"
+    },
+    "banner": {
+      "create": "Menambah banner “{{title}}”",
+      "update": "Mengubah banner “{{title}}”",
+      "delete": "Menghapus banner {{subject}}",
+      "status": "Mengatur banner “{{title}}” menjadi {{status}}",
+      "reorder": "Mengatur ulang urutan {{total}} banner"
+    },
+    "voucher": {
+      "create": "Menambah voucher “{{title}}”",
+      "update": "Mengubah voucher “{{title}}”",
+      "delete": "Menghapus voucher {{subject}}",
+      "status": "Mengubah voucher “{{title}}” menjadi {{status}}",
+      "inject": "Mengirim voucher “{{title}}” ke {{injected}} dari {{total}} pelanggan"
+    }
+  }
+}

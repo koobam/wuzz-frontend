@@ -2486,6 +2486,29 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
+  - RNSentry (8.32.0):
+    - hermes-engine
+    - RCTRequired
+    - RCTTypeSafety
+    - React-bridging
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
   - RNShare (12.3.1):
     - hermes-engine
     - RCTRequired
@@ -2802,6 +2825,7 @@ DEPENDENCIES:
   - RNReactNativeHapticFeedback (from `../node_modules/react-native-haptic-feedback`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - "RNSentry (from `../node_modules/@sentry/react-native`)"
   - RNShare (from `../node_modules/react-native-share`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNWorklets (from `../node_modules/react-native-worklets`)
@@ -3056,6 +3080,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSentry:
+    :path: "../node_modules/@sentry/react-native"
   RNShare:
     :path: "../node_modules/react-native-share"
   RNSVG:
@@ -3200,6 +3226,7 @@ SPEC CHECKSUMS:
   RNReactNativeHapticFeedback: a2e36298f8e446b677488539e247deaa91d51103
   RNReanimated: e72e5bd2dfd70bd8a3280e89cefa43c46b4bfcb0
   RNScreens: 2b9596ab195e431f33241a94b71cfed0fcd63073
+  RNSentry: 27e1e1929ef0514be831c17ae451c7f58aa05ac0
   RNShare: 37c39d6a2efce42f492bc3d346b81f43cfc698a7
   RNSVG: df7b2c0679ac7b9a668af6c6b40e2c6cb4df88f5
   RNWorklets: 71d46b750555bc0e4bfb41000d22289c8b6e7677

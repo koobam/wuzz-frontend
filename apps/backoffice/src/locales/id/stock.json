@@ -1,0 +1,123 @@
+{
+  "stock": {
+    "title": "Stok",
+    "subtitle": "Sisa bahan di tiap outlet dan nilainya. Berkurang sendiri saat ada pesanan; tombol di kanan hanya untuk mencatat hal lain.",
+    "search": "Cari SKU atau nama bahan...",
+    "allOutlets": "Semua outlet",
+    "lowOnly": "Hanya stok menipis",
+    "showing": "Menampilkan {{from}}–{{to}} dari {{total}} bahan",
+    "empty": "Belum ada stok.",
+    "noMatch": "Tidak ada bahan yang cocok.",
+    "pickOutlet": "Pilih satu outlet untuk melihat semua bahan, termasuk yang belum punya stok.",
+    "columns": {
+      "sku": "SKU",
+      "name": "Bahan",
+      "outlet": "Outlet",
+      "qty": "Stok",
+      "value": "Nilai stok",
+      "avg": "Rata-rata biaya",
+      "min": "Minimum"
+    },
+    "low": "Menipis",
+    "negative": "Minus",
+    "action": {
+      "receipt": "Barang masuk",
+      "waste": "Buang",
+      "adjustment": "Hitung fisik",
+      "transfer": "Pindah ke outlet lain",
+      "min": "Atur batas minimum"
+    },
+    "form": {
+      "qty": "Jumlah",
+      "totalCost": "Total harga beli (Rp)",
+      "supplier": "Pemasok",
+      "docNo": "No. dokumen",
+      "note": "Catatan",
+      "noteRequired": "Catatan (wajib: alasan hitung fisik)",
+      "reason": "Alasan",
+      "countedQty": "Jumlah hasil hitung fisik",
+      "toOutlet": "Outlet tujuan",
+      "minQty": "Stok minimum",
+      "save": "Simpan",
+      "book": "Stok di buku: {{qty}} {{unit}}",
+      "cancel": "Batal",
+      "invalidQty": "Jumlah harus angka desimal dengan maksimal 4 angka di belakang titik.",
+      "same": "Hasil hitung sama dengan stok di buku: tidak ada perubahan.",
+      "invalidCost": "Isi total biaya dalam rupiah penuh",
+      "qtyPlaceholder": "Contoh: 500",
+      "costPlaceholder": "Contoh: 85000",
+      "supplierPlaceholder": "Contoh: CV Sabun Jaya",
+      "docNoPlaceholder": "Contoh: INV-2026-0042",
+      "notePlaceholder": "Contoh: Kemasan bocor"
+    },
+    "reason": {
+      "expired": "Kedaluwarsa",
+      "damaged": "Rusak",
+      "spilled": "Tumpah",
+      "lost": "Hilang",
+      "other": "Lainnya"
+    },
+    "howItWorks": "Stok berkurang otomatis saat pesanan diproses. Di sini cukup catat yang terjadi di luar pesanan: barang masuk, barang terbuang, atau selisih hasil hitung.",
+    "minimum": "Minimum {{qty}}",
+    "worth": "≈ Rp {{cost}} per {{unit}}",
+    "lowCount": "{{count}} bahan menipis",
+    "hint": {
+      "receipt": "Pakai ini saat kamu membeli atau menerima bahan. Stok bertambah sejumlah yang kamu isi. Contoh: beli deterjen 5 liter seharga Rp 85.000, isi jumlah 5000 dan total harga 85000.",
+      "waste": "Pakai ini saat bahan rusak, tumpah, hilang, atau kedaluwarsa sehingga tidak jadi dipakai. Stok berkurang sejumlah yang kamu isi. Contoh: parfum tumpah 50 ml.",
+      "adjustment": "Pakai ini setelah kamu menghitung bahan di rak. Isi jumlah yang sebenarnya ada; sistem menyesuaikan stok dan mencatat selisihnya.",
+      "transfer": "Memindahkan sebagian stok ke outlet lain. Stok di sini berkurang, di outlet tujuan bertambah.",
+      "min": "Kalau sisa stok turun sampai angka ini atau lebih rendah, bahan diberi tanda Menipis."
+    },
+    "flow": {
+      "1": "Barang masuk saat belanja",
+      "2": "Pesanan memakai bahan otomatis",
+      "3": "Buang atau Hitung fisik bila ada selisih"
+    },
+    "emptyTitle": "Belum ada bahan untuk distok",
+    "emptyDescription": "Stok dicatat per bahan. Tambahkan bahan dulu, lalu catat barang masuk pertamanya di sini.",
+    "seeMaterials": "Lihat Bahan",
+    "seeHistory": "Riwayat stok"
+  },
+  "history": {
+    "title": "Riwayat stok",
+    "subtitle": "Semua yang terjadi pada stok, dari yang terbaru. Catatan ini tidak bisa diubah; kalau ada salah, buat catatan baru.",
+    "search": "Cari catatan, no. dokumen, atau pemasok...",
+    "showing": "Menampilkan {{from}}–{{to}} dari {{total}} gerakan",
+    "empty": "Belum ada gerakan stok.",
+    "noMatch": "Tidak ada gerakan yang cocok.",
+    "allKinds": "Semua jenis",
+    "from": "Dari",
+    "to": "Sampai",
+    "columns": {
+      "time": "Waktu",
+      "outlet": "Outlet",
+      "material": "Bahan",
+      "kind": "Jenis",
+      "reason": "Alasan",
+      "qty": "Jumlah",
+      "value": "Nilai",
+      "balance": "Saldo",
+      "ref": "Referensi",
+      "note": "Catatan",
+      "by": "Oleh",
+      "event": "Kejadian",
+      "change": "Perubahan"
+    },
+    "kind": {
+      "receipt": "Terima barang",
+      "consumption": "Pemakaian",
+      "consumption_reversal": "Pembalikan pakai",
+      "waste": "Waste",
+      "adjustment": "Koreksi hitung",
+      "transfer_in": "Transfer masuk",
+      "transfer_out": "Transfer keluar"
+    },
+    "by": "oleh {{name}}",
+    "order": "pesanan {{id}}",
+    "bySystem": "otomatis dari pesanan",
+    "emptyTitle": "Belum ada gerakan stok",
+    "emptyDescription": "Setiap barang masuk, barang terbuang, dan pemakaian dari pesanan akan tercatat di sini.",
+    "seeStock": "Ke halaman Stok",
+    "seeMaterials": "Lihat Bahan"
+  }
+}

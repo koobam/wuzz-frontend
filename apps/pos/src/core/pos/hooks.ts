@@ -1,7 +1,7 @@
-import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { useEffect, useSyncExternalStore } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { useSyncExternalStore } from 'react';
 import { loadCatalog } from './catalog';
-import { listOrders, onOrdersChanged } from './outbox';
+import { fetchOrders } from './orders';
 
 const subscribeOnline = (cb: () => void) => {
   window.addEventListener('online', cb);
@@ -12,6 +12,7 @@ const subscribeOnline = (cb: () => void) => {
   };
 };
 
+/** Whether the browser has a connection. The POS needs one: what depends on the server is switched off without it. */
 export function useOnline() {
   return useSyncExternalStore(subscribeOnline, () => navigator.onLine, () => true);
 }
@@ -20,11 +21,7 @@ export function useCatalog() {
   return useQuery({ queryKey: ['pos', 'catalog'], queryFn: loadCatalog, staleTime: 5 * 60_000 });
 }
 
+/** The orders, straight from the server. Other tills and the back office change them, so they are read again every 15 seconds. */
 export function useOrders() {
-  const queryClient = useQueryClient();
-  useEffect(
-    () => onOrdersChanged(() => void queryClient.invalidateQueries({ queryKey: ['pos', 'orders'] })),
-    [queryClient],
-  );
-  return useQuery({ queryKey: ['pos', 'orders'], queryFn: listOrders, staleTime: 0 });
+  return useQuery({ queryKey: ['pos', 'orders'], queryFn: fetchOrders, staleTime: 0, refetchInterval: 15_000 });
 }

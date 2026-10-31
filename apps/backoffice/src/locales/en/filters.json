@@ -1,0 +1,18 @@
+{
+  "filter": {
+    "status": "Status",
+    "outlet": "Outlet",
+    "service": "Service",
+    "category": "Category",
+    "unit": "Unit",
+    "usage": "Usage",
+    "rule": "Rule",
+    "kind": "Type",
+    "date": "Date",
+    "stock": "Stock",
+    "search": "Search",
+    "result": "Result",
+    "action": "Action",
+    "live": "Showing"
+  }
+}

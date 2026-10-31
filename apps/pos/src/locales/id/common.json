@@ -1,0 +1,93 @@
+{
+  "app": {
+    "name": "Wuzz POS",
+    "renderError": "Terjadi kesalahan. Muat ulang halaman; jika berulang, hubungi admin.",
+    "notFound": "Halaman tidak ditemukan."
+  },
+  "nav": {
+    "newOrder": "Pesanan baru",
+    "orders": "Pesanan",
+    "chat": "Chat",
+    "signOut": "Keluar",
+    "themeLight": "Ganti ke tema terang",
+    "themeDark": "Ganti ke tema gelap",
+    "outlet": "Outlet {{id}}",
+    "admin": "Admin",
+    "account": "Akun",
+    "stock": "Stok"
+  },
+  "status": {
+    "online": "Online",
+    "offline": "Offline — POS butuh koneksi internet"
+  },
+  "language": {
+    "label": "Bahasa"
+  },
+  "env": {
+    "production": "Production",
+    "staging": "Staging",
+    "development": "Development"
+  },
+  "common": {
+    "copy": "Klik untuk menyalin",
+    "copied": "Disalin",
+    "prev": "Sebelumnya",
+    "next": "Berikutnya",
+    "confirm": "Ya, lanjutkan",
+    "cancel": "Batal",
+    "actions": "Aksi",
+    "viewName": "Lihat detail {{name}}",
+    "editName": "Ubah {{name}}",
+    "deleteName": "Hapus {{name}}"
+  },
+  "range": {
+    "title": "Rentang tanggal",
+    "today": "Hari ini",
+    "last7": "7 hari terakhir",
+    "last14": "14 hari terakhir",
+    "last30": "30 hari terakhir",
+    "thisMonth": "Bulan ini",
+    "apply": "Terapkan",
+    "pickTwo": "Pilih hari pertama dan terakhir",
+    "days_one": "{{count}} hari",
+    "days_other": "{{count}} hari",
+    "tooLong": "Paling lama {{count}} hari",
+    "all": "Semua waktu"
+  },
+  "confirm": {
+    "order": {
+      "place": "Buat pesanan ini?",
+      "start": "Mulai pesanan {{code}}?",
+      "ready": "Tandai pesanan {{code}} siap?",
+      "pickedUp": "Serahkan pesanan {{code}}?",
+      "cancel": "Batalkan pesanan {{code}}?",
+      "moveNote": "Pesanan pindah ke langkah berikutnya.",
+      "cancelNote": "Pesanan yang dibatalkan tidak bisa dibuka lagi.",
+      "placeNote_one": "{{count}} baris · {{total}}. Langsung dikirim ke server.",
+      "placeNote_other": "{{count}} baris · {{total}}. Langsung dikirim ke server.",
+      "cancelLabel": "Batalkan pesanan"
+    },
+    "stock": {
+      "receipt": "Catat barang masuk untuk {{name}}?",
+      "waste": "Catat {{name}} sebagai terbuang?",
+      "note": "Ini tercatat di riwayat stok dan tidak bisa diubah setelahnya."
+    }
+  },
+  "viewer": {
+    "title": "Gambar",
+    "close": "Tutup",
+    "zoomIn": "Perbesar",
+    "zoomOut": "Perkecil",
+    "reset": "Sesuaikan layar",
+    "previous": "Gambar sebelumnya",
+    "next": "Gambar berikutnya",
+    "counter": "{{index}} / {{total}}",
+    "loading": "Memuat gambar",
+    "broken": "Gambar ini tidak bisa dimuat.",
+    "zoomImage": "Lihat lebih besar",
+    "zoomImageNamed": "Lihat {{name}} lebih besar"
+  },
+  "table": {
+    "search": "Cari"
+  }
+}

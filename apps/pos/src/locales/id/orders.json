@@ -1,0 +1,36 @@
+{
+  "orders": {
+    "title": "Pesanan",
+    "empty": "Belum ada pesanan.",
+    "items_one": "{{count}} item",
+    "items_other": "{{count}} item",
+    "needsConnection": "Perlu koneksi",
+    "action": {
+      "start": "Mulai",
+      "cancel": "Batalkan",
+      "ready": "Siap",
+      "pickedUp": "Sudah diambil"
+    },
+    "status": {
+      "created": "Pesanan Dibuat",
+      "processing": "Pesanan Diproses",
+      "ready": "Pesanan Siap",
+      "fulfilled": "Pesanan Selesai",
+      "cancelled": "Pesanan Dibatalkan"
+    },
+    "subtitle": "Pesanan outlet ini, sesuai catatan server.",
+    "statusHead": "Status",
+    "total": "Total",
+    "statusHelp": {
+      "created": "Pesanan diterima, belum dikerjakan.",
+      "processing": "Sedang dicuci atau dikerjakan.",
+      "ready": "Selesai dikerjakan, menunggu diambil atau diantar.",
+      "fulfilled": "Sudah diserahkan ke pelanggan.",
+      "cancelled": "Dibatalkan; tidak akan dikerjakan."
+    },
+    "trx": "ID",
+    "customerHead": "Pelanggan",
+    "itemsHead": "Item",
+    "more": "+{{count}} lainnya"
+  }
+}

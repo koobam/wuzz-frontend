@@ -6,21 +6,52 @@ export type CatalogItem = {
   unit: string;
   /** Rupiah, integer. */
   price: number;
+  /** The category it is listed under (0 = none), the name of its icon, and a line about it. */
+  categoryId: number;
+  icon: string;
+  description: string;
+  /** The groups this service uses: variants (pick exactly one option from each; its `delta` is added to `price`) and modifiers (add-ons with a min and max). Empty = a plain item. */
+  variantGroups: VariantGroup[];
+  modifierGroups: ModifierGroup[];
 };
 
-export type Catalog = { outlets: Outlet[]; services: CatalogItem[] };
+export type VariantOption = { id: number; name: string; delta: number; isDefault: boolean };
+export type VariantGroup = { id: number; name: string; options: VariantOption[] };
+export type ModifierOption = { id: number; name: string; price: number };
+/** `min` 0 is optional, 1+ required; `max` null is no ceiling. */
+export type ModifierGroup = { id: number; name: string; min: number; max: number | null; options: ModifierOption[] };
 
-export type OrderLine = { itemId: number; name: string; unit: string; price: number; qty: number };
+/** A group of services, with the name of the icon it is drawn with. */
+export type Category = { id: number; name: string; icon: string };
 
-/** pending = not on the server yet; synced = the server has it; failed = the server refused it. */
-export type SyncStatus = 'pending' | 'synced' | 'failed';
+export type Catalog = { outlets: Outlet[]; services: CatalogItem[]; categories: Category[] };
+
+/** The label of a line: the service, its variant, and the modifiers picked ("Cuci Kiloan · Express + Lipat, Wangi"). */
+export const lineLabel = (l: { name: string; variant?: string; modifiers?: { name: string }[] }) =>
+  `${l.name}${l.variant ? ` · ${l.variant}` : ''}${l.modifiers?.length ? ` + ${l.modifiers.map((m) => m.name).join(', ')}` : ''}`;
+
+/** A line of an order. `price` is per unit and already includes the variant and the modifiers. */
+export type OrderLine = {
+  itemId: number;
+  name: string;
+  unit: string;
+  price: number;
+  qty: number;
+  variant?: string;
+  modifiers?: { group: string; name: string; price: number }[];
+  /** The ids of the options picked, so that what the line consumed can be worked out later. Not used for the price. */
+  variantOptionIds?: number[];
+  modifierOptionIds?: number[];
+};
 
 /** The server's lifecycle: created → processing → ready → fulfilled, or cancelled. */
 export type OrderStatus = 'created' | 'processing' | 'ready' | 'fulfilled' | 'cancelled';
 
 export type Order = {
-  /** Generated on the device; doubles as the idempotency key for the server. */
+  /** The key of the order. The till makes it when ringing up, and sending the same one again returns the order the server already made. */
   id: string;
+  /** What people call the order: TRX-DDMMYYYY-XXXX. Made by the server. */
+  code: string;
   outletId: number;
   customerName: string;
   customerPhone: string;
@@ -28,7 +59,4 @@ export type Order = {
   total: number;
   createdAt: string;
   status: OrderStatus;
-  sync: SyncStatus;
-  syncError?: string;
-  attempts: number;
 };

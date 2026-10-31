@@ -1,0 +1,123 @@
+{
+  "stock": {
+    "title": "Stock",
+    "subtitle": "Material left at each outlet and what it is worth. It goes down by itself with orders; the buttons on the right are only for recording anything else.",
+    "search": "Search SKU or material name...",
+    "allOutlets": "All outlets",
+    "lowOnly": "Low stock only",
+    "showing": "Showing {{from}}–{{to}} of {{total}} materials",
+    "empty": "No stock yet.",
+    "noMatch": "No materials match.",
+    "pickOutlet": "Pick one outlet to see every material, including those with no stock yet.",
+    "columns": {
+      "sku": "SKU",
+      "name": "Material",
+      "outlet": "Outlet",
+      "qty": "Stock",
+      "value": "Stock value",
+      "avg": "Average cost",
+      "min": "Minimum"
+    },
+    "low": "Low",
+    "negative": "Negative",
+    "action": {
+      "receipt": "Goods in",
+      "waste": "Discard",
+      "adjustment": "Stock count",
+      "transfer": "Move to another outlet",
+      "min": "Set minimum"
+    },
+    "form": {
+      "qty": "Quantity",
+      "totalCost": "Total purchase cost (Rp)",
+      "supplier": "Supplier",
+      "docNo": "Document no.",
+      "note": "Note",
+      "noteRequired": "Note (required: why the count differs)",
+      "reason": "Reason",
+      "countedQty": "Counted quantity",
+      "toOutlet": "Destination outlet",
+      "minQty": "Minimum stock",
+      "save": "Save",
+      "book": "Book stock: {{qty}} {{unit}}",
+      "cancel": "Cancel",
+      "invalidQty": "The quantity must be a decimal with at most 4 decimal places.",
+      "same": "The count equals the book stock: nothing changes.",
+      "invalidCost": "Enter the total cost in whole rupiah",
+      "qtyPlaceholder": "e.g. 500",
+      "costPlaceholder": "e.g. 85000",
+      "supplierPlaceholder": "e.g. CV Sabun Jaya",
+      "docNoPlaceholder": "e.g. INV-2026-0042",
+      "notePlaceholder": "e.g. The pack leaked"
+    },
+    "reason": {
+      "expired": "Expired",
+      "damaged": "Damaged",
+      "spilled": "Spilled",
+      "lost": "Lost",
+      "other": "Other"
+    },
+    "howItWorks": "Stock goes down by itself when an order is processed. Only record here what happens outside orders: goods in, goods thrown away, or a difference found when counting.",
+    "minimum": "Minimum {{qty}}",
+    "worth": "≈ Rp {{cost}} per {{unit}}",
+    "lowCount": "{{count}} materials low",
+    "hint": {
+      "receipt": "Use this when you buy or receive material. Stock goes up by the quantity you enter. Example: you bought 5 litres of detergent for Rp 85,000: enter 5000 and a total of 85000.",
+      "waste": "Use this when material is damaged, spilled, lost or expired and so is not used. Stock goes down by the quantity you enter. Example: 50 ml of perfume was spilled.",
+      "adjustment": "Use this after you count the material on the shelf. Enter what is really there; the system adjusts the stock and records the difference.",
+      "transfer": "Moves part of the stock to another outlet. Stock here goes down, at the destination it goes up.",
+      "min": "When the stock drops to this figure or lower, the material is marked Low."
+    },
+    "flow": {
+      "1": "Goods in when you buy",
+      "2": "Orders use materials by themselves",
+      "3": "Discard or Count when something differs"
+    },
+    "emptyTitle": "Nothing to keep in stock yet",
+    "emptyDescription": "Stock is kept per material. Add a material first, then record its first goods in here.",
+    "seeMaterials": "See materials",
+    "seeHistory": "Stock history"
+  },
+  "history": {
+    "title": "Stock history",
+    "subtitle": "Everything that happened to stock, newest first. A record cannot be edited; if something is wrong, make a new one.",
+    "search": "Search note, document no. or supplier...",
+    "showing": "Showing {{from}}–{{to}} of {{total}} movements",
+    "empty": "No stock movements yet.",
+    "noMatch": "No movements match.",
+    "allKinds": "All kinds",
+    "from": "From",
+    "to": "To",
+    "columns": {
+      "time": "Time",
+      "outlet": "Outlet",
+      "material": "Material",
+      "kind": "Kind",
+      "reason": "Reason",
+      "qty": "Quantity",
+      "value": "Value",
+      "balance": "Balance",
+      "ref": "Reference",
+      "note": "Note",
+      "by": "By",
+      "event": "What happened",
+      "change": "Change"
+    },
+    "kind": {
+      "receipt": "Goods received",
+      "consumption": "Used",
+      "consumption_reversal": "Use reversed",
+      "waste": "Waste",
+      "adjustment": "Count correction",
+      "transfer_in": "Transfer in",
+      "transfer_out": "Transfer out"
+    },
+    "by": "by {{name}}",
+    "order": "order {{id}}",
+    "bySystem": "automatic, from an order",
+    "emptyTitle": "No stock movements yet",
+    "emptyDescription": "Every goods-in, discard and use by an order is recorded here.",
+    "seeStock": "Go to Stock",
+    "seeMaterials": "See materials"
+  }
+}

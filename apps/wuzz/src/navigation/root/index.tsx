@@ -9,7 +9,8 @@ import { RootStackParamList } from './root.types';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { navigationRef } from '@navigation/service';
 import { rootNavigationConfigs, rootRoutes } from './_config';
-import { linking } from './linking';
+import { linking, takeInitialDeeplink } from './linking';
+import { DeeplinkAuthSync, openDeeplink } from '@navigation/deeplink';
 import Toast from 'react-native-toast-message';
 import RNBootSplash from 'react-native-bootsplash';
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -49,10 +50,14 @@ export const Root = React.memo(() => {
 
   const onNavigationReady = useCallback(() => {
     RNBootSplash.hide();
+    // The app was opened by a link: go there now that there is a navigator to go with.
+    const url = takeInitialDeeplink();
+    if (url) openDeeplink(url);
   }, []);
 
   return (
     <AuthProvider>
+      <DeeplinkAuthSync />
       <NavigationContainer
         ref={navigationRef}
         onReady={onNavigationReady}

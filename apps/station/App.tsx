@@ -3,6 +3,7 @@
  */
 
 import 'react-native-gesture-handler';
+import './src/core/i18n';
 import React from 'react';
 import { StatusBar, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';

@@ -1,0 +1,57 @@
+{
+  "home": {
+    "morning": "Selamat pagi, {{name}}",
+    "afternoon": "Selamat siang, {{name}}",
+    "evening": "Selamat sore, {{name}}",
+    "night": "Selamat malam, {{name}}",
+    "subtitle": "Pantau pesanan, outlet, dan layanan."
+  },
+  "dashboard": {
+    "revenue": "Total pendapatan",
+    "revenueNote_one": "dari {{count}} pesanan selesai",
+    "revenueNote_other": "dari {{count}} pesanan selesai",
+    "viewOrders": "Lihat pesanan",
+    "viewUsers": "Pelanggan",
+    "outlets": "Outlet",
+    "outletsTotal_one": "{{count}} outlet",
+    "outletsTotal_other": "{{count}} outlet",
+    "inactive": "Nonaktif",
+    "totalOrders": "Total pesanan",
+    "openOrders": "Pesanan berjalan",
+    "openNote": "Belum selesai atau dibatalkan",
+    "fulfilled": "Selesai",
+    "cancelled": "Dibatalkan",
+    "newCount": "{{count}} baru",
+    "share": "{{percent}}% dari pesanan di rentang ini",
+    "chart": {
+      "heading": "Pesanan",
+      "title": "Pesanan per hari",
+      "fulfilled": "Selesai",
+      "cancelled": "Dibatalkan",
+      "open": "Berjalan",
+      "toggle": "Tampilkan atau sembunyikan",
+      "total": "Total",
+      "subtitle": "Pesanan per hari, {{from}} – {{to}}"
+    },
+    "rate": {
+      "title": "Tingkat penyelesaian",
+      "done": "{{done}} selesai dari {{total}} pesanan"
+    },
+    "services": "Layanan",
+    "manage": "Kelola",
+    "perUnit": "{{price}} / {{unit}}",
+    "recent": "Pesanan terbaru",
+    "search": "Cari",
+    "mapFailed": "Peta tidak tersedia: peta tidak dapat dimuat.",
+    "refresh": "Perbarui",
+    "inArea": "{{shown}} di area ini dari {{total}} outlet",
+    "viewMore": "Lihat selengkapnya",
+    "quickAccess": "Akses cepat",
+    "quickAccessEdit": "Ubah",
+    "quickAccessDone": "Selesai",
+    "quickAccessReset": "Atur ulang",
+    "quickAccessAdd": "Tambah {{name}}",
+    "quickAccessRemove": "Hapus {{name}}",
+    "quickAccessDrag": "Geser {{name}} dengan drag, atau tombol panah"
+  }
+}

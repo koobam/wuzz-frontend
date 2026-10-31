@@ -1,0 +1,202 @@
+{
+  "common": {
+    "prev": "Prev",
+    "next": "Next",
+    "edit": "Edit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "create": "Create",
+    "active": "Active",
+    "name": "Name",
+    "phone": "Phone",
+    "language": "Language",
+    "pageNotFound": "Page not found.",
+    "requestFailed": "Request failed ({{status}})",
+    "unexpectedError": "Something went wrong. Reload the page; if it keeps happening, contact an admin.",
+    "copy": "Click to copy",
+    "copied": "Copied",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "actions": "Actions",
+    "viewName": "View details of {{name}}",
+    "editName": "Edit {{name}}",
+    "deleteName": "Delete {{name}}",
+    "email": "Email"
+  },
+  "status": {
+    "all": "All statuses",
+    "allShort": "All",
+    "order": {
+      "created": "Order Created",
+      "processing": "Order Processing",
+      "ready": "Order Ready",
+      "fulfilled": "Order Completed",
+      "cancelled": "Order Cancelled"
+    },
+    "user": {
+      "active": "active",
+      "inactive": "inactive",
+      "banned": "banned"
+    },
+    "record": {
+      "active": "active",
+      "inactive": "inactive"
+    },
+    "help": {
+      "order": {
+        "created": "Received, not started yet.",
+        "processing": "Being washed or worked on.",
+        "ready": "Done, waiting to be picked up or delivered.",
+        "fulfilled": "Handed over to the customer.",
+        "cancelled": "Cancelled; it will not be done."
+      }
+    }
+  },
+  "unit": {
+    "kg": "kg",
+    "pcs": "pcs",
+    "sesi": "session",
+    "unit": "unit"
+  },
+  "nav": {
+    "brand": "Wuzz Admin",
+    "orders": "Orders",
+    "users": "Users",
+    "outlets": "Outlets",
+    "outletsDesc": "Branches, their location, hours and photos",
+    "services": "Services",
+    "signOut": "Sign out",
+    "admin": "Admin",
+    "themeLight": "Switch to light theme",
+    "themeDark": "Switch to dark theme",
+    "dashboard": "Dashboard",
+    "online_one": "{{count}} person online",
+    "online_other": "{{count}} people online",
+    "you": "you",
+    "variants": "Variants",
+    "modifiers": "Modifiers",
+    "servicesDesc": "Services, their prices and categories",
+    "variantsDesc": "A price option per service, like Regular and Express",
+    "modifiersDesc": "Extra choices that add to the price",
+    "admins": "Admins",
+    "staff": "Staff",
+    "customers": "Customers",
+    "adminsDesc": "Back-office admins and their roles",
+    "staffDesc": "Cashiers and wuzzers at the outlets",
+    "customersDesc": "People who use the app",
+    "inventory": "Inventory",
+    "materials": "Materials",
+    "materialsDesc": "Material master, SKUs and purchase prices",
+    "stock": "Stock",
+    "stockDesc": "Stock per outlet: receive, waste, count, transfer",
+    "stockHistory": "Stock history",
+    "stockHistoryDesc": "The ledger of every stock movement",
+    "costing": "Recipes & costing",
+    "costingDesc": "The BOM of each service and what its materials cost",
+    "breadcrumb": "Breadcrumb",
+    "catalog": "Catalog",
+    "promotion": "Promotion",
+    "banners": "Banners",
+    "bannersDesc": "The pictures at the top of the customer app, with a schedule",
+    "vouchers": "Vouchers",
+    "vouchersDesc": "Money off an order: public or with a code, with a window",
+    "voucherInjections": "Send voucher",
+    "voucherInjectionsDesc": "Put a voucher into customers' wallets, and see what was sent"
+  },
+  "language": {
+    "label": "Language"
+  },
+  "env": {
+    "production": "Production",
+    "staging": "Staging",
+    "development": "Development"
+  },
+  "table": {
+    "reset": "Reset filters",
+    "noResultsTitle": "No results",
+    "noResultsDescription": "Nothing matches this search or these filters. Try other words, or reset the filters.",
+    "search": "Search"
+  },
+  "range": {
+    "title": "Date range",
+    "today": "Today",
+    "last7": "Last 7 days",
+    "last14": "Last 14 days",
+    "last30": "Last 30 days",
+    "thisMonth": "This month",
+    "apply": "Apply",
+    "pickTwo": "Pick the first and the last day",
+    "days_one": "{{count}} day",
+    "days_other": "{{count}} days",
+    "tooLong": "At most {{count}} days",
+    "all": "All time"
+  },
+  "confirm": {
+    "kind": {
+      "service": "service",
+      "variant": "variant group",
+      "modifier": "modifier group",
+      "material": "material",
+      "outlet": "outlet",
+      "recipe": "recipe",
+      "banner": "banner",
+      "voucher": "voucher"
+    },
+    "create": "Create the {{kind}} \"{{name}}\"?",
+    "createNote": "It is added to the catalogue right away.",
+    "save": "Save the changes to the {{kind}} \"{{name}}\"?",
+    "saveNote": "The change applies everywhere it is used.",
+    "delete": "Delete the {{kind}} \"{{name}}\"?",
+    "deleteNote": "This cannot be undone.",
+    "deleteUsed_one": "It is used by {{count}} service. This cannot be undone.",
+    "deleteUsed_other": "It is used by {{count}} services. This cannot be undone.",
+    "order": {
+      "processing": "Start order {{code}}?",
+      "ready": "Mark order {{code}} ready?",
+      "fulfilled": "Complete order {{code}}?",
+      "cancelled": "Cancel order {{code}}?",
+      "note": "The customer's order moves to the next step.",
+      "cancelNote": "A cancelled order cannot be reopened.",
+      "keep": "Keep order",
+      "cancelLabel": "Cancel order"
+    },
+    "user": {
+      "ban": "Ban {{name}}?",
+      "banNote": "They will not be able to sign in.",
+      "unban": "Unban {{name}}?",
+      "unbanNote": "They can sign in again."
+    },
+    "stock": {
+      "receipt": "Book goods in for {{name}}?",
+      "waste": "Write off {{name}} as waste?",
+      "adjustment": "Correct the count of {{name}}?",
+      "transfer": "Move {{name}} to another outlet?",
+      "min": "Change the minimum of {{name}}?",
+      "note": "This is written to the stock history and cannot be edited afterwards."
+    },
+    "deleteNoteFor": {
+      "service": "The service leaves the catalogue, with its recipe and its links to variant and modifier groups. Past orders keep what they sold. This cannot be undone.",
+      "outlet": "The outlet is deleted with its opening hours. This cannot be undone. An outlet that has staff, orders or stock cannot be deleted; switch it off instead.",
+      "banner": "The banner is deleted for good and disappears from the app. This cannot be undone. To hide it for a while, switch it off instead.",
+      "voucher": "The voucher is deleted for good and disappears from the app. This cannot be undone. A voucher that customers already hold cannot be deleted; switch it off instead."
+    },
+    "reorder": "Save the new order of {{count}} banners?",
+    "reorderNote": "The customer app's carousel follows this order right away.",
+    "sendVoucher": "Send the voucher \"{{title}}\" to {{count}} customers?",
+    "sendVoucherNote": "It goes straight into their wallets. It cannot be taken back from them; you can switch the voucher off to stop it being used."
+  },
+  "viewer": {
+    "title": "Image",
+    "close": "Close",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "reset": "Fit to screen",
+    "previous": "Previous image",
+    "next": "Next image",
+    "counter": "{{index}} / {{total}}",
+    "loading": "Loading the image",
+    "broken": "This image could not be loaded.",
+    "zoomImage": "View larger",
+    "zoomImageNamed": "View {{name}} larger"
+  }
+}

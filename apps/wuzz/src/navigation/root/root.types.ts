@@ -15,7 +15,8 @@ export type RootStackParamList = {
   bottom: undefined;
   checkout: undefined;
   walkthrough: undefined;
-  outletlist: undefined;
+  /** outletId: a link to one outlet; the list opens with it picked if the list has it. */
+  outletlist: { outletId?: string } | undefined;
   /** Where the customer is, so the list does not have to ask for the position again. */
   wuzzerlist: { lat: number; long: number } | undefined;
   menusearch: undefined;

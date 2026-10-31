@@ -1,0 +1,83 @@
+{
+  "materials": {
+    "title": "Bahan",
+    "subtitle": "Daftar bahan yang dipakai dan distok. Isi harga beli dan jumlahnya; biaya per satuan dihitung otomatis.",
+    "add": "Tambah Bahan",
+    "empty": "Belum ada bahan.",
+    "noMatch": "Tidak ada bahan yang cocok.",
+    "search": "Cari SKU, nama, atau catatan...",
+    "showing": "Menampilkan {{from}}–{{to}} dari {{total}} bahan",
+    "columns": {
+      "id": "ID",
+      "sku": "SKU",
+      "name": "Bahan",
+      "unit": "Satuan",
+      "purchase": "Harga beli",
+      "unitCost": "Biaya per satuan",
+      "usedIn": "Dipakai di",
+      "status": "Status",
+      "created": "Dibuat",
+      "updated": "Diubah"
+    },
+    "category": {
+      "chemical": "Kimia",
+      "packaging": "Kemasan",
+      "consumable": "Habis pakai",
+      "other": "Lainnya"
+    },
+    "unit": {
+      "ml": "ml",
+      "g": "g",
+      "pcs": "pcs",
+      "sheet": "lembar"
+    },
+    "form": {
+      "sku": "SKU",
+      "name": "Nama bahan",
+      "category": "Kategori",
+      "unit": "Satuan dasar",
+      "price": "Harga beli (Rp)",
+      "qty": "Jumlah yang dibeli",
+      "qtyHint": "Berapa satuan dasar yang didapat dengan harga itu, mis. 5000 untuk 5 liter dalam ml",
+      "notes": "Catatan",
+      "active": "Aktif",
+      "skuRequired": "Isi SKU bahan",
+      "nameRequired": "Isi nama bahan",
+      "priceInvalid": "Isi harga 0 atau lebih",
+      "skuExample": "DET-CAIR-001",
+      "sectionMaterial": "Bahan",
+      "sectionPurchase": "Pembelian",
+      "purchaseDescription": "Berapa harga satu pembelian dan berapa isinya. Biaya per satuan dihitung dari keduanya.",
+      "skuPlaceholder": "Contoh: DET-001",
+      "namePlaceholder": "Contoh: Deterjen cair",
+      "pricePlaceholder": "Contoh: 85000",
+      "qtyPlaceholder": "Contoh: 5000",
+      "notesPlaceholder": "Contoh: Dibeli dari pemasok langganan",
+      "activeTitle": "Aktif",
+      "activeDescription": "Bahan aktif bisa dipakai di resep dan distok. Nonaktifkan untuk menghentikannya tanpa menghapus riwayatnya."
+    },
+    "allCategories": "Semua kategori",
+    "allStatus": "Semua status",
+    "active": "Aktif",
+    "inactive": "Nonaktif",
+    "bomLines": "{{count}} resep",
+    "perUnit": "/ {{unit}}",
+    "invalidQty": "Jumlah harus angka desimal dengan maksimal 4 angka di belakang titik, mis. 5000 atau 0.5.",
+    "for": "untuk",
+    "per": "per",
+    "notUsed": "Belum dipakai",
+    "emptyTitle": "Belum ada bahan",
+    "emptyDescription": "Tambahkan bahan yang dipakai dan distok, lengkap dengan SKU dan harga belinya.",
+    "seeRecipes": "Lihat Resep & HPP",
+    "detail": {
+      "notFound": "Bahan tidak ditemukan.",
+      "loading": "Memuat…",
+      "createTitle": "Tambah bahan",
+      "editTitle": "Ubah bahan",
+      "detailTitle": "Bahan",
+      "subtitle": "Data bahan, harga beli, dan biaya per satuannya.",
+      "createSubtitle": "Isi data bahan baru dan harga belinya; biaya per satuan dihitung otomatis.",
+      "editSubtitle": "Ubah data bahan atau harga belinya; biaya per satuan dihitung ulang."
+    }
+  }
+}

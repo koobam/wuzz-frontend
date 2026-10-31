@@ -7,7 +7,9 @@
     "typecheck": "nx run-many -t typecheck",
     "lint": "nx run-many -t lint",
     "test": "nx run-many -t test",
-    "graph": "nx graph"
+    "graph": "nx graph",
+    "i18n:push": "phrase push",
+    "i18n:pull": "phrase pull"
   },
   "devDependencies": {
     "nx": "^21.2.2",

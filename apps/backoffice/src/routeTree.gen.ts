@@ -12,9 +12,44 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AuthedRouteImport } from './routes/_authed'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as AuthedIndexRouteImport } from './routes/_authed/index'
+import { Route as AuthedAdminsRouteImport } from './routes/_authed/admins'
+import { Route as AuthedBannersRouteImport } from './routes/_authed/banners'
+import { Route as AuthedCostingRouteImport } from './routes/_authed/costing'
+import { Route as AuthedMaterialsRouteImport } from './routes/_authed/materials'
+import { Route as AuthedModifiersRouteImport } from './routes/_authed/modifiers'
+import { Route as AuthedOrdersRouteImport } from './routes/_authed/orders'
 import { Route as AuthedOutletsRouteImport } from './routes/_authed/outlets'
 import { Route as AuthedServicesRouteImport } from './routes/_authed/services'
+import { Route as AuthedStaffRouteImport } from './routes/_authed/staff'
+import { Route as AuthedStockRouteImport } from './routes/_authed/stock'
+import { Route as AuthedStockHistoryRouteImport } from './routes/_authed/stock-history'
 import { Route as AuthedUsersRouteImport } from './routes/_authed/users'
+import { Route as AuthedVariantsRouteImport } from './routes/_authed/variants'
+import { Route as AuthedVoucherInjectionsRouteImport } from './routes/_authed/voucher-injections'
+import { Route as AuthedVouchersRouteImport } from './routes/_authed/vouchers'
+import { Route as AuthedBannersIdRouteImport } from './routes/_authed/banners_.$id'
+import { Route as AuthedBannersNewRouteImport } from './routes/_authed/banners_.new'
+import { Route as AuthedBannersOrderRouteImport } from './routes/_authed/banners_.order'
+import { Route as AuthedMaterialsIdRouteImport } from './routes/_authed/materials_.$id'
+import { Route as AuthedMaterialsNewRouteImport } from './routes/_authed/materials_.new'
+import { Route as AuthedModifiersIdRouteImport } from './routes/_authed/modifiers_.$id'
+import { Route as AuthedModifiersNewRouteImport } from './routes/_authed/modifiers_.new'
+import { Route as AuthedOrdersIdRouteImport } from './routes/_authed/orders_.$id'
+import { Route as AuthedOutletsIdRouteImport } from './routes/_authed/outlets_.$id'
+import { Route as AuthedOutletsNewRouteImport } from './routes/_authed/outlets_.new'
+import { Route as AuthedServicesIdRouteImport } from './routes/_authed/services_.$id'
+import { Route as AuthedServicesNewRouteImport } from './routes/_authed/services_.new'
+import { Route as AuthedVariantsIdRouteImport } from './routes/_authed/variants_.$id'
+import { Route as AuthedVariantsNewRouteImport } from './routes/_authed/variants_.new'
+import { Route as AuthedVouchersIdRouteImport } from './routes/_authed/vouchers_.$id'
+import { Route as AuthedVouchersNewRouteImport } from './routes/_authed/vouchers_.new'
+import { Route as AuthedBannersIdEditRouteImport } from './routes/_authed/banners_.$id_.edit'
+import { Route as AuthedMaterialsIdEditRouteImport } from './routes/_authed/materials_.$id_.edit'
+import { Route as AuthedModifiersIdEditRouteImport } from './routes/_authed/modifiers_.$id_.edit'
+import { Route as AuthedOutletsIdEditRouteImport } from './routes/_authed/outlets_.$id_.edit'
+import { Route as AuthedServicesIdEditRouteImport } from './routes/_authed/services_.$id_.edit'
+import { Route as AuthedVariantsIdEditRouteImport } from './routes/_authed/variants_.$id_.edit'
+import { Route as AuthedVouchersIdEditRouteImport } from './routes/_authed/vouchers_.$id_.edit'
 
 const AuthedRoute = AuthedRouteImport.update({
   id: '/_authed',
@@ -30,6 +65,36 @@ const AuthedIndexRoute = AuthedIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AuthedRoute,
 } as any)
+const AuthedAdminsRoute = AuthedAdminsRouteImport.update({
+  id: '/admins',
+  path: '/admins',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedBannersRoute = AuthedBannersRouteImport.update({
+  id: '/banners',
+  path: '/banners',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedCostingRoute = AuthedCostingRouteImport.update({
+  id: '/costing',
+  path: '/costing',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedMaterialsRoute = AuthedMaterialsRouteImport.update({
+  id: '/materials',
+  path: '/materials',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedModifiersRoute = AuthedModifiersRouteImport.update({
+  id: '/modifiers',
+  path: '/modifiers',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedOrdersRoute = AuthedOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => AuthedRoute,
+} as any)
 const AuthedOutletsRoute = AuthedOutletsRouteImport.update({
   id: '/outlets',
   path: '/outlets',
@@ -40,48 +105,413 @@ const AuthedServicesRoute = AuthedServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => AuthedRoute,
 } as any)
+const AuthedStaffRoute = AuthedStaffRouteImport.update({
+  id: '/staff',
+  path: '/staff',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedStockRoute = AuthedStockRouteImport.update({
+  id: '/stock',
+  path: '/stock',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedStockHistoryRoute = AuthedStockHistoryRouteImport.update({
+  id: '/stock-history',
+  path: '/stock-history',
+  getParentRoute: () => AuthedRoute,
+} as any)
 const AuthedUsersRoute = AuthedUsersRouteImport.update({
   id: '/users',
   path: '/users',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedVariantsRoute = AuthedVariantsRouteImport.update({
+  id: '/variants',
+  path: '/variants',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedVoucherInjectionsRoute = AuthedVoucherInjectionsRouteImport.update({
+  id: '/voucher-injections',
+  path: '/voucher-injections',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedVouchersRoute = AuthedVouchersRouteImport.update({
+  id: '/vouchers',
+  path: '/vouchers',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedBannersIdRoute = AuthedBannersIdRouteImport.update({
+  id: '/banners_/$id',
+  path: '/banners/$id',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedBannersNewRoute = AuthedBannersNewRouteImport.update({
+  id: '/banners_/new',
+  path: '/banners/new',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedBannersOrderRoute = AuthedBannersOrderRouteImport.update({
+  id: '/banners_/order',
+  path: '/banners/order',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedMaterialsIdRoute = AuthedMaterialsIdRouteImport.update({
+  id: '/materials_/$id',
+  path: '/materials/$id',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedMaterialsNewRoute = AuthedMaterialsNewRouteImport.update({
+  id: '/materials_/new',
+  path: '/materials/new',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedModifiersIdRoute = AuthedModifiersIdRouteImport.update({
+  id: '/modifiers_/$id',
+  path: '/modifiers/$id',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedModifiersNewRoute = AuthedModifiersNewRouteImport.update({
+  id: '/modifiers_/new',
+  path: '/modifiers/new',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedOrdersIdRoute = AuthedOrdersIdRouteImport.update({
+  id: '/orders_/$id',
+  path: '/orders/$id',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedOutletsIdRoute = AuthedOutletsIdRouteImport.update({
+  id: '/outlets_/$id',
+  path: '/outlets/$id',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedOutletsNewRoute = AuthedOutletsNewRouteImport.update({
+  id: '/outlets_/new',
+  path: '/outlets/new',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedServicesIdRoute = AuthedServicesIdRouteImport.update({
+  id: '/services_/$id',
+  path: '/services/$id',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedServicesNewRoute = AuthedServicesNewRouteImport.update({
+  id: '/services_/new',
+  path: '/services/new',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedVariantsIdRoute = AuthedVariantsIdRouteImport.update({
+  id: '/variants_/$id',
+  path: '/variants/$id',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedVariantsNewRoute = AuthedVariantsNewRouteImport.update({
+  id: '/variants_/new',
+  path: '/variants/new',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedVouchersIdRoute = AuthedVouchersIdRouteImport.update({
+  id: '/vouchers_/$id',
+  path: '/vouchers/$id',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedVouchersNewRoute = AuthedVouchersNewRouteImport.update({
+  id: '/vouchers_/new',
+  path: '/vouchers/new',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedBannersIdEditRoute = AuthedBannersIdEditRouteImport.update({
+  id: '/banners_/$id_/edit',
+  path: '/banners/$id/edit',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedMaterialsIdEditRoute = AuthedMaterialsIdEditRouteImport.update({
+  id: '/materials_/$id_/edit',
+  path: '/materials/$id/edit',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedModifiersIdEditRoute = AuthedModifiersIdEditRouteImport.update({
+  id: '/modifiers_/$id_/edit',
+  path: '/modifiers/$id/edit',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedOutletsIdEditRoute = AuthedOutletsIdEditRouteImport.update({
+  id: '/outlets_/$id_/edit',
+  path: '/outlets/$id/edit',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedServicesIdEditRoute = AuthedServicesIdEditRouteImport.update({
+  id: '/services_/$id_/edit',
+  path: '/services/$id/edit',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedVariantsIdEditRoute = AuthedVariantsIdEditRouteImport.update({
+  id: '/variants_/$id_/edit',
+  path: '/variants/$id/edit',
+  getParentRoute: () => AuthedRoute,
+} as any)
+const AuthedVouchersIdEditRoute = AuthedVouchersIdEditRouteImport.update({
+  id: '/vouchers_/$id_/edit',
+  path: '/vouchers/$id/edit',
   getParentRoute: () => AuthedRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AuthedIndexRoute
   '/login': typeof LoginRoute
+  '/admins': typeof AuthedAdminsRoute
+  '/banners': typeof AuthedBannersRoute
+  '/costing': typeof AuthedCostingRoute
+  '/materials': typeof AuthedMaterialsRoute
+  '/modifiers': typeof AuthedModifiersRoute
+  '/orders': typeof AuthedOrdersRoute
   '/outlets': typeof AuthedOutletsRoute
   '/services': typeof AuthedServicesRoute
+  '/staff': typeof AuthedStaffRoute
+  '/stock': typeof AuthedStockRoute
+  '/stock-history': typeof AuthedStockHistoryRoute
   '/users': typeof AuthedUsersRoute
+  '/variants': typeof AuthedVariantsRoute
+  '/voucher-injections': typeof AuthedVoucherInjectionsRoute
+  '/vouchers': typeof AuthedVouchersRoute
+  '/banners/$id': typeof AuthedBannersIdRoute
+  '/banners/new': typeof AuthedBannersNewRoute
+  '/banners/order': typeof AuthedBannersOrderRoute
+  '/materials/$id': typeof AuthedMaterialsIdRoute
+  '/materials/new': typeof AuthedMaterialsNewRoute
+  '/modifiers/$id': typeof AuthedModifiersIdRoute
+  '/modifiers/new': typeof AuthedModifiersNewRoute
+  '/orders/$id': typeof AuthedOrdersIdRoute
+  '/outlets/$id': typeof AuthedOutletsIdRoute
+  '/outlets/new': typeof AuthedOutletsNewRoute
+  '/services/$id': typeof AuthedServicesIdRoute
+  '/services/new': typeof AuthedServicesNewRoute
+  '/variants/$id': typeof AuthedVariantsIdRoute
+  '/variants/new': typeof AuthedVariantsNewRoute
+  '/vouchers/$id': typeof AuthedVouchersIdRoute
+  '/vouchers/new': typeof AuthedVouchersNewRoute
+  '/banners/$id/edit': typeof AuthedBannersIdEditRoute
+  '/materials/$id/edit': typeof AuthedMaterialsIdEditRoute
+  '/modifiers/$id/edit': typeof AuthedModifiersIdEditRoute
+  '/outlets/$id/edit': typeof AuthedOutletsIdEditRoute
+  '/services/$id/edit': typeof AuthedServicesIdEditRoute
+  '/variants/$id/edit': typeof AuthedVariantsIdEditRoute
+  '/vouchers/$id/edit': typeof AuthedVouchersIdEditRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
+  '/admins': typeof AuthedAdminsRoute
+  '/banners': typeof AuthedBannersRoute
+  '/costing': typeof AuthedCostingRoute
+  '/materials': typeof AuthedMaterialsRoute
+  '/modifiers': typeof AuthedModifiersRoute
+  '/orders': typeof AuthedOrdersRoute
   '/outlets': typeof AuthedOutletsRoute
   '/services': typeof AuthedServicesRoute
+  '/staff': typeof AuthedStaffRoute
+  '/stock': typeof AuthedStockRoute
+  '/stock-history': typeof AuthedStockHistoryRoute
   '/users': typeof AuthedUsersRoute
+  '/variants': typeof AuthedVariantsRoute
+  '/voucher-injections': typeof AuthedVoucherInjectionsRoute
+  '/vouchers': typeof AuthedVouchersRoute
   '/': typeof AuthedIndexRoute
+  '/banners/$id': typeof AuthedBannersIdRoute
+  '/banners/new': typeof AuthedBannersNewRoute
+  '/banners/order': typeof AuthedBannersOrderRoute
+  '/materials/$id': typeof AuthedMaterialsIdRoute
+  '/materials/new': typeof AuthedMaterialsNewRoute
+  '/modifiers/$id': typeof AuthedModifiersIdRoute
+  '/modifiers/new': typeof AuthedModifiersNewRoute
+  '/orders/$id': typeof AuthedOrdersIdRoute
+  '/outlets/$id': typeof AuthedOutletsIdRoute
+  '/outlets/new': typeof AuthedOutletsNewRoute
+  '/services/$id': typeof AuthedServicesIdRoute
+  '/services/new': typeof AuthedServicesNewRoute
+  '/variants/$id': typeof AuthedVariantsIdRoute
+  '/variants/new': typeof AuthedVariantsNewRoute
+  '/vouchers/$id': typeof AuthedVouchersIdRoute
+  '/vouchers/new': typeof AuthedVouchersNewRoute
+  '/banners/$id/edit': typeof AuthedBannersIdEditRoute
+  '/materials/$id/edit': typeof AuthedMaterialsIdEditRoute
+  '/modifiers/$id/edit': typeof AuthedModifiersIdEditRoute
+  '/outlets/$id/edit': typeof AuthedOutletsIdEditRoute
+  '/services/$id/edit': typeof AuthedServicesIdEditRoute
+  '/variants/$id/edit': typeof AuthedVariantsIdEditRoute
+  '/vouchers/$id/edit': typeof AuthedVouchersIdEditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_authed': typeof AuthedRouteWithChildren
   '/login': typeof LoginRoute
+  '/_authed/admins': typeof AuthedAdminsRoute
+  '/_authed/banners': typeof AuthedBannersRoute
+  '/_authed/costing': typeof AuthedCostingRoute
+  '/_authed/materials': typeof AuthedMaterialsRoute
+  '/_authed/modifiers': typeof AuthedModifiersRoute
+  '/_authed/orders': typeof AuthedOrdersRoute
   '/_authed/outlets': typeof AuthedOutletsRoute
   '/_authed/services': typeof AuthedServicesRoute
+  '/_authed/staff': typeof AuthedStaffRoute
+  '/_authed/stock': typeof AuthedStockRoute
+  '/_authed/stock-history': typeof AuthedStockHistoryRoute
   '/_authed/users': typeof AuthedUsersRoute
+  '/_authed/variants': typeof AuthedVariantsRoute
+  '/_authed/voucher-injections': typeof AuthedVoucherInjectionsRoute
+  '/_authed/vouchers': typeof AuthedVouchersRoute
   '/_authed/': typeof AuthedIndexRoute
+  '/_authed/banners_/$id': typeof AuthedBannersIdRoute
+  '/_authed/banners_/new': typeof AuthedBannersNewRoute
+  '/_authed/banners_/order': typeof AuthedBannersOrderRoute
+  '/_authed/materials_/$id': typeof AuthedMaterialsIdRoute
+  '/_authed/materials_/new': typeof AuthedMaterialsNewRoute
+  '/_authed/modifiers_/$id': typeof AuthedModifiersIdRoute
+  '/_authed/modifiers_/new': typeof AuthedModifiersNewRoute
+  '/_authed/orders_/$id': typeof AuthedOrdersIdRoute
+  '/_authed/outlets_/$id': typeof AuthedOutletsIdRoute
+  '/_authed/outlets_/new': typeof AuthedOutletsNewRoute
+  '/_authed/services_/$id': typeof AuthedServicesIdRoute
+  '/_authed/services_/new': typeof AuthedServicesNewRoute
+  '/_authed/variants_/$id': typeof AuthedVariantsIdRoute
+  '/_authed/variants_/new': typeof AuthedVariantsNewRoute
+  '/_authed/vouchers_/$id': typeof AuthedVouchersIdRoute
+  '/_authed/vouchers_/new': typeof AuthedVouchersNewRoute
+  '/_authed/banners_/$id_/edit': typeof AuthedBannersIdEditRoute
+  '/_authed/materials_/$id_/edit': typeof AuthedMaterialsIdEditRoute
+  '/_authed/modifiers_/$id_/edit': typeof AuthedModifiersIdEditRoute
+  '/_authed/outlets_/$id_/edit': typeof AuthedOutletsIdEditRoute
+  '/_authed/services_/$id_/edit': typeof AuthedServicesIdEditRoute
+  '/_authed/variants_/$id_/edit': typeof AuthedVariantsIdEditRoute
+  '/_authed/vouchers_/$id_/edit': typeof AuthedVouchersIdEditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/outlets' | '/services' | '/users'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/admins'
+    | '/banners'
+    | '/costing'
+    | '/materials'
+    | '/modifiers'
+    | '/orders'
+    | '/outlets'
+    | '/services'
+    | '/staff'
+    | '/stock'
+    | '/stock-history'
+    | '/users'
+    | '/variants'
+    | '/voucher-injections'
+    | '/vouchers'
+    | '/banners/$id'
+    | '/banners/new'
+    | '/banners/order'
+    | '/materials/$id'
+    | '/materials/new'
+    | '/modifiers/$id'
+    | '/modifiers/new'
+    | '/orders/$id'
+    | '/outlets/$id'
+    | '/outlets/new'
+    | '/services/$id'
+    | '/services/new'
+    | '/variants/$id'
+    | '/variants/new'
+    | '/vouchers/$id'
+    | '/vouchers/new'
+    | '/banners/$id/edit'
+    | '/materials/$id/edit'
+    | '/modifiers/$id/edit'
+    | '/outlets/$id/edit'
+    | '/services/$id/edit'
+    | '/variants/$id/edit'
+    | '/vouchers/$id/edit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/login' | '/outlets' | '/services' | '/users' | '/'
+  to:
+    | '/login'
+    | '/admins'
+    | '/banners'
+    | '/costing'
+    | '/materials'
+    | '/modifiers'
+    | '/orders'
+    | '/outlets'
+    | '/services'
+    | '/staff'
+    | '/stock'
+    | '/stock-history'
+    | '/users'
+    | '/variants'
+    | '/voucher-injections'
+    | '/vouchers'
+    | '/'
+    | '/banners/$id'
+    | '/banners/new'
+    | '/banners/order'
+    | '/materials/$id'
+    | '/materials/new'
+    | '/modifiers/$id'
+    | '/modifiers/new'
+    | '/orders/$id'
+    | '/outlets/$id'
+    | '/outlets/new'
+    | '/services/$id'
+    | '/services/new'
+    | '/variants/$id'
+    | '/variants/new'
+    | '/vouchers/$id'
+    | '/vouchers/new'
+    | '/banners/$id/edit'
+    | '/materials/$id/edit'
+    | '/modifiers/$id/edit'
+    | '/outlets/$id/edit'
+    | '/services/$id/edit'
+    | '/variants/$id/edit'
+    | '/vouchers/$id/edit'
   id:
     | '__root__'
     | '/_authed'
     | '/login'
+    | '/_authed/admins'
+    | '/_authed/banners'
+    | '/_authed/costing'
+    | '/_authed/materials'
+    | '/_authed/modifiers'
+    | '/_authed/orders'
     | '/_authed/outlets'
     | '/_authed/services'
+    | '/_authed/staff'
+    | '/_authed/stock'
+    | '/_authed/stock-history'
     | '/_authed/users'
+    | '/_authed/variants'
+    | '/_authed/voucher-injections'
+    | '/_authed/vouchers'
     | '/_authed/'
+    | '/_authed/banners_/$id'
+    | '/_authed/banners_/new'
+    | '/_authed/banners_/order'
+    | '/_authed/materials_/$id'
+    | '/_authed/materials_/new'
+    | '/_authed/modifiers_/$id'
+    | '/_authed/modifiers_/new'
+    | '/_authed/orders_/$id'
+    | '/_authed/outlets_/$id'
+    | '/_authed/outlets_/new'
+    | '/_authed/services_/$id'
+    | '/_authed/services_/new'
+    | '/_authed/variants_/$id'
+    | '/_authed/variants_/new'
+    | '/_authed/vouchers_/$id'
+    | '/_authed/vouchers_/new'
+    | '/_authed/banners_/$id_/edit'
+    | '/_authed/materials_/$id_/edit'
+    | '/_authed/modifiers_/$id_/edit'
+    | '/_authed/outlets_/$id_/edit'
+    | '/_authed/services_/$id_/edit'
+    | '/_authed/variants_/$id_/edit'
+    | '/_authed/vouchers_/$id_/edit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -112,6 +542,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthedIndexRouteImport
       parentRoute: typeof AuthedRoute
     }
+    '/_authed/admins': {
+      id: '/_authed/admins'
+      path: '/admins'
+      fullPath: '/admins'
+      preLoaderRoute: typeof AuthedAdminsRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/banners': {
+      id: '/_authed/banners'
+      path: '/banners'
+      fullPath: '/banners'
+      preLoaderRoute: typeof AuthedBannersRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/costing': {
+      id: '/_authed/costing'
+      path: '/costing'
+      fullPath: '/costing'
+      preLoaderRoute: typeof AuthedCostingRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/materials': {
+      id: '/_authed/materials'
+      path: '/materials'
+      fullPath: '/materials'
+      preLoaderRoute: typeof AuthedMaterialsRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/modifiers': {
+      id: '/_authed/modifiers'
+      path: '/modifiers'
+      fullPath: '/modifiers'
+      preLoaderRoute: typeof AuthedModifiersRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/orders': {
+      id: '/_authed/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof AuthedOrdersRouteImport
+      parentRoute: typeof AuthedRoute
+    }
     '/_authed/outlets': {
       id: '/_authed/outlets'
       path: '/outlets'
@@ -126,6 +598,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthedServicesRouteImport
       parentRoute: typeof AuthedRoute
     }
+    '/_authed/staff': {
+      id: '/_authed/staff'
+      path: '/staff'
+      fullPath: '/staff'
+      preLoaderRoute: typeof AuthedStaffRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/stock': {
+      id: '/_authed/stock'
+      path: '/stock'
+      fullPath: '/stock'
+      preLoaderRoute: typeof AuthedStockRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/stock-history': {
+      id: '/_authed/stock-history'
+      path: '/stock-history'
+      fullPath: '/stock-history'
+      preLoaderRoute: typeof AuthedStockHistoryRouteImport
+      parentRoute: typeof AuthedRoute
+    }
     '/_authed/users': {
       id: '/_authed/users'
       path: '/users'
@@ -133,21 +626,273 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthedUsersRouteImport
       parentRoute: typeof AuthedRoute
     }
+    '/_authed/variants': {
+      id: '/_authed/variants'
+      path: '/variants'
+      fullPath: '/variants'
+      preLoaderRoute: typeof AuthedVariantsRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/voucher-injections': {
+      id: '/_authed/voucher-injections'
+      path: '/voucher-injections'
+      fullPath: '/voucher-injections'
+      preLoaderRoute: typeof AuthedVoucherInjectionsRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/vouchers': {
+      id: '/_authed/vouchers'
+      path: '/vouchers'
+      fullPath: '/vouchers'
+      preLoaderRoute: typeof AuthedVouchersRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/banners_/$id': {
+      id: '/_authed/banners_/$id'
+      path: '/banners/$id'
+      fullPath: '/banners/$id'
+      preLoaderRoute: typeof AuthedBannersIdRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/banners_/new': {
+      id: '/_authed/banners_/new'
+      path: '/banners/new'
+      fullPath: '/banners/new'
+      preLoaderRoute: typeof AuthedBannersNewRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/banners_/order': {
+      id: '/_authed/banners_/order'
+      path: '/banners/order'
+      fullPath: '/banners/order'
+      preLoaderRoute: typeof AuthedBannersOrderRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/materials_/$id': {
+      id: '/_authed/materials_/$id'
+      path: '/materials/$id'
+      fullPath: '/materials/$id'
+      preLoaderRoute: typeof AuthedMaterialsIdRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/materials_/new': {
+      id: '/_authed/materials_/new'
+      path: '/materials/new'
+      fullPath: '/materials/new'
+      preLoaderRoute: typeof AuthedMaterialsNewRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/modifiers_/$id': {
+      id: '/_authed/modifiers_/$id'
+      path: '/modifiers/$id'
+      fullPath: '/modifiers/$id'
+      preLoaderRoute: typeof AuthedModifiersIdRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/modifiers_/new': {
+      id: '/_authed/modifiers_/new'
+      path: '/modifiers/new'
+      fullPath: '/modifiers/new'
+      preLoaderRoute: typeof AuthedModifiersNewRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/orders_/$id': {
+      id: '/_authed/orders_/$id'
+      path: '/orders/$id'
+      fullPath: '/orders/$id'
+      preLoaderRoute: typeof AuthedOrdersIdRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/outlets_/$id': {
+      id: '/_authed/outlets_/$id'
+      path: '/outlets/$id'
+      fullPath: '/outlets/$id'
+      preLoaderRoute: typeof AuthedOutletsIdRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/outlets_/new': {
+      id: '/_authed/outlets_/new'
+      path: '/outlets/new'
+      fullPath: '/outlets/new'
+      preLoaderRoute: typeof AuthedOutletsNewRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/services_/$id': {
+      id: '/_authed/services_/$id'
+      path: '/services/$id'
+      fullPath: '/services/$id'
+      preLoaderRoute: typeof AuthedServicesIdRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/services_/new': {
+      id: '/_authed/services_/new'
+      path: '/services/new'
+      fullPath: '/services/new'
+      preLoaderRoute: typeof AuthedServicesNewRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/variants_/$id': {
+      id: '/_authed/variants_/$id'
+      path: '/variants/$id'
+      fullPath: '/variants/$id'
+      preLoaderRoute: typeof AuthedVariantsIdRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/variants_/new': {
+      id: '/_authed/variants_/new'
+      path: '/variants/new'
+      fullPath: '/variants/new'
+      preLoaderRoute: typeof AuthedVariantsNewRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/vouchers_/$id': {
+      id: '/_authed/vouchers_/$id'
+      path: '/vouchers/$id'
+      fullPath: '/vouchers/$id'
+      preLoaderRoute: typeof AuthedVouchersIdRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/vouchers_/new': {
+      id: '/_authed/vouchers_/new'
+      path: '/vouchers/new'
+      fullPath: '/vouchers/new'
+      preLoaderRoute: typeof AuthedVouchersNewRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/banners_/$id_/edit': {
+      id: '/_authed/banners_/$id_/edit'
+      path: '/banners/$id/edit'
+      fullPath: '/banners/$id/edit'
+      preLoaderRoute: typeof AuthedBannersIdEditRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/materials_/$id_/edit': {
+      id: '/_authed/materials_/$id_/edit'
+      path: '/materials/$id/edit'
+      fullPath: '/materials/$id/edit'
+      preLoaderRoute: typeof AuthedMaterialsIdEditRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/modifiers_/$id_/edit': {
+      id: '/_authed/modifiers_/$id_/edit'
+      path: '/modifiers/$id/edit'
+      fullPath: '/modifiers/$id/edit'
+      preLoaderRoute: typeof AuthedModifiersIdEditRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/outlets_/$id_/edit': {
+      id: '/_authed/outlets_/$id_/edit'
+      path: '/outlets/$id/edit'
+      fullPath: '/outlets/$id/edit'
+      preLoaderRoute: typeof AuthedOutletsIdEditRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/services_/$id_/edit': {
+      id: '/_authed/services_/$id_/edit'
+      path: '/services/$id/edit'
+      fullPath: '/services/$id/edit'
+      preLoaderRoute: typeof AuthedServicesIdEditRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/variants_/$id_/edit': {
+      id: '/_authed/variants_/$id_/edit'
+      path: '/variants/$id/edit'
+      fullPath: '/variants/$id/edit'
+      preLoaderRoute: typeof AuthedVariantsIdEditRouteImport
+      parentRoute: typeof AuthedRoute
+    }
+    '/_authed/vouchers_/$id_/edit': {
+      id: '/_authed/vouchers_/$id_/edit'
+      path: '/vouchers/$id/edit'
+      fullPath: '/vouchers/$id/edit'
+      preLoaderRoute: typeof AuthedVouchersIdEditRouteImport
+      parentRoute: typeof AuthedRoute
+    }
   }
 }
 
 interface AuthedRouteChildren {
+  AuthedAdminsRoute: typeof AuthedAdminsRoute
+  AuthedBannersRoute: typeof AuthedBannersRoute
+  AuthedCostingRoute: typeof AuthedCostingRoute
+  AuthedMaterialsRoute: typeof AuthedMaterialsRoute
+  AuthedModifiersRoute: typeof AuthedModifiersRoute
+  AuthedOrdersRoute: typeof AuthedOrdersRoute
   AuthedOutletsRoute: typeof AuthedOutletsRoute
   AuthedServicesRoute: typeof AuthedServicesRoute
+  AuthedStaffRoute: typeof AuthedStaffRoute
+  AuthedStockRoute: typeof AuthedStockRoute
+  AuthedStockHistoryRoute: typeof AuthedStockHistoryRoute
   AuthedUsersRoute: typeof AuthedUsersRoute
+  AuthedVariantsRoute: typeof AuthedVariantsRoute
+  AuthedVoucherInjectionsRoute: typeof AuthedVoucherInjectionsRoute
+  AuthedVouchersRoute: typeof AuthedVouchersRoute
   AuthedIndexRoute: typeof AuthedIndexRoute
+  AuthedBannersIdRoute: typeof AuthedBannersIdRoute
+  AuthedBannersNewRoute: typeof AuthedBannersNewRoute
+  AuthedBannersOrderRoute: typeof AuthedBannersOrderRoute
+  AuthedMaterialsIdRoute: typeof AuthedMaterialsIdRoute
+  AuthedMaterialsNewRoute: typeof AuthedMaterialsNewRoute
+  AuthedModifiersIdRoute: typeof AuthedModifiersIdRoute
+  AuthedModifiersNewRoute: typeof AuthedModifiersNewRoute
+  AuthedOrdersIdRoute: typeof AuthedOrdersIdRoute
+  AuthedOutletsIdRoute: typeof AuthedOutletsIdRoute
+  AuthedOutletsNewRoute: typeof AuthedOutletsNewRoute
+  AuthedServicesIdRoute: typeof AuthedServicesIdRoute
+  AuthedServicesNewRoute: typeof AuthedServicesNewRoute
+  AuthedVariantsIdRoute: typeof AuthedVariantsIdRoute
+  AuthedVariantsNewRoute: typeof AuthedVariantsNewRoute
+  AuthedVouchersIdRoute: typeof AuthedVouchersIdRoute
+  AuthedVouchersNewRoute: typeof AuthedVouchersNewRoute
+  AuthedBannersIdEditRoute: typeof AuthedBannersIdEditRoute
+  AuthedMaterialsIdEditRoute: typeof AuthedMaterialsIdEditRoute
+  AuthedModifiersIdEditRoute: typeof AuthedModifiersIdEditRoute
+  AuthedOutletsIdEditRoute: typeof AuthedOutletsIdEditRoute
+  AuthedServicesIdEditRoute: typeof AuthedServicesIdEditRoute
+  AuthedVariantsIdEditRoute: typeof AuthedVariantsIdEditRoute
+  AuthedVouchersIdEditRoute: typeof AuthedVouchersIdEditRoute
 }
 
 const AuthedRouteChildren: AuthedRouteChildren = {
+  AuthedAdminsRoute: AuthedAdminsRoute,
+  AuthedBannersRoute: AuthedBannersRoute,
+  AuthedCostingRoute: AuthedCostingRoute,
+  AuthedMaterialsRoute: AuthedMaterialsRoute,
+  AuthedModifiersRoute: AuthedModifiersRoute,
+  AuthedOrdersRoute: AuthedOrdersRoute,
   AuthedOutletsRoute: AuthedOutletsRoute,
   AuthedServicesRoute: AuthedServicesRoute,
+  AuthedStaffRoute: AuthedStaffRoute,
+  AuthedStockRoute: AuthedStockRoute,
+  AuthedStockHistoryRoute: AuthedStockHistoryRoute,
   AuthedUsersRoute: AuthedUsersRoute,
+  AuthedVariantsRoute: AuthedVariantsRoute,
+  AuthedVoucherInjectionsRoute: AuthedVoucherInjectionsRoute,
+  AuthedVouchersRoute: AuthedVouchersRoute,
   AuthedIndexRoute: AuthedIndexRoute,
+  AuthedBannersIdRoute: AuthedBannersIdRoute,
+  AuthedBannersNewRoute: AuthedBannersNewRoute,
+  AuthedBannersOrderRoute: AuthedBannersOrderRoute,
+  AuthedMaterialsIdRoute: AuthedMaterialsIdRoute,
+  AuthedMaterialsNewRoute: AuthedMaterialsNewRoute,
+  AuthedModifiersIdRoute: AuthedModifiersIdRoute,
+  AuthedModifiersNewRoute: AuthedModifiersNewRoute,
+  AuthedOrdersIdRoute: AuthedOrdersIdRoute,
+  AuthedOutletsIdRoute: AuthedOutletsIdRoute,
+  AuthedOutletsNewRoute: AuthedOutletsNewRoute,
+  AuthedServicesIdRoute: AuthedServicesIdRoute,
+  AuthedServicesNewRoute: AuthedServicesNewRoute,
+  AuthedVariantsIdRoute: AuthedVariantsIdRoute,
+  AuthedVariantsNewRoute: AuthedVariantsNewRoute,
+  AuthedVouchersIdRoute: AuthedVouchersIdRoute,
+  AuthedVouchersNewRoute: AuthedVouchersNewRoute,
+  AuthedBannersIdEditRoute: AuthedBannersIdEditRoute,
+  AuthedMaterialsIdEditRoute: AuthedMaterialsIdEditRoute,
+  AuthedModifiersIdEditRoute: AuthedModifiersIdEditRoute,
+  AuthedOutletsIdEditRoute: AuthedOutletsIdEditRoute,
+  AuthedServicesIdEditRoute: AuthedServicesIdEditRoute,
+  AuthedVariantsIdEditRoute: AuthedVariantsIdEditRoute,
+  AuthedVouchersIdEditRoute: AuthedVouchersIdEditRoute,
 }
 
 const AuthedRouteWithChildren =

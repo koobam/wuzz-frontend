@@ -23,9 +23,5 @@
 /index.html
   Cache-Control: no-cache
 
-# A service worker that gets cached never updates. The browser also caps this at
-# 24h, but be explicit.
-/sw.js
-  Cache-Control: no-cache
 /manifest.webmanifest
   Cache-Control: no-cache
