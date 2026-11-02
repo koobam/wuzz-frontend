@@ -26,7 +26,8 @@
     "postinstall": "patch-package",
     "start": "react-native start",
     "reverse": "adb reverse tcp:8081 tcp:8081 && adb reverse tcp:8092 tcp:8092 && adb reverse tcp:9091 tcp:9091",
-    "test": "jest"
+    "test": "jest",
+    "test:logic": "jest -c jest.logic.config.js"
   },
   "dependencies": {
     "@candlefinance/faster-image": "^1.7.2",

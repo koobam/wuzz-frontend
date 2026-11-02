@@ -1,0 +1,23 @@
+{
+  "login": {
+    "title": "Wuzz Backoffice",
+    "phonePlaceholder": "Phone number",
+    "codePlaceholder": "Code from SMS",
+    "useDifferentNumber": "Use a different number",
+    "verifying": "Verifying…",
+    "signIn": "Sign in",
+    "sending": "Sending…",
+    "sendCode": "Send code",
+    "adminNote": "For administrators. Ask an existing administrator to add your number.",
+    "welcome": "Welcome back",
+    "subtitle": "Sign in to your admin account to continue.",
+    "footer": "© 2026 Wuzz",
+    "slides": {
+      "one": "Orders, outlets and services, on one screen.",
+      "two": "See who is working right now, and talk to them.",
+      "three": "Keep the catalogue and prices right for every outlet."
+    },
+    "phoneRequired": "Enter your phone number",
+    "codeRequired": "Enter the code from the SMS"
+  }
+}

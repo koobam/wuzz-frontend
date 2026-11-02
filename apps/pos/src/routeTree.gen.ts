@@ -14,6 +14,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as AuthedIndexRouteImport } from './routes/_authed/index'
 import { Route as AuthedChatRouteImport } from './routes/_authed/chat'
 import { Route as AuthedOrdersRouteImport } from './routes/_authed/orders'
+import { Route as AuthedStockRouteImport } from './routes/_authed/stock'
 
 const AuthedRoute = AuthedRouteImport.update({
   id: '/_authed',
@@ -39,17 +40,24 @@ const AuthedOrdersRoute = AuthedOrdersRouteImport.update({
   path: '/orders',
   getParentRoute: () => AuthedRoute,
 } as any)
+const AuthedStockRoute = AuthedStockRouteImport.update({
+  id: '/stock',
+  path: '/stock',
+  getParentRoute: () => AuthedRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AuthedIndexRoute
   '/login': typeof LoginRoute
   '/chat': typeof AuthedChatRoute
   '/orders': typeof AuthedOrdersRoute
+  '/stock': typeof AuthedStockRoute
 }
 export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/chat': typeof AuthedChatRoute
   '/orders': typeof AuthedOrdersRoute
+  '/stock': typeof AuthedStockRoute
   '/': typeof AuthedIndexRoute
 }
 export interface FileRoutesById {
@@ -58,19 +66,21 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/_authed/chat': typeof AuthedChatRoute
   '/_authed/orders': typeof AuthedOrdersRoute
+  '/_authed/stock': typeof AuthedStockRoute
   '/_authed/': typeof AuthedIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/chat' | '/orders'
+  fullPaths: '/' | '/login' | '/chat' | '/orders' | '/stock'
   fileRoutesByTo: FileRoutesByTo
-  to: '/login' | '/chat' | '/orders' | '/'
+  to: '/login' | '/chat' | '/orders' | '/stock' | '/'
   id:
     | '__root__'
     | '/_authed'
     | '/login'
     | '/_authed/chat'
     | '/_authed/orders'
+    | '/_authed/stock'
     | '/_authed/'
   fileRoutesById: FileRoutesById
 }
@@ -116,18 +126,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthedOrdersRouteImport
       parentRoute: typeof AuthedRoute
     }
+    '/_authed/stock': {
+      id: '/_authed/stock'
+      path: '/stock'
+      fullPath: '/stock'
+      preLoaderRoute: typeof AuthedStockRouteImport
+      parentRoute: typeof AuthedRoute
+    }
   }
 }
 
 interface AuthedRouteChildren {
   AuthedChatRoute: typeof AuthedChatRoute
   AuthedOrdersRoute: typeof AuthedOrdersRoute
+  AuthedStockRoute: typeof AuthedStockRoute
   AuthedIndexRoute: typeof AuthedIndexRoute
 }
 
 const AuthedRouteChildren: AuthedRouteChildren = {
   AuthedChatRoute: AuthedChatRoute,
   AuthedOrdersRoute: AuthedOrdersRoute,
+  AuthedStockRoute: AuthedStockRoute,
   AuthedIndexRoute: AuthedIndexRoute,
 }
 

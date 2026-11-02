@@ -1,0 +1,25 @@
+{
+  "chat": {
+    "needsSession": "Chat membutuhkan sesi masuk dengan access token.",
+    "offline": "Offline — chat tidak tersedia.",
+    "support": "Bantuan",
+    "outlet": "Outlet {{id}}",
+    "customer": "Pelanggan {{id}}",
+    "select": "Pilih percakapan",
+    "call": "Telepon",
+    "videoCall": "Video call",
+    "incomingCall": "Panggilan masuk",
+    "incomingCallFrom": "Panggilan masuk dari {{from}}",
+    "incomingVideoCall": "Video call masuk",
+    "incomingVideoCallFrom": "Video call masuk dari {{from}}",
+    "calling": "Memanggil…",
+    "accept": "Terima",
+    "decline": "Tolak",
+    "cancel": "Batal",
+    "inCall": "Sedang berbicara",
+    "end": "Akhiri",
+    "placeholder": "Ketik pesan",
+    "send": "Kirim",
+    "subtitle": "Percakapan dengan pelanggan, outlet, dan tim bantuan."
+  }
+}

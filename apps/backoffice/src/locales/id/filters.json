@@ -1,0 +1,18 @@
+{
+  "filter": {
+    "status": "Status",
+    "outlet": "Outlet",
+    "service": "Layanan",
+    "category": "Kategori",
+    "unit": "Satuan",
+    "usage": "Pemakaian",
+    "rule": "Aturan",
+    "kind": "Jenis",
+    "date": "Tanggal",
+    "stock": "Stok",
+    "search": "Cari",
+    "result": "Hasil",
+    "action": "Aksi",
+    "live": "Tayang"
+  }
+}

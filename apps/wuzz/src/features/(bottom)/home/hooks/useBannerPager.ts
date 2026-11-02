@@ -2,16 +2,17 @@ import { useCallback, useRef } from 'react';
 import { NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
 import { FlashListRef } from '@shopify/flash-list';
 import { useSharedValue } from 'react-native-reanimated';
+import type { Banner } from '@api/banners.types';
 
 export const useBannerPager = () => {
-  const bannerListRef = useRef<FlashListRef<string>>(null);
+  const bannerListRef = useRef<FlashListRef<Banner>>(null);
   const scrollOffsetX = useSharedValue(0);
   const currentIndex = useRef(0);
 
   // useEffect(() => {
   //   if (!isFocused) return;
   //   const id = setInterval(() => {
-  //     const next = (currentIndex.current + 1) % BANNER_IMAGES.length;
+  //     const next = (currentIndex.current + 1) % 0;
   //     currentIndex.current = next;
   //     bannerListRef.current?.scrollToIndex({ index: next, animated: true });
   //   }, AUTO_SCROLL_MS);

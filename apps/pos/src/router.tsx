@@ -1,6 +1,6 @@
 import type { QueryClient } from '@tanstack/react-query';
 import { createRouter } from '@tanstack/react-router';
-import { queryClient } from '@/services/query-client';
+import { queryClient } from '@/core/utils/query-client';
 import { routeTree } from './routeTree.gen';
 
 export interface RouterContext {

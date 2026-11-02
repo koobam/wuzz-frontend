@@ -1,0 +1,50 @@
+{
+  "newOrder": {
+    "title": "New order",
+    "noCatalog": "This account has no outlet or services in the catalog. Contact an admin.",
+    "loadFailed": "The catalog could not be loaded. The POS needs an internet connection; check it and try again.",
+    "retry": "Try again",
+    "customerName": "Customer name",
+    "customerPhone": "Phone (optional)",
+    "total": "Total",
+    "save": "Save order",
+    "saved": "Order {{id}} created.",
+    "saving": "Saving…",
+    "saveOffline": "The server could not be reached, so the order was not made. Check the connection and press save again.",
+    "saveFailed": "The order was not made: {{message}}",
+    "subtitle": "Pick the services and how many.",
+    "summary": "Order summary",
+    "noItems": "Nothing picked yet.",
+    "more": "Add {{name}}",
+    "less": "Remove {{name}}",
+    "quantity": "Quantity of {{name}}",
+    "subtotal": "Subtotal",
+    "services": "Services",
+    "all": "All",
+    "categories": "Categories",
+    "needsOutlet": "This account is not tied to one outlet, so there is nothing to ring up here. Sign in with an outlet cashier account.",
+    "dialog": {
+      "close": "Close",
+      "variant": "Variant",
+      "pickOne": "Pick one",
+      "pickMany": "Pick any",
+      "free": "Free",
+      "quantity": "Quantity",
+      "add": "Add to order · {{total}}",
+      "rule": {
+        "optional": "Optional",
+        "optionalMax": "Optional, up to {{max}}",
+        "exact": "Pick exactly {{n}}",
+        "min": "Required, at least {{min}}",
+        "range": "Required, {{min}}–{{max}}"
+      }
+    },
+    "choose": "Choose",
+    "change": "Change choices",
+    "remove": "Remove {{name}}",
+    "from": "From",
+    "qtyLabel": "Quantity",
+    "customerNamePlaceholder": "e.g. Mrs. Rina",
+    "customerPhonePlaceholder": "e.g. 0812…"
+  }
+}

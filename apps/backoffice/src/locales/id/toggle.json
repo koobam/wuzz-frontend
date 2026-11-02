@@ -1,0 +1,32 @@
+{
+  "toggle": {
+    "on": "Aktifkan",
+    "off": "Nonaktifkan",
+    "onName": "Aktifkan {{name}}",
+    "offName": "Nonaktifkan {{name}}",
+    "titleOn": "Aktifkan {{kind}} \"{{name}}\"?",
+    "titleOff": "Nonaktifkan {{kind}} \"{{name}}\"?",
+    "note": {
+      "service": {
+        "on": "Layanan dijual lagi di POS dan aplikasi pelanggan.",
+        "off": "Layanan hilang dari POS dan aplikasi pelanggan. Data dan pesanan lama tetap tersimpan."
+      },
+      "outlet": {
+        "on": "Outlet menerima pesanan lagi dan tampil di aplikasi.",
+        "off": "Outlet tidak menerima pesanan dan disembunyikan dari aplikasi."
+      },
+      "material": {
+        "on": "Material bisa dipilih untuk resep dan stok lagi.",
+        "off": "Material tidak bisa dipilih untuk resep atau stok baru. Yang sudah ada tetap tersimpan."
+      },
+      "banner": {
+        "on": "Setelah aktif, banner tayang selama jadwalnya mengizinkan.",
+        "off": "Banner berhenti tayang di aplikasi. Datanya disimpan dan bisa diaktifkan lagi."
+      },
+      "voucher": {
+        "on": "Pelanggan bisa mengklaim dan memakainya lagi selama masa berlakunya.",
+        "off": "Pelanggan tidak bisa lagi mengklaim atau memakainya. Dompet yang sudah memegangnya tetap menyimpannya, dan bisa dinyalakan lagi."
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "stock": {
+    "title": "Stock",
+    "subtitle": "Material left at each outlet and what it is worth. It goes down by itself with orders; the buttons on the right are only for recording anything else.",
+    "search": "Search SKU or material name...",
+    "lowOnly": "Low only",
+    "tabs": {
+      "stock": "Stock",
+      "history": "History"
+    },
+    "empty": "No stock yet.",
+    "noMatch": "No materials match.",
+    "needsConnection": "Needs an internet connection.",
+    "columns": {
+      "sku": "SKU",
+      "name": "Material",
+      "qty": "Stock",
+      "min": "Minimum",
+      "actions": "Record a change",
+      "time": "Time",
+      "kind": "Kind",
+      "reason": "Reason",
+      "qtyDelta": "Quantity",
+      "balance": "Balance",
+      "note": "Note",
+      "by": "By"
+    },
+    "low": "Low",
+    "negative": "Negative",
+    "action": {
+      "waste": "Discard",
+      "receipt": "Goods in"
+    },
+    "form": {
+      "qty": "Quantity",
+      "totalCost": "Total purchase cost (Rp)",
+      "supplier": "Supplier",
+      "docNo": "Document no.",
+      "note": "Note",
+      "reason": "Reason",
+      "save": "Save",
+      "cancel": "Cancel",
+      "close": "Close",
+      "book": "Book stock: {{qty}} {{unit}}",
+      "invalidQty": "The quantity must be a decimal with at most 4 decimal places.",
+      "saved": "Saved",
+      "qtyPlaceholder": "e.g. 500",
+      "costPlaceholder": "e.g. 85000",
+      "supplierPlaceholder": "e.g. CV Sabun Jaya",
+      "docNoPlaceholder": "e.g. INV-2026-0042",
+      "notePlaceholder": "e.g. The pack leaked"
+    },
+    "reason": {
+      "expired": "Expired",
+      "damaged": "Damaged",
+      "spilled": "Spilled",
+      "lost": "Lost",
+      "other": "Other"
+    },
+    "kind": {
+      "receipt": "Goods received",
+      "consumption": "Used",
+      "consumption_reversal": "Use reversed",
+      "waste": "Waste",
+      "adjustment": "Count correction",
+      "transfer_in": "Transfer in",
+      "transfer_out": "Transfer out"
+    },
+    "unit": {
+      "ml": "ml",
+      "g": "g",
+      "pcs": "pcs",
+      "sheet": "sheet"
+    },
+    "hint": {
+      "receipt": "Use this when you buy or receive material. Stock goes up by the quantity you enter. Example: you bought 5 litres of detergent for Rp 85,000: enter 5000 and a total of 85000.",
+      "waste": "Use this when material is damaged, spilled, lost or expired and so is not used. Stock goes down by the quantity you enter. Example: 50 ml of perfume was spilled."
+    }
+  }
+}

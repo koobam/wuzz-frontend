@@ -1,0 +1,40 @@
+{
+  "accounts": {
+    "admins": {
+      "title": "Admins",
+      "subtitle": "Back-office administrators: who they are, their role and status.",
+      "emptyTitle": "No admins yet",
+      "emptyDescription": "Admins are added by the seeder or by another admin, and run the back office.",
+      "seeOther": "See staff"
+    },
+    "staff": {
+      "title": "Staff",
+      "subtitle": "Cashiers and wuzzers at each outlet, with their role and status.",
+      "emptyTitle": "No staff yet",
+      "emptyDescription": "Cashiers and wuzzers are added by an admin and placed at an outlet.",
+      "seeOther": "See outlets"
+    },
+    "searchPlaceholder": "Search name or phone",
+    "columns": {
+      "name": "Name",
+      "phone": "Phone",
+      "role": "Role",
+      "outlet": "Outlet",
+      "status": "Status",
+      "created": "Added"
+    },
+    "roles": {
+      "super": "Super admin",
+      "finance": "Finance",
+      "support": "Support",
+      "front": "Front desk",
+      "wuzzer": "Wuzzer"
+    },
+    "empty": "Nobody matches.",
+    "total_one": "{{count}} person",
+    "total_other": "{{count}} people",
+    "allOutlets": "All outlets",
+    "refresh": "Refresh",
+    "showing": "Showing {{from}}–{{to}} of {{total}} accounts"
+  }
+}

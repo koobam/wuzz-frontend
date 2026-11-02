@@ -1,0 +1,124 @@
+# Phrase Strings CLI (https://support.phrase.com/hc/en-us/articles/5784093863964-CLI-Phrase-Strings-).
+#
+#   pnpm i18n:push   send the source copy (and any translations already in the files) to Phrase
+#   pnpm i18n:pull   write the translations from Phrase into the apps' locale files
+#
+# The CLI reads the token from PHRASE_ACCESS_TOKEN, so no secret is kept in this file.
+# One Phrase project holds every app; each app's keys carry a tag with its name, so the apps stay
+# apart and a pull only touches its own files. Set project_id below to the project's id
+# (Phrase > Project Settings). English is the source language; <locale_name> is each file's
+# language folder (en, id, ...), which has to match a locale of the same name in Phrase.
+# backoffice and pos have one file per page (locales/<language>/<page>.json), tagged <app>-<page>.
+# wuzz has one file per namespace and Phrase writes one file per tag, so each of its files has
+# its own tag (wuzz-common, wuzz-auth-login, ...).
+phrase:
+  project_id: REPLACE_WITH_PHRASE_PROJECT_ID
+  file_format: i18next
+  push:
+    sources:
+      - file: ./apps/wuzz/public/locales/<locale_name>/auth/login.json
+        params: { tags: wuzz-auth-login, update_translations: true }
+      - file: ./apps/wuzz/public/locales/<locale_name>/auth/register.json
+        params: { tags: wuzz-auth-register, update_translations: true }
+      - file: ./apps/wuzz/public/locales/<locale_name>/common.json
+        params: { tags: wuzz-common, update_translations: true }
+      - file: ./apps/wuzz/public/locales/<locale_name>/history.json
+        params: { tags: wuzz-history, update_translations: true }
+      - file: ./apps/wuzz/public/locales/<locale_name>/home.json
+        params: { tags: wuzz-home, update_translations: true }
+      - file: ./apps/wuzz/public/locales/<locale_name>/outlet.json
+        params: { tags: wuzz-outlet, update_translations: true }
+      - file: ./apps/station/src/locales/<locale_name>/common.json
+        params: { tags: station, update_translations: true }
+      - file: ./apps/pos/src/locales/<locale_name>/chat.json
+        params: { tags: pos-chat, update_translations: true }
+      - file: ./apps/pos/src/locales/<locale_name>/common.json
+        params: { tags: pos-common, update_translations: true }
+      - file: ./apps/pos/src/locales/<locale_name>/login.json
+        params: { tags: pos-login, update_translations: true }
+      - file: ./apps/pos/src/locales/<locale_name>/new-order.json
+        params: { tags: pos-new-order, update_translations: true }
+      - file: ./apps/pos/src/locales/<locale_name>/orders.json
+        params: { tags: pos-orders, update_translations: true }
+      - file: ./apps/pos/src/locales/<locale_name>/stock.json
+        params: { tags: pos-stock, update_translations: true }
+      - file: ./apps/backoffice/src/locales/<locale_name>/chat.json
+        params: { tags: backoffice-chat, update_translations: true }
+      - file: ./apps/backoffice/src/locales/<locale_name>/common.json
+        params: { tags: backoffice-common, update_translations: true }
+      - file: ./apps/backoffice/src/locales/<locale_name>/dashboard.json
+        params: { tags: backoffice-dashboard, update_translations: true }
+      - file: ./apps/backoffice/src/locales/<locale_name>/login.json
+        params: { tags: backoffice-login, update_translations: true }
+      - file: ./apps/backoffice/src/locales/<locale_name>/orders.json
+        params: { tags: backoffice-orders, update_translations: true }
+      - file: ./apps/backoffice/src/locales/<locale_name>/outlets.json
+        params: { tags: backoffice-outlets, update_translations: true }
+      - file: ./apps/backoffice/src/locales/<locale_name>/services.json
+        params: { tags: backoffice-services, update_translations: true }
+      - file: ./apps/backoffice/src/locales/<locale_name>/groups.json
+        params: { tags: backoffice-groups, update_translations: true }
+      - file: ./apps/backoffice/src/locales/<locale_name>/users.json
+        params: { tags: backoffice-users, update_translations: true }
+      - file: ./apps/backoffice/src/locales/<locale_name>/stock.json
+        params: { tags: backoffice-stock, update_translations: true }
+      - file: ./apps/backoffice/src/locales/<locale_name>/costing.json
+        params: { tags: backoffice-costing, update_translations: true }
+      - file: ./apps/backoffice/src/locales/<locale_name>/materials.json
+        params: { tags: backoffice-materials, update_translations: true }
+      - file: ./apps/landing/src/locales/<locale_name>/common.json
+        params: { tags: landing, update_translations: true }
+  pull:
+    targets:
+      - file: ./apps/wuzz/public/locales/<locale_name>/auth/login.json
+        params: { tags: wuzz-auth-login, fallback_locale_id: en }
+      - file: ./apps/wuzz/public/locales/<locale_name>/auth/register.json
+        params: { tags: wuzz-auth-register, fallback_locale_id: en }
+      - file: ./apps/wuzz/public/locales/<locale_name>/common.json
+        params: { tags: wuzz-common, fallback_locale_id: en }
+      - file: ./apps/wuzz/public/locales/<locale_name>/history.json
+        params: { tags: wuzz-history, fallback_locale_id: en }
+      - file: ./apps/wuzz/public/locales/<locale_name>/home.json
+        params: { tags: wuzz-home, fallback_locale_id: en }
+      - file: ./apps/wuzz/public/locales/<locale_name>/outlet.json
+        params: { tags: wuzz-outlet, fallback_locale_id: en }
+      - file: ./apps/station/src/locales/<locale_name>/common.json
+        params: { tags: station, fallback_locale_id: en }
+      - file: ./apps/pos/src/locales/<locale_name>/chat.json
+        params: { tags: pos-chat, fallback_locale_id: en }
+      - file: ./apps/pos/src/locales/<locale_name>/common.json
+        params: { tags: pos-common, fallback_locale_id: en }
+      - file: ./apps/pos/src/locales/<locale_name>/login.json
+        params: { tags: pos-login, fallback_locale_id: en }
+      - file: ./apps/pos/src/locales/<locale_name>/new-order.json
+        params: { tags: pos-new-order, fallback_locale_id: en }
+      - file: ./apps/pos/src/locales/<locale_name>/orders.json
+        params: { tags: pos-orders, fallback_locale_id: en }
+      - file: ./apps/pos/src/locales/<locale_name>/stock.json
+        params: { tags: pos-stock, fallback_locale_id: en }
+      - file: ./apps/backoffice/src/locales/<locale_name>/chat.json
+        params: { tags: backoffice-chat, fallback_locale_id: en }
+      - file: ./apps/backoffice/src/locales/<locale_name>/common.json
+        params: { tags: backoffice-common, fallback_locale_id: en }
+      - file: ./apps/backoffice/src/locales/<locale_name>/dashboard.json
+        params: { tags: backoffice-dashboard, fallback_locale_id: en }
+      - file: ./apps/backoffice/src/locales/<locale_name>/login.json
+        params: { tags: backoffice-login, fallback_locale_id: en }
+      - file: ./apps/backoffice/src/locales/<locale_name>/orders.json
+        params: { tags: backoffice-orders, fallback_locale_id: en }
+      - file: ./apps/backoffice/src/locales/<locale_name>/outlets.json
+        params: { tags: backoffice-outlets, fallback_locale_id: en }
+      - file: ./apps/backoffice/src/locales/<locale_name>/services.json
+        params: { tags: backoffice-services, fallback_locale_id: en }
+      - file: ./apps/backoffice/src/locales/<locale_name>/groups.json
+        params: { tags: backoffice-groups, fallback_locale_id: en }
+      - file: ./apps/backoffice/src/locales/<locale_name>/users.json
+        params: { tags: backoffice-users, fallback_locale_id: en }
+      - file: ./apps/backoffice/src/locales/<locale_name>/stock.json
+        params: { tags: backoffice-stock, fallback_locale_id: en }
+      - file: ./apps/backoffice/src/locales/<locale_name>/costing.json
+        params: { tags: backoffice-costing, fallback_locale_id: en }
+      - file: ./apps/backoffice/src/locales/<locale_name>/materials.json
+        params: { tags: backoffice-materials, fallback_locale_id: en }
+      - file: ./apps/landing/src/locales/<locale_name>/common.json
+        params: { tags: landing, fallback_locale_id: en }

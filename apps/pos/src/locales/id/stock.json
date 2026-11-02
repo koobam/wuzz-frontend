@@ -1,0 +1,80 @@
+{
+  "stock": {
+    "title": "Stok",
+    "subtitle": "Sisa bahan di tiap outlet dan nilainya. Berkurang sendiri saat ada pesanan; tombol di kanan hanya untuk mencatat hal lain.",
+    "search": "Cari SKU atau nama bahan...",
+    "lowOnly": "Hanya menipis",
+    "tabs": {
+      "stock": "Stok",
+      "history": "Riwayat"
+    },
+    "empty": "Belum ada stok.",
+    "noMatch": "Tidak ada bahan yang cocok.",
+    "needsConnection": "Perlu koneksi internet.",
+    "columns": {
+      "sku": "SKU",
+      "name": "Bahan",
+      "qty": "Stok",
+      "min": "Minimum",
+      "actions": "Catat perubahan",
+      "time": "Waktu",
+      "kind": "Jenis",
+      "reason": "Alasan",
+      "qtyDelta": "Jumlah",
+      "balance": "Saldo",
+      "note": "Catatan",
+      "by": "Oleh"
+    },
+    "low": "Menipis",
+    "negative": "Minus",
+    "action": {
+      "waste": "Buang",
+      "receipt": "Barang masuk"
+    },
+    "form": {
+      "qty": "Jumlah",
+      "totalCost": "Total harga beli (Rp)",
+      "supplier": "Pemasok",
+      "docNo": "No. dokumen",
+      "note": "Catatan",
+      "reason": "Alasan",
+      "save": "Simpan",
+      "cancel": "Batal",
+      "close": "Tutup",
+      "book": "Stok di buku: {{qty}} {{unit}}",
+      "invalidQty": "Jumlah harus angka desimal dengan maksimal 4 angka di belakang titik.",
+      "saved": "Tersimpan",
+      "qtyPlaceholder": "Contoh: 500",
+      "costPlaceholder": "Contoh: 85000",
+      "supplierPlaceholder": "Contoh: CV Sabun Jaya",
+      "docNoPlaceholder": "Contoh: INV-2026-0042",
+      "notePlaceholder": "Contoh: Kemasan bocor"
+    },
+    "reason": {
+      "expired": "Kedaluwarsa",
+      "damaged": "Rusak",
+      "spilled": "Tumpah",
+      "lost": "Hilang",
+      "other": "Lainnya"
+    },
+    "kind": {
+      "receipt": "Terima barang",
+      "consumption": "Pemakaian",
+      "consumption_reversal": "Pembalikan pakai",
+      "waste": "Waste",
+      "adjustment": "Koreksi hitung",
+      "transfer_in": "Transfer masuk",
+      "transfer_out": "Transfer keluar"
+    },
+    "unit": {
+      "ml": "ml",
+      "g": "g",
+      "pcs": "pcs",
+      "sheet": "lembar"
+    },
+    "hint": {
+      "receipt": "Pakai ini saat kamu membeli atau menerima bahan. Stok bertambah sejumlah yang kamu isi. Contoh: beli deterjen 5 liter seharga Rp 85.000, isi jumlah 5000 dan total harga 85000.",
+      "waste": "Pakai ini saat bahan rusak, tumpah, hilang, atau kedaluwarsa sehingga tidak jadi dipakai. Stok berkurang sejumlah yang kamu isi. Contoh: parfum tumpah 50 ml."
+    }
+  }
+}

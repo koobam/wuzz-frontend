@@ -1,0 +1,202 @@
+{
+  "common": {
+    "prev": "Sebelumnya",
+    "next": "Berikutnya",
+    "edit": "Ubah",
+    "cancel": "Batal",
+    "save": "Simpan",
+    "create": "Buat",
+    "active": "Aktif",
+    "name": "Nama",
+    "phone": "Telepon",
+    "language": "Bahasa",
+    "pageNotFound": "Halaman tidak ditemukan.",
+    "requestFailed": "Permintaan gagal ({{status}})",
+    "unexpectedError": "Terjadi kesalahan. Muat ulang halaman; jika berulang, hubungi admin.",
+    "copy": "Klik untuk menyalin",
+    "copied": "Disalin",
+    "confirm": "Ya, lanjutkan",
+    "delete": "Hapus",
+    "actions": "Aksi",
+    "viewName": "Lihat detail {{name}}",
+    "editName": "Ubah {{name}}",
+    "deleteName": "Hapus {{name}}",
+    "email": "Email"
+  },
+  "status": {
+    "all": "Semua status",
+    "allShort": "Semua",
+    "order": {
+      "created": "Pesanan Dibuat",
+      "processing": "Pesanan Diproses",
+      "ready": "Pesanan Siap",
+      "fulfilled": "Pesanan Selesai",
+      "cancelled": "Pesanan Dibatalkan"
+    },
+    "user": {
+      "active": "aktif",
+      "inactive": "nonaktif",
+      "banned": "diblokir"
+    },
+    "record": {
+      "active": "aktif",
+      "inactive": "nonaktif"
+    },
+    "help": {
+      "order": {
+        "created": "Pesanan diterima, belum dikerjakan.",
+        "processing": "Sedang dicuci atau dikerjakan.",
+        "ready": "Selesai dikerjakan, menunggu diambil atau diantar.",
+        "fulfilled": "Sudah diserahkan ke pelanggan.",
+        "cancelled": "Dibatalkan; tidak akan dikerjakan."
+      }
+    }
+  },
+  "unit": {
+    "kg": "kg",
+    "pcs": "pcs",
+    "sesi": "sesi",
+    "unit": "unit"
+  },
+  "nav": {
+    "brand": "Wuzz Admin",
+    "orders": "Pesanan",
+    "users": "Pengguna",
+    "outlets": "Outlet",
+    "outletsDesc": "Cabang, lokasi, jam buka, dan fotonya",
+    "services": "Layanan",
+    "signOut": "Keluar",
+    "admin": "Admin",
+    "themeLight": "Ganti ke tema terang",
+    "themeDark": "Ganti ke tema gelap",
+    "dashboard": "Dashboard",
+    "online_one": "{{count}} orang online",
+    "online_other": "{{count}} orang online",
+    "you": "kamu",
+    "variants": "Varian",
+    "modifiers": "Modifier",
+    "servicesDesc": "Daftar layanan, harga, dan kategori",
+    "variantsDesc": "Pilihan harga tiap layanan, seperti Reguler dan Express",
+    "modifiersDesc": "Pilihan tambahan yang menambah harga",
+    "admins": "Admin",
+    "staff": "Staf",
+    "customers": "Pelanggan",
+    "adminsDesc": "Admin back office dan perannya",
+    "staffDesc": "Kasir dan wuzzer di outlet",
+    "customersDesc": "Orang yang memakai aplikasi",
+    "inventory": "Inventori",
+    "materials": "Bahan",
+    "materialsDesc": "Master bahan, SKU, dan harga beli",
+    "stock": "Stok",
+    "stockDesc": "Stok per outlet: terima, waste, hitung fisik, transfer",
+    "stockHistory": "Riwayat stok",
+    "stockHistoryDesc": "Buku besar setiap gerakan stok",
+    "costing": "Resep & HPP",
+    "costingDesc": "BOM tiap layanan dan biaya bahannya",
+    "breadcrumb": "Jejak halaman",
+    "catalog": "Katalog",
+    "promotion": "Promosi",
+    "banners": "Banner",
+    "bannersDesc": "Gambar di bagian atas aplikasi pelanggan, lengkap dengan jadwal",
+    "vouchers": "Voucher",
+    "vouchersDesc": "Potongan harga pesanan: publik atau dengan kode, dengan masa berlaku",
+    "voucherInjections": "Kirim voucher",
+    "voucherInjectionsDesc": "Masukkan voucher ke dompet pelanggan, dan lihat riwayat kirimnya"
+  },
+  "language": {
+    "label": "Bahasa"
+  },
+  "env": {
+    "production": "Production",
+    "staging": "Staging",
+    "development": "Development"
+  },
+  "table": {
+    "reset": "Reset filter",
+    "noResultsTitle": "Tidak ada hasil",
+    "noResultsDescription": "Tidak ada data yang cocok dengan pencarian atau filter ini. Coba kata kunci lain atau reset filter.",
+    "search": "Cari"
+  },
+  "range": {
+    "title": "Rentang tanggal",
+    "today": "Hari ini",
+    "last7": "7 hari terakhir",
+    "last14": "14 hari terakhir",
+    "last30": "30 hari terakhir",
+    "thisMonth": "Bulan ini",
+    "apply": "Terapkan",
+    "pickTwo": "Pilih hari pertama dan terakhir",
+    "days_one": "{{count}} hari",
+    "days_other": "{{count}} hari",
+    "tooLong": "Paling lama {{count}} hari",
+    "all": "Semua waktu"
+  },
+  "confirm": {
+    "kind": {
+      "service": "layanan",
+      "variant": "grup varian",
+      "modifier": "grup modifier",
+      "material": "material",
+      "outlet": "outlet",
+      "recipe": "resep",
+      "banner": "banner",
+      "voucher": "voucher"
+    },
+    "create": "Buat {{kind}} \"{{name}}\"?",
+    "createNote": "Langsung masuk ke katalog.",
+    "save": "Simpan perubahan {{kind}} \"{{name}}\"?",
+    "saveNote": "Perubahan berlaku di semua tempat yang memakainya.",
+    "delete": "Hapus {{kind}} \"{{name}}\"?",
+    "deleteNote": "Tindakan ini tidak bisa dibatalkan.",
+    "deleteUsed_one": "Dipakai oleh {{count}} layanan. Tindakan ini tidak bisa dibatalkan.",
+    "deleteUsed_other": "Dipakai oleh {{count}} layanan. Tindakan ini tidak bisa dibatalkan.",
+    "order": {
+      "processing": "Mulai pesanan {{code}}?",
+      "ready": "Tandai pesanan {{code}} siap?",
+      "fulfilled": "Selesaikan pesanan {{code}}?",
+      "cancelled": "Batalkan pesanan {{code}}?",
+      "note": "Pesanan pelanggan pindah ke langkah berikutnya.",
+      "cancelNote": "Pesanan yang dibatalkan tidak bisa dibuka lagi.",
+      "keep": "Jangan batalkan",
+      "cancelLabel": "Batalkan pesanan"
+    },
+    "user": {
+      "ban": "Blokir {{name}}?",
+      "banNote": "Mereka tidak akan bisa masuk.",
+      "unban": "Buka blokir {{name}}?",
+      "unbanNote": "Mereka bisa masuk lagi."
+    },
+    "stock": {
+      "receipt": "Catat barang masuk untuk {{name}}?",
+      "waste": "Catat {{name}} sebagai terbuang?",
+      "adjustment": "Koreksi hitungan {{name}}?",
+      "transfer": "Pindahkan {{name}} ke outlet lain?",
+      "min": "Ubah batas minimum {{name}}?",
+      "note": "Ini tercatat di riwayat stok dan tidak bisa diubah setelahnya."
+    },
+    "deleteNoteFor": {
+      "service": "Layanan ini hilang dari katalog beserta resep dan tautannya ke grup varian dan modifier. Pesanan lama tidak berubah. Tindakan ini tidak bisa dibatalkan.",
+      "outlet": "Outlet dihapus beserta jadwalnya. Tindakan ini tidak bisa dibatalkan. Outlet yang punya staf, pesanan, atau stok tidak bisa dihapus; matikan saja.",
+      "banner": "Banner dihapus permanen dan hilang dari aplikasi. Tidak bisa dibatalkan. Untuk menyembunyikan sementara, nonaktifkan saja.",
+      "voucher": "Voucher dihapus permanen dan hilang dari aplikasi. Tindakan ini tidak bisa dibatalkan. Voucher yang sudah dipegang pelanggan tidak bisa dihapus; matikan saja."
+    },
+    "reorder": "Simpan urutan baru untuk {{count}} banner?",
+    "reorderNote": "Carousel di aplikasi pelanggan langsung mengikuti urutan ini.",
+    "sendVoucher": "Kirim voucher \"{{title}}\" ke {{count}} pelanggan?",
+    "sendVoucherNote": "Voucher langsung masuk ke dompet mereka dan tidak bisa ditarik kembali; matikan vouchernya agar tidak bisa dipakai lagi."
+  },
+  "viewer": {
+    "title": "Gambar",
+    "close": "Tutup",
+    "zoomIn": "Perbesar",
+    "zoomOut": "Perkecil",
+    "reset": "Sesuaikan layar",
+    "previous": "Gambar sebelumnya",
+    "next": "Gambar berikutnya",
+    "counter": "{{index}} / {{total}}",
+    "loading": "Memuat gambar",
+    "broken": "Gambar ini tidak bisa dimuat.",
+    "zoomImage": "Lihat lebih besar",
+    "zoomImageNamed": "Lihat {{name}} lebih besar"
+  }
+}

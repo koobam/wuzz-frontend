@@ -1,0 +1,17 @@
+{
+  "chat": {
+    "with": "Chat with {{name}}",
+    "minimize": "Minimise",
+    "close": "Close",
+    "placeholder": "Write a message",
+    "send": "Send",
+    "empty": "Say hello to {{name}}.",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "sent": "Sent",
+    "read": "Read",
+    "newMessages_one": "+{{count}} new message",
+    "newMessages_other": "+{{count}} new messages",
+    "error": "Could not open the chat. Try again in a moment."
+  }
+}

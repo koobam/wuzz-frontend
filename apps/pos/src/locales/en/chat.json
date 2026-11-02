@@ -1,0 +1,25 @@
+{
+  "chat": {
+    "needsSession": "Chat needs a signed-in session with an access token.",
+    "offline": "Offline — chat is unavailable.",
+    "support": "Support",
+    "outlet": "Outlet {{id}}",
+    "customer": "Customer {{id}}",
+    "select": "Select a conversation",
+    "call": "Call",
+    "videoCall": "Video call",
+    "incomingCall": "Incoming call",
+    "incomingCallFrom": "Incoming call from {{from}}",
+    "incomingVideoCall": "Incoming video call",
+    "incomingVideoCallFrom": "Incoming video call from {{from}}",
+    "calling": "Calling…",
+    "accept": "Accept",
+    "decline": "Decline",
+    "cancel": "Cancel",
+    "inCall": "In call",
+    "end": "End",
+    "placeholder": "Type a message",
+    "send": "Send",
+    "subtitle": "Conversations with customers, outlets and the support team."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "login": {
+    "phone": "Nomor telepon",
+    "code": "Kode dari SMS",
+    "differentNumber": "Pakai nomor lain",
+    "verifying": "Memverifikasi…",
+    "signIn": "Masuk",
+    "sending": "Mengirim…",
+    "sendCode": "Kirim kode",
+    "hint": "Untuk staf outlet. Minta administrator menambahkan nomormu.",
+    "welcome": "Selamat datang kembali",
+    "subtitle": "Masuk ke akun POS untuk melanjutkan.",
+    "footer": "© 2026 Wuzz",
+    "slides": {
+      "one": "Catat pesanan dalam hitungan detik.",
+      "two": "Pesanan langsung tercatat di server dan terlihat di semua perangkat.",
+      "three": "Satu outlet, banyak kasir, semua pesanan tercatat."
+    },
+    "phoneRequired": "Isi nomor telepon",
+    "codeRequired": "Isi kode dari SMS"
+  }
+}

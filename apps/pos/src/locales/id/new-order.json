@@ -1,0 +1,50 @@
+{
+  "newOrder": {
+    "title": "Pesanan baru",
+    "noCatalog": "Akun ini belum punya outlet atau layanan di katalog. Hubungi admin.",
+    "loadFailed": "Katalog tidak dapat dimuat. POS butuh koneksi internet; periksa koneksi lalu coba lagi.",
+    "retry": "Coba lagi",
+    "customerName": "Nama pelanggan",
+    "customerPhone": "Telepon (opsional)",
+    "total": "Total",
+    "save": "Simpan pesanan",
+    "saved": "Pesanan {{id}} dibuat.",
+    "saving": "Menyimpan…",
+    "saveOffline": "Tidak dapat menghubungi server, pesanan belum dibuat. Periksa koneksi lalu tekan simpan lagi.",
+    "saveFailed": "Pesanan belum dibuat: {{message}}",
+    "subtitle": "Pilih layanan dan jumlahnya.",
+    "summary": "Ringkasan pesanan",
+    "noItems": "Belum ada layanan dipilih.",
+    "more": "Tambah {{name}}",
+    "less": "Kurangi {{name}}",
+    "quantity": "Jumlah {{name}}",
+    "subtotal": "Subtotal",
+    "services": "Layanan",
+    "all": "Semua",
+    "categories": "Kategori",
+    "needsOutlet": "Akun ini tidak terikat ke satu outlet, jadi tidak ada yang bisa dicatat di sini. Masuk dengan akun kasir outlet.",
+    "dialog": {
+      "close": "Tutup",
+      "variant": "Varian",
+      "pickOne": "Pilih satu",
+      "pickMany": "Pilih banyak",
+      "free": "Gratis",
+      "quantity": "Jumlah",
+      "add": "Tambah ke pesanan · {{total}}",
+      "rule": {
+        "optional": "Opsional",
+        "optionalMax": "Opsional, maks {{max}}",
+        "exact": "Pilih tepat {{n}}",
+        "min": "Wajib, minimal {{min}}",
+        "range": "Wajib, {{min}}–{{max}}"
+      }
+    },
+    "choose": "Pilih",
+    "change": "Ubah pilihan",
+    "remove": "Hapus {{name}}",
+    "from": "Mulai dari",
+    "qtyLabel": "Jumlah",
+    "customerNamePlaceholder": "Contoh: Bu Rina",
+    "customerPhonePlaceholder": "Contoh: 0812…"
+  }
+}

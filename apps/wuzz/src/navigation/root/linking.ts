@@ -1,4 +1,6 @@
+import { Linking } from 'react-native';
 import type { LinkingOptions } from '@react-navigation/native';
+import { openDeeplink, parseDeeplink } from '@navigation/deeplink';
 import { ROOT_ROUTES } from './_routes';
 import type { RootStackParamList } from './root.types';
 
@@ -8,8 +10,38 @@ import type { RootStackParamList } from './root.types';
 // nested inside `bottom`, from navigation/bottom/index.tsx) can ever be
 // navigated to, so only those get a path here; mapping the rest would just be
 // dead config pointing at screens that don't exist.
+/**
+ * A link the closed vocabulary of navigation/deeplink understands (service, outlet, screen) is opened by
+ * `openDeeplink`, so it gets the same checks and the same login hold as a banner tap; the router's own
+ * path table below never sees it. Every other link falls through to that table unchanged.
+ */
+const isVocabularyLink = (url: string) => url.startsWith('wuzz://') && parseDeeplink(url) !== null;
+
+/** Set when the app was opened by a vocabulary link: Root opens it once the navigator is ready. */
+let initialDeeplink: string | null = null;
+export const takeInitialDeeplink = () => {
+  const url = initialDeeplink;
+  initialDeeplink = null;
+  return url;
+};
+
 export const linking: LinkingOptions<RootStackParamList> = {
   prefixes: ['wuzz://'],
+  async getInitialURL() {
+    const url = await Linking.getInitialURL();
+    if (url && isVocabularyLink(url)) {
+      initialDeeplink = url;
+      return null;
+    }
+    return url;
+  },
+  subscribe(listener) {
+    const subscription = Linking.addEventListener('url', ({ url }) => {
+      if (isVocabularyLink(url)) openDeeplink(url);
+      else listener(url);
+    });
+    return () => subscription.remove();
+  },
   config: {
     screens: {
       [ROOT_ROUTES.BOTTOM]: {

@@ -1,0 +1,64 @@
+{
+  "orders": {
+    "title": "Pesanan",
+    "empty": "Belum ada pesanan.",
+    "columns": {
+      "order": "Pesanan",
+      "customer": "Pelanggan",
+      "outlet": "Outlet",
+      "items": "Item",
+      "total": "Total",
+      "status": "Status",
+      "created": "Dibuat",
+      "trx": "ID"
+    },
+    "line": "{{name}} ×{{qty}}",
+    "moveTo": "→ {{status}}",
+    "total_other": "{{count}} pesanan",
+    "search": "Cari ID TRX, nama, atau telepon",
+    "allOutlets": "Semua outlet",
+    "more": "+{{count}} lainnya",
+    "subtitle": "Semua pesanan dari seluruh outlet. Cari, urutkan, dan ubah statusnya di sini.",
+    "summary": {
+      "total": "Total transaksi",
+      "totalSub": "{{open}} berjalan, {{done}} selesai, {{cancelled}} dibatalkan",
+      "value": "Total nilai pesanan",
+      "valueSub": "{{count}} pesanan sesuai filter",
+      "avgValue": "Rata-rata nilai per pesanan",
+      "avgValueSub": "Total nilai ÷ {{count}} pesanan",
+      "avgLines": "Rata-rata layanan per pesanan",
+      "avgLinesSub": "{{lines}} layanan di {{count}} pesanan",
+      "cancelled": "Dibatalkan",
+      "cancelledSub": "{{pct}}% dari semua transaksi",
+      "from": "Dari",
+      "to": "Sampai"
+    },
+    "detail": {
+      "title": "Detail pesanan",
+      "close": "Tutup",
+      "customer": "Pelanggan",
+      "outlet": "Outlet",
+      "created": "Dibuat",
+      "updated": "Diperbarui",
+      "by": "Dibuat oleh",
+      "items": "Item ({{count}})",
+      "total": "Total",
+      "note": "Total pesanan dihitung server; subtotal per baris hanya rincian.",
+      "notFound": "Pesanan tidak ditemukan.",
+      "summary": "Ringkasan",
+      "status": "Status",
+      "subtitle": "Pelanggan, item, total, dan status pesanan ini."
+    },
+    "action": {
+      "processing": "Proses",
+      "ready": "Tandai siap",
+      "fulfilled": "Selesaikan",
+      "cancelled": "Batalkan"
+    },
+    "emptyTitle": "Belum ada pesanan",
+    "emptyDescription": "Pesanan yang dicatat kasir di POS akan muncul di sini.",
+    "refresh": "Muat ulang",
+    "seeDashboard": "Ke Dashboard",
+    "showing": "Menampilkan {{from}}–{{to}} dari {{total}} pesanan"
+  }
+}

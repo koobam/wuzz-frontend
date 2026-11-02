@@ -1,0 +1,65 @@
+{
+  "legend": {
+    "services": {
+      "active": "Dijual di POS dan aplikasi pelanggan.",
+      "inactive": "Tidak tampil di POS dan aplikasi; datanya tetap tersimpan.",
+      "ppn": "PPN ditambahkan ke harga dasar; harga akhir sudah termasuk PPN."
+    },
+    "outlets": {
+      "active": "Menerima pesanan.",
+      "inactive": "Tidak menerima pesanan dan tidak tampil di aplikasi.",
+      "open": "Sedang buka sekarang menurut jam operasional outlet (waktu Jakarta)."
+    },
+    "materials": {
+      "active": "Bisa dipakai di resep dan stok.",
+      "inactive": "Tidak bisa dipilih untuk resep atau stok baru."
+    },
+    "variants": {
+      "rule": "Pelanggan wajib memilih tepat satu opsi."
+    },
+    "modifiers": {
+      "optional": "Boleh dilewati pelanggan (sampai batas maksimal, bila ada).",
+      "required": "Pelanggan wajib memilih minimal sejumlah yang tertulis."
+    },
+    "accounts": {
+      "active": "Bisa masuk dan memesan.",
+      "inactive": "Tidak dipakai; tidak bisa masuk.",
+      "banned": "Diblokir: tidak bisa masuk atau memesan."
+    },
+    "stock": {
+      "negative": "Stok tercatat di bawah nol: hitung yang sebenarnya di rak.",
+      "low": "Sudah di batas minimum atau kurang: saatnya pesan lagi."
+    },
+    "history": {
+      "receipt": "Barang diterima dari pemasok.",
+      "consumption": "Terpakai oleh pesanan.",
+      "consumption_reversal": "Pemakaian dibatalkan karena pesanan batal.",
+      "waste": "Dibuang: kedaluwarsa, rusak, tumpah, atau hilang.",
+      "adjustment": "Dikoreksi setelah hitung fisik.",
+      "transfer_in": "Masuk dari outlet lain.",
+      "transfer_out": "Keluar ke outlet lain."
+    },
+    "activity": {
+      "ok": "Aksinya berhasil.",
+      "failed": "Ditolak server; status HTTP-nya ditampilkan."
+    },
+    "banners": {
+      "active": "Dipublikasikan: tayang selama jadwalnya mengizinkan.",
+      "inactive": "Draf: tidak pernah tampil di aplikasi.",
+      "live": "Sedang tampil di ponsel pelanggan.",
+      "scheduled": "Aktif, tetapi waktu mulainya belum tiba.",
+      "ended": "Aktif, tetapi waktu berakhirnya sudah lewat.",
+      "off": "Tidak tayang: banner nonaktif."
+    },
+    "vouchers": {
+      "active": "Terbit: pelanggan bisa mengklaim dan memakainya selama masa berlakunya.",
+      "inactive": "Draf: tidak ada yang bisa mengklaim atau memakainya.",
+      "live": "Bisa diklaim dan dipakai sekarang.",
+      "scheduled": "Aktif, tetapi waktu mulainya belum tiba.",
+      "ended": "Aktif, tetapi waktu berakhirnya sudah lewat.",
+      "off": "Tidak bisa dipakai: statusnya nonaktif.",
+      "code": "Diklaim dengan mengetik kodenya, atau dikirim staf.",
+      "public": "Ada di dompet semua orang selama berlaku."
+    }
+  }
+}

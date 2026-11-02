@@ -1,0 +1,142 @@
+{
+  "activity": {
+    "view": "View activity",
+    "close": "Close",
+    "subtitle": "Who did what, newest first. Only administrators can see this.",
+    "search": "Search by person or name",
+    "showing": "Showing {{from}}–{{to}} of {{total}}",
+    "allActions": "All actions",
+    "allOutcomes": "All outcomes",
+    "filterOutcome": "Outcome",
+    "filterAction": "Action",
+    "outcome": {
+      "ok": "Done",
+      "failed": "Failed"
+    },
+    "failedWith": "Failed ({{status}})",
+    "details": "Details",
+    "unknownActor": "Someone",
+    "loading": "Loading activity…",
+    "empty": "No activity yet.",
+    "forbidden": "Only administrators can see activity.",
+    "fallback": "{{action}}: {{entity}} {{subject}}",
+    "audience": {
+      "backoffice": "Back office",
+      "pos": "Till"
+    },
+    "actions": {
+      "create": "Created",
+      "update": "Edited",
+      "delete": "Deleted",
+      "status": "Status change",
+      "receive": "Stock received",
+      "waste": "Waste",
+      "adjust": "Count adjustment",
+      "transfer": "Transfer",
+      "set_min": "Minimum set",
+      "sign_in": "Sign-in",
+      "sign_out": "Sign-out",
+      "reorder": "Reordered",
+      "inject": "Sent a voucher"
+    },
+    "entities": {
+      "outlet": "outlet",
+      "service": "service",
+      "variant_group": "variant",
+      "modifier_group": "modifier",
+      "material": "material",
+      "bom": "recipe",
+      "stock": "stock",
+      "order": "order",
+      "user": "customer",
+      "session": "session",
+      "media": "photo",
+      "banner": "banner",
+      "voucher": "voucher"
+    },
+    "entityTitle": {
+      "outlet": "Outlet activity",
+      "service": "Service activity",
+      "variant_group": "Variant activity",
+      "modifier_group": "Modifier activity",
+      "material": "Material activity",
+      "bom": "Recipe activity",
+      "stock": "Stock activity",
+      "order": "Order activity",
+      "user": "Customer activity",
+      "session": "Sign-in activity",
+      "media": "Photo activity",
+      "banner": "Banner activity",
+      "voucher": "Voucher activity"
+    },
+    "bomOwner": {
+      "service": "service",
+      "variant_option": "variant option",
+      "modifier_option": "modifier option"
+    },
+    "outlet": {
+      "create": "Added outlet “{{name}}”",
+      "update": "Edited outlet “{{name}}”",
+      "delete": "Deleted outlet {{subject}}"
+    },
+    "service": {
+      "create": "Added service “{{name}}”",
+      "update": "Edited service “{{name}}”",
+      "delete": "Deleted service {{subject}}"
+    },
+    "variant_group": {
+      "create": "Added variant “{{name}}”",
+      "update": "Edited variant “{{name}}”",
+      "delete": "Deleted variant {{subject}}"
+    },
+    "modifier_group": {
+      "create": "Added modifier “{{name}}”",
+      "update": "Edited modifier “{{name}}”",
+      "delete": "Deleted modifier {{subject}}"
+    },
+    "material": {
+      "create": "Added material “{{name}}”",
+      "update": "Edited material “{{name}}”",
+      "delete": "Deleted material {{subject}}"
+    },
+    "bom": {
+      "update": "Saved the recipe of {{subject}}"
+    },
+    "stock": {
+      "receive": "Received {{qty}} of {{subject}} at {{outlet}}",
+      "waste": "Wrote off {{qty}} of {{subject}} at {{outlet}}",
+      "adjust": "Counted {{subject}} at {{outlet}}: {{counted}}",
+      "transfer": "Moved {{qty}} of {{subject}} from {{from}} to {{to}}",
+      "set_min": "Set the minimum of {{subject}} at {{outlet}} to {{min}}"
+    },
+    "order": {
+      "create": "Created order {{code}}",
+      "status": "Moved order {{code}} to “{{status}}”"
+    },
+    "user": {
+      "status": "Set customer {{subject}} to “{{status}}”"
+    },
+    "session": {
+      "sign_in": "Signed in",
+      "sign_out": "Signed out"
+    },
+    "recipeTitle": "Recipe activity",
+    "media": {
+      "create": "Uploaded a photo"
+    },
+    "banner": {
+      "create": "Added banner “{{title}}”",
+      "update": "Edited banner “{{title}}”",
+      "delete": "Deleted banner {{subject}}",
+      "status": "Set banner “{{title}}” to {{status}}",
+      "reorder": "Rearranged the {{total}} banners"
+    },
+    "voucher": {
+      "create": "Added voucher “{{title}}”",
+      "update": "Edited voucher “{{title}}”",
+      "delete": "Deleted voucher {{subject}}",
+      "status": "Set voucher “{{title}}” to {{status}}",
+      "inject": "Sent voucher “{{title}}” to {{injected}} of {{total}} customers"
+    }
+  }
+}
