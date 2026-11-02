@@ -22,6 +22,7 @@ on:
       - "apps/pos/**"
       - "packages/**"
       - "pnpm-lock.yaml"
+      - "functions/**"
       - ".github/workflows/pages.yml"
   pull_request:
     paths:
@@ -29,6 +30,7 @@ on:
       - "apps/pos/**"
       - "packages/**"
       - "pnpm-lock.yaml"
+      - "functions/**"
       - ".github/workflows/pages.yml"
 
 permissions:
@@ -105,6 +107,7 @@ jobs:
           # domains serve. Any other branch name becomes a preview, and Pages makes the
           # <branch>.<project>.pages.dev alias from it.
           branch=main
+          # ./functions (the pages.dev -> wuzz.care redirect) is picked up from this directory.
           if [ "$EVENT" = pull_request ]; then branch="$HEAD_REF"; fi
           npx --yes wrangler@4 pages deploy "apps/$APP/dist" --project-name "$PROJECT" \
             --branch "$branch" --commit-dirty=true | tee upload.log
