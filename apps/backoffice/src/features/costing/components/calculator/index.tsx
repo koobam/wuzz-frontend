@@ -32,7 +32,7 @@ export function Calculator({ costing }: { costing: ServiceCosting }) {
               )}
             />
           ))}
-          <TextField label={`${t('costing.calc.qty')} (${costing.service.unit})`} inputMode="decimal" placeholder={t('costing.calc.qtyPlaceholder')} error={formState.errors.qty?.message} {...register('qty')} />
+          <TextField label={`${t('costing.calc.qty')} (${costing.service.unit})`} required inputMode="decimal" placeholder={t('costing.calc.qtyPlaceholder')} error={formState.errors.qty?.message} {...register('qty')} />
           <Button type="submit" variant="primary" size="lg" disabled={!formState.isValid || pending}>{t('costing.calc.run')}</Button>
         </div>
         {costing.modifier_groups.length > 0 && (

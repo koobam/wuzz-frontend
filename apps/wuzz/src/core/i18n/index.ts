@@ -20,12 +20,16 @@ const locales: Record<string, Record<string, unknown>> = {
       home: require('../../../public/locales/en/home.json'),
       outlet: require('../../../public/locales/en/outlet.json'),
       history: require('../../../public/locales/en/history.json'),
+      login: require('../../../public/locales/en/auth/login.json'),
+      register: require('../../../public/locales/en/auth/register.json'),
     },
     id: {
       common: require('../../../public/locales/id/common.json'),
       home: require('../../../public/locales/id/home.json'),
       outlet: require('../../../public/locales/id/outlet.json'),
       history: require('../../../public/locales/id/history.json'),
+      login: require('../../../public/locales/id/auth/login.json'),
+      register: require('../../../public/locales/id/auth/register.json'),
     },
   };
 

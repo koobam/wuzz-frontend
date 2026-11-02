@@ -5,5 +5,51 @@
     "createAccount": "Create Account",
     "selectCountry": "Select Country",
     "selectCountryDescription": "Choose the appropriate country phone code",
-    "searchCountry": "Search Country..."
+    "searchCountry": "Search Country...",
+    "title": "Ready to Level Up? 🎮",
+    "subtitle": "Enter your phone number to continue to your first mission.",
+    "sendCode": "Continue",
+    "sendingCode": "Please wait...",
+    "noAccount": "Don't have an account?",
+    "register": "Sign up",
+    "country": {
+        "title": "Choose a country",
+        "description": "The country code your phone number starts with"
+    },
+    "errors": {
+        "phoneRequired": "Phone number is required",
+        "phoneInvalid": "Phone number is not valid"
+    },
+    "pin": {
+        "title": "Enter your PIN",
+        "description": "{{length}}-digit PIN for {{phone}}",
+        "yourAccount": "your account",
+        "wrong": "Wrong PIN. Try again.",
+        "useFace": "Sign in with Face ID",
+        "facePrompt": "Sign in to Wuzz",
+        "forgot": "Forgot PIN? Send a code to my phone"
+    },
+    "createPin": {
+        "title": "Create a PIN",
+        "confirmTitle": "Repeat the PIN",
+        "description": "{{length}} digits to sign in next time, with no SMS code",
+        "confirmDescription": "Type the same PIN once more",
+        "mismatch": "The PINs don't match. Start again.",
+        "later": "Maybe later",
+        "doneTitle": "PIN created",
+        "doneDescription": "Next time, just sign in with your PIN."
+    },
+    "verification": {
+        "title": "Enter the code",
+        "description": "{{length}}-digit code sent to {{phone}}",
+        "descriptionNoPhone": "{{length}}-digit code from the SMS",
+        "wrong": "The code is wrong or has expired. Try again.",
+        "verify": "Verify",
+        "verifying": "Verifying...",
+        "noCode": "Didn't get a code? ",
+        "resend": "Resend",
+        "resendIn": "Resend in {{seconds}}s",
+        "sentTitle": "Code sent",
+        "sentDescription": "Check the SMS on {{phone}}"
+    }
 }

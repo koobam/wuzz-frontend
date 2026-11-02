@@ -1,8 +1,9 @@
 import { api, del, patch, post, put, qs } from '@/core/http';
 import type { Page } from '@/core/http';
-import type { Banner, BannerBody, BannersParams, BannerStatus, BannerTargetType } from './banners.types';
+import type { Banner, BannerBody, BannerPlacement, BannersParams, BannerStatus, BannerTargetType } from './banners.types';
 
 export const BANNER_TARGETS: BannerTargetType[] = ['none', 'service', 'outlet', 'screen', 'external'];
+export const BANNER_PLACEMENTS: BannerPlacement[] = ['home', 'login'];
 
 /** One page of banners, searched, filtered and sorted by the server. */
 export const listBannersPage = (p: BannersParams, signal?: AbortSignal) => api<Page<Banner>>(`/banners${qs(p)}`, { signal });

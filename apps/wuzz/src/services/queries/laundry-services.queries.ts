@@ -4,7 +4,7 @@ import {
   laundryServiceDetail,
 } from '@api/laundry-services';
 import type { LaundryServicesParams } from '@api/laundry-services.types';
-import { queryClient } from '@core/query-client';
+import { queryClient } from '@wuzz/native/query';
 
 /**
  * Hasil prefetch hanya untuk pemuatan pertama (data belum ada). Kalau tetap

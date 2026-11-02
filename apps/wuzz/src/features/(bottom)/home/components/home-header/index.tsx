@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
 import MaskedView from '@react-native-masked-view/masked-view';
@@ -26,19 +27,25 @@ import type { HomeHeaderProps } from './home-header.types';
 const HEADER_ICON_SIZE = 20;
 
 type PointsButtonProps = { points: number };
-const PointsButton = memo(({ points }: PointsButtonProps) => (
-  <Pressable style={styles.pointsPressable} removeClippedSubviews>
-    <GlassBlur />
-    <Coin1
-      color={theme.pallate.secondary['03']}
-      size={HEADER_ICON_SIZE}
-      variant="Bulk"
-    />
-    <Text type="l1" weight="bold" numberOfLines={1}>
-      {`${new Intl.NumberFormat('id-ID').format(points)} pts`}
-    </Text>
-  </Pressable>
-));
+const PointsButton = memo(({ points }: PointsButtonProps) => {
+  const { t } = useTranslation('home');
+
+  return (
+    <Pressable style={styles.pointsPressable} removeClippedSubviews>
+      <GlassBlur />
+      <Coin1
+        color={theme.pallate.secondary['03']}
+        size={HEADER_ICON_SIZE}
+        variant="Bulk"
+      />
+      <Text type="l1" weight="bold" numberOfLines={1}>
+        {t('header.points', {
+          points: new Intl.NumberFormat('id-ID').format(points),
+        })}
+      </Text>
+    </Pressable>
+  );
+});
 PointsButton.displayName = 'PointsButton';
 
 const MessageButton = memo(() => (
@@ -54,19 +61,23 @@ const MessageButton = memo(() => (
 MessageButton.displayName = 'MessageButton';
 
 type LoginButtonProps = { onPress: () => void };
-const LoginButton = memo(({ onPress }: LoginButtonProps) => (
-  <Pressable
-    style={styles.loginPressable}
-    onPress={onPress}
-    removeClippedSubviews
-  >
-    <GlassBlur />
-    <Login size={20} color={theme.pallate.neutral['05']} />
-    <Text type="l1" weight="semibold" color={theme.pallate.neutral['05']}>
-      Masuk / Daftar
-    </Text>
-  </Pressable>
-));
+const LoginButton = memo(({ onPress }: LoginButtonProps) => {
+  const { t } = useTranslation('home');
+
+  return (
+    <Pressable
+      style={styles.loginPressable}
+      onPress={onPress}
+      removeClippedSubviews
+    >
+      <GlassBlur />
+      <Login size={20} color={theme.pallate.neutral['05']} />
+      <Text type="b2" weight="bold" color={theme.pallate.neutral['05']}>
+        {t('header.login')}
+      </Text>
+    </Pressable>
+  );
+});
 LoginButton.displayName = 'LoginButton';
 
 /** Height of the row itself (the 45px buttons) plus breathing room below. */
@@ -86,39 +97,43 @@ const BLUR_MASK_STEPS = 24;
 type LocationCardProps = { label: string };
 
 /** "Your Current Location" as a card, so it reads on any photo behind it. */
-const LocationCard = memo(({ label }: LocationCardProps) => (
-  <HStack
-    self="flex-start"
-    items="center"
-    fill
-    gap={theme.spacing.small}
-    height={HEADER_ROW_HEIGHT}
-    padding={{ paddingHorizontal: HEADER_BUTTON_PADDING }}
-    borderRadius={HEADER_BUTTON_RADIUS}
-    style={glassSurface}
-  >
-    <GlassBlur />
-    <Location
-      size={HEADER_ICON_SIZE}
-      variant="Bold"
-      color={theme.pallate.secondary['03']}
-    />
-    <VStack fill>
-      <Text type="l2" color={theme.pallate.neutral['04']} numberOfLines={1}>
-        Your Location
-      </Text>
-      <Text
-        type="l1"
-        weight="bold"
-        color={theme.pallate.neutral['05']}
-        numberOfLines={1}
-      >
-        {label}
-      </Text>
-    </VStack>
-    <IconChevronDown size={18} color={theme.pallate.neutral['04']} />
-  </HStack>
-));
+const LocationCard = memo(({ label }: LocationCardProps) => {
+  const { t } = useTranslation('home');
+
+  return (
+    <HStack
+      self="flex-start"
+      items="center"
+      fill
+      gap={theme.spacing.small}
+      height={HEADER_ROW_HEIGHT}
+      padding={{ paddingHorizontal: HEADER_BUTTON_PADDING }}
+      borderRadius={HEADER_BUTTON_RADIUS}
+      style={glassSurface}
+    >
+      <GlassBlur />
+      <Location
+        size={HEADER_ICON_SIZE}
+        variant="Bold"
+        color={theme.pallate.secondary['03']}
+      />
+      <VStack fill>
+        <Text type="l2" color={theme.pallate.neutral['04']} numberOfLines={1}>
+          {t('header.location')}
+        </Text>
+        <Text
+          type="l1"
+          weight="bold"
+          color={theme.pallate.neutral['05']}
+          numberOfLines={1}
+        >
+          {label}
+        </Text>
+      </VStack>
+      <IconChevronDown size={18} color={theme.pallate.neutral['04']} />
+    </HStack>
+  );
+});
 LocationCard.displayName = 'LocationCard';
 
 /** Height the header occupies at the top of the screen (status bar included). */
@@ -155,12 +170,10 @@ export const HomeHeader = memo(
     const rowDistance = getHomeHeaderHeight(topInset);
     const glassDistance = HEADER_ROW_HEIGHT + HEADER_ROW_PADDING_BOTTOM;
     const rowSlideStyle = useAnimatedStyle(
-      () => slide(rowDistance),
-      [hidden, rowDistance],
+      () => slide(rowDistance)
     );
     const glassSlideStyle = useAnimatedStyle(
-      () => slide(glassDistance),
-      [hidden, glassDistance],
+      () => slide(glassDistance)
     );
 
     return (

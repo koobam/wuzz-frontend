@@ -7,7 +7,7 @@ import { VerificationMethod } from '../config';
 
 // Module-level constants — created once, never re-allocated on re-render
 const USERNAME_LEFT_ICON = (
-  <Text type="b2" color={theme.pallate.neutral['05']} weight="medium">
+  <Text type="b1" color={theme.pallate.neutral['05']} weight="medium">
     wuzz.app/
   </Text>
 );
@@ -32,6 +32,8 @@ export const getFieldConfig = ({
   username: {
     placeholder: 'username',
     leftIcon: USERNAME_LEFT_ICON,
+    // A step up from the other fields' 16: what the person types is their handle, the point of this step.
+    inputStyle: { fontSize: 18 },
     autoCapitalize: 'none' as const,
     autoCorrect: false,
     error: errors.username?.message,

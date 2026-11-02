@@ -1,6 +1,6 @@
 import { Linking } from 'react-native';
 import type { LinkingOptions } from '@react-navigation/native';
-import { openDeeplink, parseDeeplink } from '@navigation/deeplink';
+import { openDeeplink, parseDeeplink, SCHEME_PREFIX } from '@navigation/deeplink';
 import { ROOT_ROUTES } from './_routes';
 import type { RootStackParamList } from './root.types';
 
@@ -15,7 +15,7 @@ import type { RootStackParamList } from './root.types';
  * `openDeeplink`, so it gets the same checks and the same login hold as a banner tap; the router's own
  * path table below never sees it. Every other link falls through to that table unchanged.
  */
-const isVocabularyLink = (url: string) => url.startsWith('wuzz://') && parseDeeplink(url) !== null;
+const isVocabularyLink = (url: string) => url.startsWith(SCHEME_PREFIX) && parseDeeplink(url) !== null;
 
 /** Set when the app was opened by a vocabulary link: Root opens it once the navigator is ready. */
 let initialDeeplink: string | null = null;
@@ -26,7 +26,7 @@ export const takeInitialDeeplink = () => {
 };
 
 export const linking: LinkingOptions<RootStackParamList> = {
-  prefixes: ['wuzz://'],
+  prefixes: [SCHEME_PREFIX],
   async getInitialURL() {
     const url = await Linking.getInitialURL();
     if (url && isVocabularyLink(url)) {
@@ -50,6 +50,7 @@ export const linking: LinkingOptions<RootStackParamList> = {
           menu: 'menu',
           support: 'support',
           history: 'history',
+          mission: 'mission',
           profile: 'profile',
         },
       },

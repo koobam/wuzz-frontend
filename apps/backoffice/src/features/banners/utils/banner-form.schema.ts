@@ -1,10 +1,10 @@
 import { z } from 'zod';
-import { BANNER_TARGETS, type Banner, type BannerBody, type BannerStatus, type BannerTargetType } from '@/core/api';
+import { BANNER_PLACEMENTS, BANNER_TARGETS, type Banner, type BannerBody, type BannerPlacement, type BannerStatus, type BannerTargetType } from '@/core/api';
 
 type T = (key: string, options?: Record<string, unknown>) => string;
 
-/** The size of the picture the customer app draws (width : height). */
-export const BANNER_RATIO = { width: 16, height: 9 };
+/** The size of the picture the customer app draws (width : height): the home banner box is about square (0.85 x the screen width + 64 of overlap tall, see home-banner in apps/wuzz). */
+export const BANNER_RATIO = { width: 1, height: 1 };
 export const MAX_TITLE = 120;
 export const MAX_NOTES = 500;
 
@@ -44,6 +44,7 @@ export const bannerSchema = (t: T) =>
       target_type: z.custom<BannerTargetType>((v) => BANNER_TARGETS.includes(v as BannerTargetType)),
       target_value: z.string().trim(),
       status: z.custom<BannerStatus>((v) => v === 'active' || v === 'inactive'),
+      placement: z.custom<BannerPlacement>((v) => BANNER_PLACEMENTS.includes(v as BannerPlacement)),
       starts_at: z.string(),
       ends_at: z.string(),
       scope: z.enum(['all', 'some']),
@@ -69,6 +70,7 @@ export const blankBanner = (): BannerValues => ({
   target_type: 'none',
   target_value: '',
   status: 'inactive',
+  placement: 'home',
   starts_at: '',
   ends_at: '',
   scope: 'all',
@@ -82,6 +84,7 @@ export const bannerValues = (b: Banner): BannerValues => ({
   target_type: b.target_type,
   target_value: b.target_value,
   status: b.status,
+  placement: b.placement,
   starts_at: toLocalInput(b.starts_at),
   ends_at: toLocalInput(b.ends_at),
   scope: b.outlet_ids.length > 0 ? 'some' : 'all',
@@ -96,6 +99,7 @@ export const bannerBody = (v: BannerValues): BannerBody => ({
   target_type: v.target_type,
   target_value: v.target_type === 'none' ? '' : v.target_value.trim(),
   status: v.status,
+  placement: v.placement,
   starts_at: fromLocalInput(v.starts_at),
   ends_at: fromLocalInput(v.ends_at),
   outlet_ids: v.scope === 'all' ? [] : v.outlet_ids,

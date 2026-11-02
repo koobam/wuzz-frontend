@@ -4,7 +4,7 @@ import { prepare } from '../../../core/text/prepare'
 import { layout, layoutWithLines } from '../../../core/text/layout'
 import TextStyle, { createTextMarginStyle, createPaddingStyle } from './text.style'
 import type { TextProps } from './text.types'
-import { getResponsiveValue } from '@wuzz/ui'
+import { getResponsiveValue } from '@wuzz/native/components'
 import { useWindowDimensions } from 'react-native'
 
 const TYPE_SIZE: Record<string, number> = {

@@ -37,7 +37,7 @@ export const MenuHeader = memo((props: MenuHeaderProps) => {
       opacity: interpolate(p, [0, 1], [1, 0]),
       overflow: 'hidden' as const,
     };
-  }, [collapseProgress]);
+  });
 
   const showBadge = outletServices != null && outletServices.length > 0;
   const locationColor = useMemo(() => {

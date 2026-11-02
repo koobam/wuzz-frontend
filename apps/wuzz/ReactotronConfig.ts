@@ -2,7 +2,7 @@
  * Reactotron – hanya dijalankan saat __DEV__ (dipanggil dari index.js dengan guard).
  * Debug: network, AsyncStorage, React Query cache, log, dll.
  */
-import { queryClient } from '@core/query-client';
+import { queryClient } from '@wuzz/native/query';
 import Reactotron from 'reactotron-react-native';
 import {
   QueryClientManager,

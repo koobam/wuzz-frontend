@@ -23,6 +23,7 @@ import { useBottomNavHeight } from '@services/contexts/bottom-nav-height';
 import { useOrderDraft } from '@services/contexts';
 import { Dimensions, StyleSheet, View } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
+import { useTranslation } from 'react-i18next';
 import { IS_IOS } from '../../../../env';
 
 /** Stronger than the shared glass (16): the cart sits over busy content and
@@ -132,6 +133,7 @@ const SCAN_CIRCLE_MENU = theme.pallate.coffee['03'];
 export const BottomNavigationBar = React.memo((props: BottomTabBarProps) => {
   const { state, descriptors, navigation } = props;
   const { bottom } = useSafeAreaInsets();
+  const { t } = useTranslation();
   const { isAuthenticated } = useAuthState();
   const { onLayout } = useBottomNavHeight();
   const { items, total } = useOrderDraft();
@@ -220,10 +222,10 @@ export const BottomNavigationBar = React.memo((props: BottomTabBarProps) => {
                 weight="semibold"
                 color={theme.pallate.neutral['05']}
               >
-                Bingung mau pesan apa?
+                {t('bottomBar.help.title')}
               </Text>
               <Text type="l2" color={theme.pallate.neutral['04']}>
-                Tanya kami, kami bantu pilihkan.
+                {t('bottomBar.help.subtitle')}
               </Text>
             </VStack>
             <VStack style={styles.arrow}>
@@ -346,7 +348,7 @@ export const BottomNavigationBar = React.memo((props: BottomTabBarProps) => {
               type="l1"
               weight="bold"
               color={theme.pallate.neutral['01']}
-              text="Keranjang Belanja"
+              text={t('bottomBar.cart')}
             />
           </Animated.View>
         </VStack>
@@ -512,7 +514,7 @@ export const BottomNavigationBar = React.memo((props: BottomTabBarProps) => {
                   type="l1"
                   color={theme.pallate.neutral['04']}
                   weight="medium"
-                  text="Message"
+                  text={t('tabs.message')}
                 />
               </Pressable>
             );

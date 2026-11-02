@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Send2, Star1 } from 'iconsax-react-native';
 import { Button, HStack, Text, theme, VStack } from '@components/atoms';
 import Image from '@components/atoms/image';
@@ -28,63 +29,73 @@ type WuzzerCardProps = {
 };
 
 export const WuzzerCard = memo(
-  ({ wuzzer, selected, fullWidth = false, onCall }: WuzzerCardProps) => (
-    <HStack
-      width={fullWidth ? undefined : WUZZER_CARD_WIDTH}
-      backgroundColor={selected ? theme.pallate.primary['01'] : undefined}
-      height={WUZZER_CARD_HEIGHT}
-      items="center"
-      justify={fullWidth ? 'flex-start' : 'center'}
-      gap={theme.spacing.standard}
-    >
-      <VStack items="center">
-        <Image uri={wuzzer.photoUri} resizeMode="cover" style={styles.avatar} />
-        {wuzzer.rating != null && (
-          <HStack
-            items="center"
-            gap={2}
-            style={styles.rating}
-            backgroundColor={theme.pallate.neutral['05']}
-            borderRadius={10}
-            padding={{
-              paddingVertical: 2,
-              paddingHorizontal: theme.spacing.small,
-            }}
-          >
-            <Star1
-              size={13}
-              variant="Bold"
-              color={theme.pallate.secondary['03']}
-            />
-            <Text type="l1" weight="bold" color={theme.pallate.neutral['01']}>
-              {wuzzer.rating.toFixed(1)}
-            </Text>
-          </HStack>
-        )}
-      </VStack>
-      <VStack fill={fullWidth}>
-        <Text type="b2" weight="bold" numberOfLines={1}>
-          {wuzzer.name}
-        </Text>
-        <Text type="l1" color={theme.pallate.neutral['04']} numberOfLines={1}>
-          {`${formatDistance(wuzzer.distanceKm)} dari kamu`}
-        </Text>
-      </VStack>
-      <Button
-        rounded
-        size="sm"
-        variant="primary"
-        direction="row"
-        gap={theme.spacing.small}
-        onPress={onCall != null ? () => onCall(wuzzer) : undefined}
+  ({ wuzzer, selected, fullWidth = false, onCall }: WuzzerCardProps) => {
+    const { t } = useTranslation('home');
+
+    return (
+      <HStack
+        width={fullWidth ? undefined : WUZZER_CARD_WIDTH}
+        backgroundColor={selected ? theme.pallate.primary['01'] : undefined}
+        height={WUZZER_CARD_HEIGHT}
+        items="center"
+        justify={fullWidth ? 'flex-start' : 'center'}
+        gap={theme.spacing.standard}
       >
-        <Send2 size={16} variant="Bold" color={theme.pallate.neutral['01']} />
-        <Text type="l1" weight="semibold" color={theme.pallate.neutral['01']}>
-          Pesan
-        </Text>
-      </Button>
-    </HStack>
-  ),
+        <VStack items="center">
+          <Image
+            uri={wuzzer.photoUri}
+            resizeMode="cover"
+            style={styles.avatar}
+          />
+          {wuzzer.rating != null && (
+            <HStack
+              items="center"
+              gap={2}
+              style={styles.rating}
+              backgroundColor={theme.pallate.neutral['05']}
+              borderRadius={10}
+              padding={{
+                paddingVertical: 2,
+                paddingHorizontal: theme.spacing.small,
+              }}
+            >
+              <Star1
+                size={13}
+                variant="Bold"
+                color={theme.pallate.secondary['03']}
+              />
+              <Text type="l1" weight="bold" color={theme.pallate.neutral['01']}>
+                {wuzzer.rating.toFixed(1)}
+              </Text>
+            </HStack>
+          )}
+        </VStack>
+        <VStack fill={fullWidth}>
+          <Text type="b2" weight="bold" numberOfLines={1}>
+            {wuzzer.name}
+          </Text>
+          <Text type="l1" color={theme.pallate.neutral['04']} numberOfLines={1}>
+            {t('wuzzerNearby.distance', {
+              distance: formatDistance(wuzzer.distanceKm),
+            })}
+          </Text>
+        </VStack>
+        <Button
+          rounded
+          size="sm"
+          variant="primary"
+          direction="row"
+          gap={theme.spacing.small}
+          onPress={onCall != null ? () => onCall(wuzzer) : undefined}
+        >
+          <Send2 size={16} variant="Bold" color={theme.pallate.neutral['01']} />
+          <Text type="l1" weight="semibold" color={theme.pallate.neutral['01']}>
+            {t('wuzzerNearby.order')}
+          </Text>
+        </Button>
+      </HStack>
+    );
+  },
 );
 WuzzerCard.displayName = 'WuzzerCard';
 

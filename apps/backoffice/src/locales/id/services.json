@@ -49,6 +49,8 @@
       "createTitle": "Tambah layanan",
       "editTitle": "Ubah layanan",
       "basics": "Informasi dasar",
+      "iconTitle": "Ikon",
+      "iconDescription": "Gambar yang ditampilkan aplikasi untuk layanan ini di beranda. Paling bagus persegi, PNG atau WebP dengan latar transparan. Tanpa gambar, aplikasi memakai ikon bawaannya.",
       "pricing": "Harga dan pajak",
       "groupsTitle": "Varian dan add-on",
       "name": "Nama",

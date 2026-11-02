@@ -1,4 +1,5 @@
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BoxAnimated, Flex, Pressable, theme } from '@components/atoms';
 import {
   Extrapolation,
@@ -15,6 +16,7 @@ export const BannerDot = memo(({
   screenWidth,
   onPress,
 }: BannerDotProps) => {
+  const { t } = useTranslation('home');
   const handlePress = useCallback(() => {
     onPress(index);
   }, [onPress, index]);
@@ -48,7 +50,7 @@ export const BannerDot = memo(({
     <Pressable
       onPress={handlePress}
       accessibilityRole="button"
-      accessibilityLabel={`Slide ${index + 1} of ${count}`}
+      accessibilityLabel={t('banner.slide', { current: index + 1, count })}
     >
       <Flex
         borderRadius={999}

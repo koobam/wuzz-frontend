@@ -24,7 +24,7 @@ export function VariantForm({ group, onSaved, onCancel }: { group?: VariantGroup
       onSubmit={f.submit}
       onCancel={onCancel}
     >
-      <OptionList heads={[t('groups.optionName'), t('groups.variants.delta'), t('groups.active')]} lead description={t('groups.variants.pickOneNote')} canAdd={f.canAdd} onAdd={f.add}>
+      <OptionList heads={[`${t('groups.optionName')} *`, `${t('groups.variants.delta')} *`, t('groups.active')]} lead description={t('groups.variants.pickOneNote')} canAdd={f.canAdd} onAdd={f.add}>
         {f.rows.map((row, i) => (
           <div key={row.id} className={`grid items-start gap-2 sm:gap-3 ${optionRowGrid(true)}`}>
             <label className="flex items-center gap-2 text-xs sm:justify-center sm:pt-3.5" title={t('groups.variants.defaultHint')}>

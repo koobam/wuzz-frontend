@@ -11,7 +11,7 @@ const CARD_BORDER_RADIUS = 20;
 /** How far the pill sits above the card's top edge. Most of it hangs outside;
  *  only a sliver overlaps down onto the card, which is what makes it read as
  *  attached to the card rather than dropped on top of it. Mirrors reddog's
- *  shared OutletCard (libs/ui), which uses the same pill for its menu header. */
+ *  shared OutletCard (libs/native), which uses the same pill for its menu header. */
 const PILL_OVERHANG = 15;
 /** Sticker tilt, in degrees, applied anticlockwise. */
 const PILL_TILT_DEG = 3;

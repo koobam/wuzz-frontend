@@ -41,9 +41,9 @@ export function BannerTargetField({
   return (
     <div className="grid gap-4 sm:grid-cols-2">
       {type === 'external' ? (
-        <TextField label={label} hint={t('banners.form.externalHint')} placeholder={t('banners.form.externalPlaceholder')} type="url" inputMode="url" maxLength={500} error={error} value={value} onChange={(e) => onChange(e.target.value)} />
+        <TextField label={label} required hint={t('banners.form.externalHint')} placeholder={t('banners.form.externalPlaceholder')} type="url" inputMode="url" maxLength={500} error={error} value={value} onChange={(e) => onChange(e.target.value)} />
       ) : (
-        <Field label={label} error={error} hint={loading ? t('banners.form.loadingChoices') : undefined}>
+        <Field label={label} required error={error} hint={loading ? t('banners.form.loadingChoices') : undefined}>
           {(id) =>
             type === 'screen' ? (
               <Select

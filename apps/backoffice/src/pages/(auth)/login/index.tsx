@@ -37,6 +37,7 @@ export function LoginPage() {
 
         <TextField
           label={t('login.phonePlaceholder')}
+          required
           type="tel"
           inputMode="tel"
           placeholder="0812…"
@@ -48,6 +49,7 @@ export function LoginPage() {
         {sent && (
           <TextField
             label={t('login.codePlaceholder')}
+            required
             inputMode="numeric"
             autoComplete="one-time-code"
             placeholder="••••••"

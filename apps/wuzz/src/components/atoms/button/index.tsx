@@ -4,6 +4,9 @@ import theme from '../theme';
 import GesturePressable from '../gesture-pressable';
 import { GesturePressableProps } from '../gesture-pressable/gesture-pressable.types';
 
+/** The primary button's colour: the palette's blue, a step softer than its pure value. */
+const PRIMARY_FILL = '#2D39F2';
+
 const button = sv({
   base: {
     alignItems: 'center',
@@ -34,7 +37,8 @@ const button = sv({
     },
     variant: {
       primary: {
-        backgroundColor: theme.pallate.primary['03'],
+        // A flat fill, not the palette's pure blue: a touch softer. (A gradient looked better but cost a native view per button.)
+        backgroundColor: PRIMARY_FILL,
       },
       secondary: {
         borderColor: theme.pallate.neutral['03'],
@@ -97,7 +101,9 @@ export const Button = React.memo((props: ButtonProps) => {
       style={buttonStyles}
       items="center"
       justify="center"
-    />
+    >
+      {props.children}
+    </GesturePressable>
   );
 });
 

@@ -85,6 +85,11 @@ export function useBannersColumns(targetName: (b: Pick<Banner, 'target_type' | '
           ),
       },
       {
+        id: 'placement',
+        header: t('banners.columns.placement'),
+        cell: ({ row: { original: b } }) => <Badge tone="muted">{t(`banners.form.placement${b.placement === 'login' ? 'Login' : 'Home'}`)}</Badge>,
+      },
+      {
         accessorKey: 'status',
         header: t('banners.columns.status'),
         cell: ({ row: { original: b } }) => {

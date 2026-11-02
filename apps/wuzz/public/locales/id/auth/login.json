@@ -5,5 +5,51 @@
     "createAccount": "Buat Akun",
     "selectCountry": "Pilih Negara",
     "selectCountryDescription": "Pilih kode nomor handphone negara yang sesuai",
-    "searchCountry": "Cari Negara..."
+    "searchCountry": "Cari Negara...",
+    "title": "Siap Naik Level? 🎮",
+    "subtitle": "Masukkan nomor HP-mu untuk lanjut ke misi pertamamu.",
+    "sendCode": "Lanjut",
+    "sendingCode": "Memproses...",
+    "noAccount": "Belum punya akun?",
+    "register": "Daftar",
+    "country": {
+        "title": "Pilih negara",
+        "description": "Kode negara di depan nomor HP-mu"
+    },
+    "errors": {
+        "phoneRequired": "Nomor HP wajib diisi",
+        "phoneInvalid": "Nomor HP tidak valid"
+    },
+    "pin": {
+        "title": "Masukkan PIN",
+        "description": "PIN {{length}} digit untuk {{phone}}",
+        "yourAccount": "akunmu",
+        "wrong": "PIN salah. Coba lagi.",
+        "useFace": "Masuk dengan Face ID",
+        "facePrompt": "Masuk ke Wuzz",
+        "forgot": "Lupa PIN? Kirim kode ke HP"
+    },
+    "createPin": {
+        "title": "Buat PIN",
+        "confirmTitle": "Ulangi PIN",
+        "description": "{{length}} digit untuk masuk lain kali, tanpa kode SMS",
+        "confirmDescription": "Ketik PIN yang sama sekali lagi",
+        "mismatch": "PIN tidak sama. Mulai lagi.",
+        "later": "Nanti saja",
+        "doneTitle": "PIN dibuat",
+        "doneDescription": "Lain kali masuk cukup dengan PIN."
+    },
+    "verification": {
+        "title": "Masukkan kode",
+        "description": "Kode {{length}} digit dikirim ke {{phone}}",
+        "descriptionNoPhone": "Kode {{length}} digit dari SMS",
+        "wrong": "Kode salah atau sudah kedaluwarsa. Coba lagi.",
+        "verify": "Verifikasi",
+        "verifying": "Memverifikasi...",
+        "noCode": "Belum menerima kode? ",
+        "resend": "Kirim ulang",
+        "resendIn": "Kirim ulang dalam {{seconds}}d",
+        "sentTitle": "Kode terkirim",
+        "sentDescription": "Cek SMS di {{phone}}"
+    }
 }

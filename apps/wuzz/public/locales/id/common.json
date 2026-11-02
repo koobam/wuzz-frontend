@@ -6,6 +6,7 @@
     "phoneNumber": "Nomor Handphone",
     "changeLanguageTitle": "Ubah Bahasa",
     "changeLanguageSubtitle": "Pilih bahasa yang Anda inginkan",
+    "selected": "Terpilih",
     "signIn": "Masuk",
     "signUp": "Daftar",
     "firstName": "Nama Depan",
@@ -17,5 +18,24 @@
             "title": "Ups, ada yang kurang beres!",
             "description": "Tenang, kita sedang memperbaikinya. Coba lagi nanti ya! 😊"
         }
+    },
+    "tabs": {
+        "home": "Beranda",
+        "history": "Riwayat",
+        "message": "Pesan",
+        "mission": "Misi",
+        "profile": "Profil"
+    },
+    "mission": {
+        "title": "Misi",
+        "emptyTitle": "Belum ada misi",
+        "emptyDescription": "Selesaikan misi untuk mengumpulkan poin dan hadiah. Misi akan muncul di sini."
+    },
+    "bottomBar": {
+        "help": {
+            "title": "Bingung mau pesan apa?",
+            "subtitle": "Tanya kami, kami bantu pilihkan."
+        },
+        "cart": "Keranjang Belanja"
     }
 }

@@ -40,6 +40,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     return true
   }
+
+  // A link of the app's own scheme (wuzz:// or wuzz-stg://): without this the OS opens the app but React Native never hears of the URL,
+  // so Linking, and the deeplinks built on it, do nothing on iOS.
+  func application(
+    _ app: UIApplication,
+    open url: URL,
+    options: [UIApplication.OpenURLOptionsKey: Any] = [:]
+  ) -> Bool {
+    return RCTLinkingManager.application(app, open: url, options: options)
+  }
 }
 
 /// One Firebase app per bundle id (.dev, .staging, production), each with its own

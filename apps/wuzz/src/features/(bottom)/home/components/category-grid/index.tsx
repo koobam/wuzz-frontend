@@ -104,26 +104,28 @@ export const CategoryGrid = memo(
               )
             }
             title={
-              network ? 'Tidak ada koneksi internet' : 'Gagal memuat layanan'
+              network
+                ? t('category.error.noConnection')
+                : t('category.error.loadFailed')
             }
             description={
               network
-                ? 'Periksa koneksi internetmu lalu coba lagi.'
-                : errorMessage ?? 'Terjadi kesalahan. Coba lagi nanti.'
+                ? t('category.error.checkConnection')
+                : errorMessage ?? t('category.error.generic')
             }
             primaryButton={
-              onRetry ? { label: 'Muat ulang', onPress: onRetry } : undefined
+              onRetry ? { label: t('category.error.reload'), onPress: onRetry } : undefined
             }
             secondaryButton={
               network
                 ? {
-                    label: 'Pengaturan',
+                    label: t('category.error.settings'),
                     onPress: () => {
                       Linking.openSettings();
                     },
                   }
                 : {
-                    label: 'Perlu Bantuan ?',
+                    label: t('category.error.needHelp'),
                     onPress: () => {
                       Linking.openSettings();
                     },
@@ -144,10 +146,10 @@ export const CategoryGrid = memo(
                 variant="Linear"
               />
             }
-            title="Belum ada layanan"
-            description="Kategori layanan belum tersedia saat ini."
+            title={t('category.empty.title')}
+            description={t('category.empty.description')}
             primaryButton={
-              onRetry ? { label: 'Muat ulang', onPress: onRetry } : undefined
+              onRetry ? { label: t('category.error.reload'), onPress: onRetry } : undefined
             }
           />
         );
@@ -174,6 +176,7 @@ export const CategoryGrid = memo(
       onRetry,
       columns,
       renderColumn,
+      t,
     ]);
 
     return (

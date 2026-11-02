@@ -22,5 +22,5 @@ export function useStretchyBannerStyle({
       height: height + bounce,
       marginTop: -bounce,
     };
-  }, [width, height]);
+  });
 }

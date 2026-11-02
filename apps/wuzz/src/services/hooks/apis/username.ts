@@ -30,6 +30,6 @@ export const useCheckUsernameAvailability = (username: string, enabled = true) =
         ...usernameQueries.availability(username),
         enabled: enabled && username.trim().length >= 2,
         gcTime: 30 * 1000, // 5 minutes
-        select: (data) => data?.success ?? false,
+        select: (data) => data?.data?.available ?? false,
     });
 }

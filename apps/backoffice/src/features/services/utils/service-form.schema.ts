@@ -18,6 +18,9 @@ export const serviceSchema = (t: T) =>
     active: z.boolean(),
     variant_group_ids: z.array(z.number()),
     modifier_group_ids: z.array(z.number()),
+    /** The icon picture: its media id is what is saved, its address is only for the preview. */
+    icon_media_id: z.string(),
+    icon_url: z.string(),
   })
     .refine((v) => v.discount_type !== 'percent' || v.discount_input <= 100, { path: ['discount_input'], message: t('services.form.discountPercentMax') })
     .refine((v) => v.discount_type !== 'value' || v.discount_input <= v.price_before_tax, { path: ['discount_input'], message: t('services.form.discountTooBig') })
@@ -36,6 +39,8 @@ export const blankService = (): ServiceValues => ({
   active: true,
   variant_group_ids: [],
   modifier_group_ids: [],
+  icon_media_id: '',
+  icon_url: '',
 });
 
 export const serviceValues = (s: Service): ServiceValues => ({
@@ -50,11 +55,13 @@ export const serviceValues = (s: Service): ServiceValues => ({
   active: s.active,
   variant_group_ids: s.variant_groups.map((g) => g.id),
   modifier_group_ids: s.modifier_groups.map((g) => g.id),
+  icon_media_id: s.icon_media_id ?? '',
+  icon_url: s.icon_url ?? '',
 });
 
 /** The discount as the server stores it: whole rupiah, or basis points (12.5% -> 1250); nothing for `none`. */
 export const discountValueOf = (v: Pick<ServiceValues, 'discount_type' | 'discount_input'>) =>
   v.discount_type === 'percent' ? Math.round(v.discount_input * 100) : v.discount_type === 'value' ? v.discount_input : 0;
 
-/** What the form sends: the values less the typed discount, with the server's `discount_value`. */
-export const serviceBody = ({ discount_input: _typed, ...values }: ServiceValues): ServiceBody & { active: boolean } => ({ ...values, discount_value: discountValueOf({ discount_type: values.discount_type, discount_input: _typed }) });
+/** What the form sends: the values less the typed discount (with the server's `discount_value`) and less the icon's preview address. */
+export const serviceBody = ({ discount_input: _typed, icon_url: _preview, ...values }: ServiceValues): ServiceBody & { active: boolean } => ({ ...values, discount_value: discountValueOf({ discount_type: values.discount_type, discount_input: _typed }) });

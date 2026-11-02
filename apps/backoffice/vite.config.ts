@@ -18,6 +18,12 @@ export default defineConfig({
   },
   server: {
     port: 5174,
+    // Staging's CORS only lists the deployed admin origin, so a local dev server cannot call it from the browser. Set
+    // DEV_PROXY_TARGET (e.g. https://api-stg.wuzz.care) and point VITE_API_URL at http://localhost:<port>/stg-api to
+    // reach it through this server instead.
+    proxy: process.env.DEV_PROXY_TARGET
+      ? { '/stg-api': { target: process.env.DEV_PROXY_TARGET, changeOrigin: true, rewrite: (path) => path.replace(/^\/stg-api/, '') } }
+      : undefined,
   },
   build: {
     outDir: 'dist',

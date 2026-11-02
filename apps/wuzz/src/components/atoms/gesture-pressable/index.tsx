@@ -6,7 +6,7 @@ import {
   withTiming,
   runOnJS,
 } from 'react-native-reanimated';
-import { AnimatedStack } from '@wuzz/ui';
+import { AnimatedStack } from '@wuzz/native/components';
 import { ScrollStateContext } from '@services/contexts/scroll/scroll.context';
 import { GesturePressableProps } from './gesture-pressable.types';
 
@@ -249,7 +249,7 @@ export const GesturePressable: React.FC<GesturePressableProps> = React.memo(
         opacity: opacityValue.value,
         transform: [{ scale: scale.value }],
       };
-    }, [opacityValue, scale]);
+    });
 
     if (!combinedGesture) {
       // If no gesture handlers are provided, just render the stack without gesture detection

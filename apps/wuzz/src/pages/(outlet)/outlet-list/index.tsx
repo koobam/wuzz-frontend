@@ -143,8 +143,7 @@ const OutletList = memo((props: any) => {
       if (Math.abs(paddingBottom - lastPaddingBottom.value) < 2) return;
       lastPaddingBottom.value = paddingBottom;
       runOnJS(applyCameraPadding)(paddingBottom);
-    },
-    [applyCameraPadding, padMin, padMax],
+    }
   );
   // Sumber kebenaran selection = context global (di-init dari nearest, diubah
   // saat pilih dari daftar).

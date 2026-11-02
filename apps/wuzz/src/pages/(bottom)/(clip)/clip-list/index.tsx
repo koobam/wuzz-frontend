@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react';
-import { FlashList } from '@shopify/flash-list';
+import { AnimatedFlashList } from '@components/atoms/animated-flash-list';
 import { RefreshControl, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { theme } from '@components/atoms';
@@ -26,7 +26,7 @@ const ClipList = memo(() => {
     [top, logoAnimatedStyle],
   );
   return (
-    <FlashList
+    <AnimatedFlashList
       contentContainerStyle={styles.containerStyle}
       ItemSeparatorComponent={() => <ItemSeparator />}
       ListHeaderComponent={ListHeaderComponent}

@@ -1,9 +1,17 @@
 {
   "name": "wuzz-nitro-text",
   "version": "1.0.0",
+  "private": true,
   "description": "Nitro-powered text measurement for Wuzz",
   "main": "src/index.ts",
-  "files": ["src", "ios", "android", "nitrogen", "WuzzNitroText.podspec", "nitro.json"],
+  "files": [
+    "src",
+    "ios",
+    "android",
+    "nitrogen",
+    "WuzzNitroText.podspec",
+    "nitro.json"
+  ],
   "peerDependencies": {
     "react-native-nitro-modules": "*"
   }

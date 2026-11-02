@@ -1,7 +1,7 @@
 import { AlertCircle, ImageOff, RotateCcw, UploadCloud, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Button, cn, ZoomableImage } from '@wuzz/web-ui';
-import { IMAGE_TYPES, type UploadFolder } from '@/core/api';
+import { IMAGE_TYPES, type UploadedImage, type UploadFolder } from '@/core/api';
 import { useTranslation } from '@/core/utils/i18n';
 import { isShownImage } from '@/features/outlets/utils/outlet-form.schema';
 import { useBannerImageUpload } from '../../hooks/use-banner-image-upload';
@@ -11,7 +11,7 @@ import { BANNER_RATIO } from '../../utils/banner-form.schema';
  * The banner's picture: one drop zone at the carousel's proportions (drop a file on it or choose one). Once there is a picture
  * it fills the zone, opens the viewer when clicked, and can be replaced or removed; a file going up shows its progress over it.
  */
-export function BannerImage({ value, onChange, error, title = '', onUploadingChange, folder = 'banners', ratio = BANNER_RATIO }: { value: string; onChange: (url: string) => void; error?: string; title?: string; onUploadingChange?: (uploading: boolean) => void; folder?: UploadFolder; ratio?: { width: number; height: number } }) {
+export function BannerImage({ value, onChange, error, title = '', onUploadingChange, folder = 'banners', ratio = BANNER_RATIO }: { value: string; onChange: (url: string, saved?: UploadedImage) => void; error?: string; title?: string; onUploadingChange?: (uploading: boolean) => void; folder?: UploadFolder; ratio?: { width: number; height: number } }) {
   const { t } = useTranslation();
   const input = useRef<HTMLInputElement>(null);
   const [over, setOver] = useState(false);

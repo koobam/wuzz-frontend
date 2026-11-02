@@ -1,5 +1,26 @@
 {
     "title": "Create A New",
     "description": "Welcome! Let's get you started 🚀",
-    "alreadyHaveAccount?": "Already have an account?"
+    "alreadyHaveAccount?": "Already have an account?",
+    "story": {
+        "fullName": "Hi, I'm Kocheng! We haven't met. Who are you?",
+        "birthDate": "Psst, I'm Cicit. When's your birthday? Maybe I can deliver a gift to you!",
+        "birthDate_named": "Psst, {{name}}, I'm Cicit. When's your birthday? Maybe I can deliver a gift to you!",
+        "username": "Got it, {{birthDate}} noted! Before Kocheng sees, quick, tell me your nickname!",
+        "phone": "Great name, @{{username}}! Can I have your phone number?",
+        "phone_named": "Great name, @{{username}}! Can I have your phone number, {{name}}?",
+        "email": "Great name, @{{username}}! Can I have your email address?",
+        "email_named": "Great name, @{{username}}! Can I have your email address, {{name}}?"
+    },
+    "actions": {
+        "next": "Continue",
+        "finish": "Finish & Start",
+        "finishing": "Setting up your account...",
+        "next_birthDate": "Looks Right",
+        "next_username": "Use This Name"
+    },
+    "username": {
+        "checkFailed": "Couldn't check the username. Check your connection, then press continue again.",
+        "taken": "Username is not available"
+    }
 }

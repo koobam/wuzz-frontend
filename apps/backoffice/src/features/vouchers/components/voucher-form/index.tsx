@@ -184,7 +184,7 @@ export function VoucherForm({ voucher, onSaved, onCancel }: { voucher?: Voucher;
                   control={control}
                   name="outlet_ids"
                   render={({ field }) => (
-                    <Field label={t('vouchers.form.outletsPick')} error={errors.outlet_ids?.message}>
+                    <Field label={t('vouchers.form.outletsPick')} required error={errors.outlet_ids?.message}>
                       {(id) => <MultiSelect inputId={id} ariaLabel={t('vouchers.form.outletsPick')} placeholder={t('vouchers.form.outletsPlaceholder')} noOptionsText={t('vouchers.form.outletsNone')} loading={f.pickersLoading} value={field.value} onChange={field.onChange} options={f.outlets.map((o) => ({ value: o.id, label: o.name }))} />}
                     </Field>
                   )}
@@ -202,7 +202,7 @@ export function VoucherForm({ voucher, onSaved, onCancel }: { voucher?: Voucher;
                   control={control}
                   name="service_ids"
                   render={({ field }) => (
-                    <Field label={t('vouchers.form.servicesPick')} error={errors.service_ids?.message}>
+                    <Field label={t('vouchers.form.servicesPick')} required error={errors.service_ids?.message}>
                       {(id) => <MultiSelect inputId={id} ariaLabel={t('vouchers.form.servicesPick')} placeholder={t('vouchers.form.servicesPlaceholder')} noOptionsText={t('vouchers.form.servicesNone')} loading={f.pickersLoading} value={field.value} onChange={field.onChange} options={f.services.map((s) => ({ value: s.id, label: s.name }))} />}
                     </Field>
                   )}

@@ -1,5 +1,5 @@
 /**
- * Reads a `wuzz://` link (or an https address) into what it opens. Pure: no navigation, no React,
+ * Reads a link of this app (`wuzz://` in production, `wuzz-stg://` in staging, see scheme.ts) or an https address into what it opens. Pure: no navigation, no React,
  * so the same reading serves banners, links from outside the app, and notification taps.
  *
  *   wuzz://service/{id}      a service        wuzz://outlet/{id}   an outlet
@@ -8,6 +8,8 @@
  *
  * Anything else, malformed or not, reads as `null`, and the caller does nothing.
  */
+
+import { SCHEME_PREFIX } from './scheme';
 
 /**
  * The screens a link may name. Closed on purpose: the backend validates banners against the same list,
@@ -33,7 +35,6 @@ export type DeeplinkTarget =
   | { kind: 'screen'; screen: ScreenKey }
   | { kind: 'external'; url: string };
 
-const SCHEME = 'wuzz://';
 const MAX_URL_LENGTH = 2048;
 /** Ids are numbers in the catalog; a long run of digits is refused rather than rounded. */
 const ID = /^[0-9]{1,18}$/;
@@ -53,7 +54,7 @@ const isScreenKey = (value: string): value is ScreenKey =>
 const parseExternal = (url: string): DeeplinkTarget | null =>
   HTTPS_URL.test(url) ? { kind: 'external', url } : null;
 
-/** `service/12`, `/outlet/3?x=1`, `screen/history/`: the part after `wuzz://`, leading slash optional. */
+/** `service/12`, `/outlet/3?x=1`, `screen/history/`: the part after the app's scheme (`wuzz://` in production), leading slash optional. */
 export function parsePath(path: string): DeeplinkTarget | null {
   const [clean] = path.replace(/^\/+/, '').split(/[?#]/);
   const parts = clean.split('/');
@@ -76,6 +77,6 @@ export function parseDeeplink(raw: string | null | undefined): DeeplinkTarget | 
   if (typeof raw !== 'string') return null;
   const url = raw.trim();
   if (url === '' || url.length > MAX_URL_LENGTH || hasWhitespaceOrControl(url)) return null;
-  if (url.startsWith(SCHEME)) return parsePath(url.slice(SCHEME.length));
+  if (url.startsWith(SCHEME_PREFIX)) return parsePath(url.slice(SCHEME_PREFIX.length));
   return parseExternal(url);
 }

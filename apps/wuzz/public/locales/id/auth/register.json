@@ -1,5 +1,26 @@
 {
     "title": "...",
     "description": "Selamat Datang! Ayo kita mulai dengan membuat akun 🚀",
-    "alreadyHaveAccount?": "Sudah punya akun?"
+    "alreadyHaveAccount?": "Sudah punya akun?",
+    "story": {
+        "fullName": "Halo, aku Kocheng! Kita belum kenalan. Siapa namamu?",
+        "birthDate": "Psst, aku Cicit. Kapan ulang tahunmu? Siapa tau aku bisa antar hadiah buatmu!",
+        "birthDate_named": "Psst, {{name}}, aku Cicit. Kapan ulang tahunmu? Siapa tau aku bisa antar hadiah buatmu!",
+        "username": "Oke, {{birthDate}} sudah dicatat! Sebelum Kocheng lihat, cepat kasih tau nama panggilanmu!",
+        "phone": "Nama yang keren, @{{username}}! Boleh minta nomor HP-mu?",
+        "phone_named": "Keren, @{{username}}! Boleh minta nomor HP-mu, {{name}}?",
+        "email": "Nama yang keren, @{{username}}! Boleh minta alamat emailmu?",
+        "email_named": "Keren, @{{username}}! Boleh minta alamat emailmu, {{name}}?"
+    },
+    "actions": {
+        "next": "Lanjut",
+        "finish": "Selesai & Mulai",
+        "finishing": "Menyiapkan akunmu...",
+        "next_birthDate": "Sudah Benar",
+        "next_username": "Pakai Nama Ini"
+    },
+    "username": {
+        "checkFailed": "Gagal memeriksa username. Periksa koneksimu, lalu tekan lanjut lagi.",
+        "taken": "Username tidak tersedia"
+    }
 }

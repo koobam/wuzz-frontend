@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { uploadImage, type UploadFolder } from '@/core/api';
+import { uploadImage, type UploadedImage, type UploadFolder } from '@/core/api';
 import { ApiError } from '@/core/http';
 import { useTranslation } from '@/core/utils/i18n';
 import { imageFileSchema } from '@/features/outlets/utils/image-file.schema';
@@ -9,10 +9,10 @@ export type BannerUpload = { name: string; preview: string; progress: number; er
 
 /**
  * The banner picture uploader: it checks the picked file (type, size), sends it to the server with progress and, once stored,
- * hands its address to `onChange`. One picture at a time; picking another while one is going up replaces it. A refused or
+ * hands its address (and the whole stored picture, with its media id) to `onChange`. One picture at a time; picking another while one is going up replaces it. A refused or
  * failed file stays in `pending` with its message, to retry or dismiss.
  */
-export function useBannerImageUpload(onChange: (url: string) => void, folder: UploadFolder = 'banners') {
+export function useBannerImageUpload(onChange: (url: string, saved?: UploadedImage) => void, folder: UploadFolder = 'banners') {
   const { t } = useTranslation();
   const [pending, setPending] = useState<BannerUpload | null>(null);
   const [notice, setNotice] = useState<string | undefined>();
@@ -38,7 +38,7 @@ export function useBannerImageUpload(onChange: (url: string) => void, folder: Up
     try {
       const saved = await uploadImage(f, folder, { signal: mine.signal, onProgress: (fraction) => setPending((p) => (p ? { ...p, progress: fraction } : p)) });
       if (mine.signal.aborted) return;
-      onChange(saved.url);
+      onChange(saved.url, saved);
       clear();
     } catch (e) {
       if (e instanceof DOMException && e.name === 'AbortError') return;

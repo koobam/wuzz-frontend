@@ -102,6 +102,8 @@ export const useStepNavigation = ({
   const {
     data: isUsernameAvailable,
     isFetching: isCheckingUsername,
+    isError: isUsernameCheckFailed,
+    refetch: recheckUsername,
   } = useCheckUsernameAvailability(debouncedUsername, isUsernameStep);
 
   const validateCurrentStep = useCallback(async () => {
@@ -115,6 +117,12 @@ export const useStepNavigation = ({
     if (usernameValue.length < 3) return false;
 
     if (isCheckingUsername) return false;
+
+    // The check itself failed (no connection, a server error): say so, and try it again, instead of doing nothing.
+    if (isUsernameCheckFailed) {
+      recheckUsername();
+      return false;
+    }
 
     if (isUsernameAvailable === false) {
       setError('username', {
@@ -130,7 +138,7 @@ export const useStepNavigation = ({
     }
 
     return false;
-  }, [clearErrors, currentStep, getValues, isCheckingUsername, isUsernameAvailable, setError, steps, trigger]);
+  }, [clearErrors, currentStep, getValues, isCheckingUsername, isUsernameAvailable, isUsernameCheckFailed, recheckUsername, setError, steps, trigger]);
 
   const handleNext = useCallback(async () => {
     const isValid = await validateCurrentStep();
@@ -174,5 +182,6 @@ export const useStepNavigation = ({
     steps,
     isUsernameAvailable,
     isCheckingUsername,
+    isUsernameCheckFailed,
   };
 };

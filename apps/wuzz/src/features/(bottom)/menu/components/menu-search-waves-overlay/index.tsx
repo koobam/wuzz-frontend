@@ -60,7 +60,7 @@ export const MenuSearchWavesOverlay = memo(function MenuSearchWavesOverlay(
       wavesOverlayHeight,
     );
     return { transform: [{ translateY: scrollCollapse }] };
-  }, [wavesOverlayHeight]);
+  });
 
   const wavesEnterStyle = useAnimatedStyle(() => {
     'worklet';
@@ -69,7 +69,7 @@ export const MenuSearchWavesOverlay = memo(function MenuSearchWavesOverlay(
         { translateY: -wavesSvgHeight * (1 - searchProgress.value) },
       ],
     };
-  }, [wavesSvgHeight]);
+  });
 
   const sprinkleEnterStyle = useAnimatedStyle(() => {
     'worklet';
@@ -78,7 +78,7 @@ export const MenuSearchWavesOverlay = memo(function MenuSearchWavesOverlay(
         { translateY: -sprinkleSvgHeight * (1 - searchProgress.value) },
       ],
     };
-  }, [sprinkleSvgHeight]);
+  });
 
   return (
     <Animated.View

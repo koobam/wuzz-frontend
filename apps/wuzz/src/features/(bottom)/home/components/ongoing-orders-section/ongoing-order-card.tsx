@@ -1,4 +1,8 @@
 import { memo, useEffect } from 'react';
+import { StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+import { useTranslation } from 'react-i18next';
+import { DARK_GRADIENT_COLORS, DARK_GRADIENT_END, DARK_GRADIENT_START } from '../dark-surface';
 import {
   Easing,
   cancelAnimation,
@@ -149,90 +153,112 @@ export interface OngoingOrderCardProps {
  * the card with the outlet and the total.
  */
 export const OngoingOrderCard = memo(
-  ({ order, onPress }: OngoingOrderCardProps) => (
-    <Pressable direction="column" onPress={onPress}>
-      <VStack
-        gap={theme.spacing.standard}
-        padding={theme.spacing.medium}
-        borderWidth={1}
-        borderRadius={16}
-        borderCurve="continuous"
-        borderColor={theme.pallate.neutral['02']}
-        backgroundColor={theme.pallate.neutral['01']}
-        zIndex={1}
-      >
-        <HStack items="center" gap={theme.spacing.standard}>
-          <VStack fill>
-            <Text type="b2" weight="bold" color={theme.pallate.neutral['05']}>
-              {order.title}
-            </Text>
-            <HStack items="center" gap={theme.spacing.tiny}>
-              <Text type="l2" color={theme.pallate.neutral['04']}>
-                {order.dateLabel}
+  ({ order, onPress }: OngoingOrderCardProps) => {
+    const { t } = useTranslation('home');
+
+    return (
+      <Pressable direction="column" onPress={onPress}>
+        <VStack
+          gap={theme.spacing.standard}
+          padding={theme.spacing.medium}
+          borderWidth={1}
+          borderRadius={16}
+          borderCurve="continuous"
+          borderColor={theme.pallate.neutral['02']}
+          backgroundColor={theme.pallate.neutral['01']}
+          zIndex={1}
+        >
+          <HStack items="center" gap={theme.spacing.standard}>
+            <VStack fill>
+              <Text type="b2" weight="bold" color={theme.pallate.neutral['05']}>
+                {order.title}
               </Text>
-              <Box
-                width={2}
-                height={2}
-                borderRadius={20}
-                backgroundColor={theme.pallate.neutral['04']}
-              />
-              <Text
-                type="l2"
-                color={theme.pallate.neutral['04']}
-                numberOfLines={1}
-              >
-                {order.code}
-              </Text>
-            </HStack>
-          </VStack>
-          <ArrowRight2
-            size={24}
-            color={theme.pallate.neutral['04']}
-            style={{ transform: [{ rotate: '-40deg' }] }}
+              <HStack items="center" gap={theme.spacing.tiny}>
+                <Text type="l2" color={theme.pallate.neutral['04']}>
+                  {order.dateLabel}
+                </Text>
+                <Box
+                  width={2}
+                  height={2}
+                  borderRadius={20}
+                  backgroundColor={theme.pallate.neutral['04']}
+                />
+                <Text
+                  type="l2"
+                  color={theme.pallate.neutral['04']}
+                  numberOfLines={1}
+                >
+                  {order.code}
+                </Text>
+              </HStack>
+            </VStack>
+            <ArrowRight2
+              size={24}
+              color={theme.pallate.neutral['04']}
+              style={{ transform: [{ rotate: '-40deg' }] }}
+            />
+          </HStack>
+          <Stepper currentIndex={order.stepIndex} />
+          <Text type="l1" color={theme.pallate.neutral['04']} numberOfLines={2}>
+            {order.itemSummary}
+          </Text>
+        </VStack>
+        <HStack
+          items="center"
+          gap={theme.spacing.standard}
+          height={FOOTER_HEIGHT}
+          zIndex={0}
+          margin={{
+            marginTop: -FOOTER_OVERLAP,
+            marginHorizontal: theme.spacing.large,
+          }}
+          borderRadius={{
+            borderBottomLeftRadius: 16,
+            borderBottomRightRadius: 16,
+          }}
+          borderCurve="continuous"
+          style={styles.footer}
+          padding={{
+            paddingHorizontal: theme.spacing.medium,
+            paddingTop: theme.spacing.tiny,
+          }}
+        >
+          <LinearGradient
+            colors={[...DARK_GRADIENT_COLORS]}
+            start={DARK_GRADIENT_START}
+            end={DARK_GRADIENT_END}
+            style={StyleSheet.absoluteFill}
           />
-        </HStack>
-        <Stepper currentIndex={order.stepIndex} />
-        <Text type="l1" color={theme.pallate.neutral['04']} numberOfLines={2}>
-          {order.itemSummary}
-        </Text>
-      </VStack>
-      <HStack
-        items="center"
-        gap={theme.spacing.standard}
-        height={FOOTER_HEIGHT}
-        zIndex={0}
-        margin={{
-          marginTop: -FOOTER_OVERLAP,
-          marginHorizontal: theme.spacing.large,
-        }}
-        borderRadius={{
-          borderBottomLeftRadius: 16,
-          borderBottomRightRadius: 16,
-        }}
-        borderCurve="continuous"
-        backgroundColor={theme.pallate.neutral['05']}
-        padding={{
-          paddingHorizontal: theme.spacing.medium,
-          paddingTop: theme.spacing.tiny,
-        }}
-      >
-        <HStack items="center" gap={theme.spacing.tiny} fill>
-          <Shop size={18} variant="Bulk" color={theme.pallate.neutral['01']} />
-          <Text
-            type="l1"
-            weight="semibold"
-            color={theme.pallate.neutral['01']}
-            numberOfLines={1}
-            fill
-          >
-            {order.outletName}
+          <HStack items="center" gap={theme.spacing.tiny} fill>
+            <Shop
+              size={18}
+              variant="Bulk"
+              color={theme.pallate.neutral['01']}
+            />
+            <Text
+              type="l1"
+              weight="semibold"
+              color={theme.pallate.neutral['01']}
+              numberOfLines={1}
+              fill
+            >
+              {order.outletName}
+            </Text>
+          </HStack>
+          <Text type="l1" color={theme.pallate.neutral['01']} numberOfLines={1}>
+            {t('ongoingOrders.itemTotal', {
+              count: order.itemCount,
+              price: formatPriceRupiah(order.total),
+            })}
           </Text>
         </HStack>
-        <Text type="l1" color={theme.pallate.neutral['01']} numberOfLines={1}>
-          {`${order.itemCount} Item · ${formatPriceRupiah(order.total)}`}
-        </Text>
-      </HStack>
-    </Pressable>
-  ),
+      </Pressable>
+    );
+  },
 );
 OngoingOrderCard.displayName = 'OngoingOrderCard';
+
+const styles = StyleSheet.create({
+  // Clips the gradient to the footer's round bottom corners.
+  footer: { overflow: 'hidden' },
+});

@@ -16,12 +16,12 @@ import {
   BorderWidthType,
   BorderColorType,
   BorderRadiusType,
-} from '@wuzz/ui';
+} from '@wuzz/native/components';
 
 type PressableContainer = Omit<StackProps, 'as'> & RNPressableProps;
 
 export interface PressableProps extends PressableContainer {
-  ref?: React.Ref<View>;
+  ref?: React.Ref<React.ComponentRef<typeof View>>;
   androidRipple?: RNPressableProps['android_ripple'];
   shrink?: boolean;
   opacity?: number;

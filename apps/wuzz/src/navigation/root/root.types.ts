@@ -8,6 +8,7 @@ export type BottomNavigationParamList = {
   menu: undefined;
   history: undefined;
   support: undefined;
+  mission: undefined;
   profile: undefined;
 };
 

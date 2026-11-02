@@ -7,7 +7,7 @@ import React, { useRef, useCallback, useEffect } from "react";
 import { useDerivedValue, useSharedValue, useAnimatedStyle, withTiming } from "react-native-reanimated";
 import Animated from "react-native-reanimated";
 import { TabBar } from "@components/molecules/swipe-tab-bar";
-import deviceUtils from "@services/utils/deviceUtils";
+import { deviceUtils } from "@wuzz/native/device";
 import { useHapticFeedback } from "@services/hooks/utils";
 import CameraPage from "@pages/(bottom)/camera";
 import Explore from "@pages/(bottom)/explore";
@@ -20,7 +20,7 @@ const TabBarContainer = ({ descriptors, jumpTo, navigation, state }: MaterialTop
     const { triggerHaptic } = useHapticFeedback();
   
     const currentIndex = state.index;
-    const activeIndex = useDerivedValue(() => currentIndex, [currentIndex]);
+    const activeIndex = useDerivedValue(() => currentIndex);
   
     // Animated value for tab bar visibility (1 = visible, 0 = hidden)
     const tabBarVisibility = useSharedValue(1);

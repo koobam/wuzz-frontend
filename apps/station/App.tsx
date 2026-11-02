@@ -7,20 +7,19 @@ import './src/core/i18n';
 import React from 'react';
 import { StatusBar, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
+import { queryClient, queryPersister } from '@wuzz/native/query';
 import RootNavigation from '@navigation/root';
-
-const queryClient = new QueryClient();
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <SafeAreaProvider>
-      <QueryClientProvider client={queryClient}>
+      <PersistQueryClientProvider client={queryClient} persistOptions={{ persister: queryPersister }}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
         <RootNavigation />
-      </QueryClientProvider>
+      </PersistQueryClientProvider>
     </SafeAreaProvider>
   );
 }

@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { useAnimatedStyle, interpolate, Extrapolate } from 'react-native-reanimated';
+import { useAnimatedStyle, useAnimatedScrollHandler, interpolate, Extrapolate } from 'react-native-reanimated';
 import { useHapticFeedback, useScroll } from '@hooks/utils';
 import { LOGO_ANIMATION_CONFIG } from '../constants';
 
@@ -16,12 +16,11 @@ export const useClipList = () => {
     }, 1500);
   }, [triggerHaptic]);
 
-  const handleScroll = useCallback(
-    (event: any) => {
-      const offsetY = event.nativeEvent.contentOffset.y;
-      scrollY.value = offsetY;
-    },
-    [scrollY],
+  // Runs on the UI thread, so the logo turns with the scroll without a round trip through JS.
+  const handleScroll = useAnimatedScrollHandler(
+    (event) => {
+      scrollY.value = event.contentOffset.y;
+    }
   );
 
   const logoAnimatedStyle = useAnimatedStyle(() => {
@@ -35,7 +34,7 @@ export const useClipList = () => {
     return {
       transform: [{ rotate: `${rotation}deg` }],
     };
-  }, [scrollY]);
+  });
 
   return {
     refreshing,

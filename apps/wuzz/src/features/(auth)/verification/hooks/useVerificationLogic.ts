@@ -6,20 +6,30 @@ import { RootStackParamList } from '@navigation/root/root.types';
 import { OTPStepFormData } from '@features/(auth)/register/schemas';
 import { storage, VERIFICATION_COUNTDOWN_STORAGE, ACCESS_TOKEN_STORAGE, REFRESH_TOKEN_STORAGE } from '@core/http/storage';
 import { useVerifyOtpMutation } from '@services/mutations';
+import type { VerifyOtpDataResponse } from '@core/api/auth/verify-otp.types';
 import { useAuthAction } from '@hooks/utils/useAuth';
 
 interface VerificationRouteParams {
   phone?: string;
 }
 
-export const useVerificationLogic = () => {
+type VerificationLogicOptions = {
+  /** The number the code was sent to. Without it, the screen's route params are used (the verification page). */
+  phone?: string;
+  /** What closes the screen holding the form. Without it, the navigation goes back (the verification page). */
+  onClose?: () => void;
+  /** What happens once the code is accepted, in place of going on to the app: the caller decides (ask for a PIN first). */
+  onVerified?: (data: VerifyOtpDataResponse) => void;
+};
+
+export const useVerificationLogic = (options: VerificationLogicOptions = {}) => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const route = useRoute();
   const { triggerHaptic } = useHapticFeedback();
 
   const params = route.params as VerificationRouteParams | undefined;
-  const rawContact = params?.phone;
+  const rawContact = options.phone ?? params?.phone;
 
   const getInitialCountdown = (): number => {
     const storedEndTime = storage.getNumber(VERIFICATION_COUNTDOWN_STORAGE);
@@ -66,7 +76,7 @@ export const useVerificationLogic = () => {
   }, [countdown]);
 
   const handleVerify = useCallback(
-    async (data: OTPStepFormData) => {
+    async (data: OTPStepFormData): Promise<boolean> => {
       triggerHaptic('light');
       try {
         const response = await checkVerificationMutation.mutateAsync({
@@ -80,13 +90,17 @@ export const useVerificationLogic = () => {
           storage.set(REFRESH_TOKEN_STORAGE, response.data.refresh_token);
           triggerHaptic('light');
           setUser(response.data.user);
-          navigation.replace('bottom');
+          if (options.onVerified) options.onVerified(response.data);
+          else navigation.replace('bottom');
+          return true;
         }
+        return false;
       } catch {
         triggerHaptic('medium');
+        return false;
       }
     },
-    [triggerHaptic, checkVerificationMutation, rawContact, setUser, navigation]
+    [triggerHaptic, checkVerificationMutation, rawContact, setUser, navigation, options]
   );
 
   const handleResendOTP = useCallback(async () => {
@@ -104,8 +118,9 @@ export const useVerificationLogic = () => {
 
   const handleClose = useCallback(() => {
     triggerHaptic('light');
-    navigation.goBack();
-  }, [navigation, triggerHaptic]);
+    if (options.onClose) options.onClose();
+    else navigation.goBack();
+  }, [navigation, triggerHaptic, options]);
 
   return {
     isLoading,

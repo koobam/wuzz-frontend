@@ -14,3 +14,13 @@ export const useFetchBanners = (params?: BannersParams) => {
     select: (data: BannersResponse) => data.data?.banners ?? [],
   });
 };
+
+/** The login screen's own carousel: a list apart from the home banners. */
+export const useFetchLoginBanners = (params?: BannersParams) => {
+  return useQuery({
+    ...queries.banners.loginList(params),
+    staleTime: BANNERS_STALE_TIME_MS,
+    refetchOnWindowFocus: true,
+    select: (data: BannersResponse) => data.data?.banners ?? [],
+  });
+};

@@ -1,4 +1,5 @@
 import { memo, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import Animated, {
   Easing,
@@ -60,29 +61,33 @@ type QuickActionsProps = {
 type SearchFieldProps = { onPress: () => void };
 
 /** Looks like a search field: icon then hint, left-aligned, on frosted glass. */
-const SearchField = memo(({ onPress }: SearchFieldProps) => (
-  <View style={[glassSurface, styles.search]}>
-    <GlassBlur />
-    <Pressable
-      fill
-      onPress={onPress}
-      direction="row"
-      items="center"
-      justify="flex-start"
-      gap={theme.spacing.small}
-      padding={{ paddingHorizontal: theme.spacing.medium }}
-    >
-      <SearchNormal1
-        size={20}
-        variant="Linear"
-        color={theme.pallate.neutral['05']}
-      />
-      <Text type="l1" color={theme.pallate.neutral['05']} numberOfLines={1}>
-        Cari layanan atau menu
-      </Text>
-    </Pressable>
-  </View>
-));
+const SearchField = memo(({ onPress }: SearchFieldProps) => {
+  const { t } = useTranslation('home');
+
+  return (
+    <View style={[glassSurface, styles.search]}>
+      <GlassBlur />
+      <Pressable
+        fill
+        onPress={onPress}
+        direction="row"
+        items="center"
+        justify="flex-start"
+        gap={theme.spacing.small}
+        padding={{ paddingHorizontal: theme.spacing.medium }}
+      >
+        <SearchNormal1
+          size={20}
+          variant="Linear"
+          color={theme.pallate.neutral['05']}
+        />
+        <Text type="l1" color={theme.pallate.neutral['05']} numberOfLines={1}>
+          {t('quickActions.search')}
+        </Text>
+      </Pressable>
+    </View>
+  );
+});
 SearchField.displayName = 'SearchField';
 
 type ExpandingActionProps = {
@@ -146,6 +151,7 @@ ExpandingAction.displayName = 'ExpandingAction';
 
 export const QuickActions = memo(
   ({ onSearchPress, onScanPress, onFavoritePress }: QuickActionsProps) => {
+    const { t } = useTranslation('home');
     // Runs once when the row first appears: copy visible, then it collapses.
     const progress = useSharedValue(0);
     useEffect(() => {
@@ -171,7 +177,7 @@ export const QuickActions = memo(
         }}
       >
         <ExpandingAction
-          label="Scan QR"
+          label={t('quickActions.scan')}
           expandedWidth={SCAN_EXPANDED_WIDTH}
           progress={progress}
           onPress={onScanPress}
@@ -184,7 +190,7 @@ export const QuickActions = memo(
           }
         />
         <ExpandingAction
-          label="Likes"
+          label={t('quickActions.likes')}
           expandedWidth={LIKES_EXPANDED_WIDTH}
           progress={progress}
           onPress={onFavoritePress}

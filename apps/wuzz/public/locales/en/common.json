@@ -6,6 +6,7 @@
     "phoneNumber": "Phone Number",
     "changeLanguageTitle": "Change Language",
     "changeLanguageSubtitle": "Select your preferred language",
+    "selected": "Selected",
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "fullName": "Full Name",
@@ -16,5 +17,24 @@
             "title": "Oops, something went wrong!",
             "description": "Don't worry, we're fixing it. Please try again later! 😊"
         }
+    },
+    "tabs": {
+        "home": "Home",
+        "history": "History",
+        "message": "Message",
+        "mission": "Mission",
+        "profile": "Profile"
+    },
+    "mission": {
+        "title": "Mission",
+        "emptyTitle": "No missions yet",
+        "emptyDescription": "Complete missions to earn points and rewards. They will show up here."
+    },
+    "bottomBar": {
+        "help": {
+            "title": "Not sure what to order?",
+            "subtitle": "Ask us, we'll help you choose."
+        },
+        "cart": "Shopping Cart"
     }
 }

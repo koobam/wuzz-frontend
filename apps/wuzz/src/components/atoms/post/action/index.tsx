@@ -4,7 +4,7 @@ import theme from '../../theme';
 import Text from '../../text';
 import {Save2, Send2} from 'iconsax-react-native';
 import {FlashList} from '@shopify/flash-list';
-import {Box, Divider, Flex, HStack} from '@wuzz/ui';
+import {Box, Divider, Flex, HStack} from '@wuzz/native/components';
 import {memo} from 'react';
 import TurboImage from 'react-native-turbo-image';
 import { formatNumber } from '@features/utils';

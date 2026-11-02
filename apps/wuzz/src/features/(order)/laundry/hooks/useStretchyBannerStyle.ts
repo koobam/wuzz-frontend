@@ -17,5 +17,5 @@ export function useStretchyBannerStyle({
       height: width + bounce,
       marginTop: -bounce,
     };
-  }, [width]);
+  });
 }

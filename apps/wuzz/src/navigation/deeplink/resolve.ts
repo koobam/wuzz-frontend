@@ -1,5 +1,5 @@
 import { Linking } from 'react-native';
-import { ACCESS_TOKEN_STORAGE, storage } from '@wuzz/native';
+import { ACCESS_TOKEN_STORAGE, storage } from '@wuzz/native/storage';
 import type { BottomNavigationParamList, RootStackParamList } from '@navigation/root/root.types';
 import { navigationRef } from '@navigation/service';
 import { parseDeeplink } from './parse';

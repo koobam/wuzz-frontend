@@ -49,6 +49,8 @@
       "createTitle": "Add service",
       "editTitle": "Edit service",
       "basics": "Basics",
+      "iconTitle": "Icon",
+      "iconDescription": "The picture the app shows for this service on the home screen. Square, PNG or WebP with a transparent background works best. Without one, the app draws its built-in icon.",
       "pricing": "Price and tax",
       "groupsTitle": "Variants and add-ons",
       "name": "Name",
