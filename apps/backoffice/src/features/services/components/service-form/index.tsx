@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { Controller, useWatch } from 'react-hook-form';
 import { Power } from 'lucide-react';
 import { Button, ChoiceCard, ErrorText, Field, rupiah, Select, Textarea, TextField } from '@wuzz/web-ui';
 import { DISCOUNT_TYPES, SERVICE_UNITS, TAX_TYPES, type Service } from '@/core/api';
 import { firstError } from '@/core/utils/form';
 import { useTranslation } from '@/core/utils/i18n';
+import { BannerImage } from '@/features/banners/components/banner-image';
 import { usePublishFormActions } from '@/features/shell/components/form-header-actions';
 import { modifierRule } from '@/features/group/utils/modifier-rule';
 import { useServiceForm } from '../../hooks/use-service-form';
@@ -25,7 +27,8 @@ const SECTION = 'space-y-4 rounded-3xl border border-border bg-card p-5';
 export function ServiceForm({ service, onSaved, onCancel }: { service?: Service; onSaved: (saved: Service) => void; onCancel: () => void }) {
   const { t } = useTranslation();
   const f = useServiceForm(service, onSaved);
-  usePublishFormActions({ formId: 'service-form', saving: f.saving, editing: !!service, onCancel });
+  const [uploading, setUploading] = useState(false);
+  usePublishFormActions({ formId: 'service-form', saving: f.saving || uploading, editing: !!service, onCancel });
   const { register, control, formState } = f.form;
   const { errors } = formState;
   const message = firstError(errors);
@@ -66,7 +69,7 @@ export function ServiceForm({ service, onSaved, onCancel }: { service?: Service;
             control={control}
             name="unit"
             render={({ field }) => (
-              <Field label={t('services.form.unit')}>
+              <Field label={t('services.form.unit')} required>
                 {() => <Select ariaLabel={t('services.form.unit')} className="w-full" value={field.value} onChange={field.onChange} options={SERVICE_UNITS.map((u) => ({ value: u, label: t(`unit.${u}`) }))} />}
               </Field>
             )}
@@ -75,7 +78,7 @@ export function ServiceForm({ service, onSaved, onCancel }: { service?: Service;
             control={control}
             name="category_id"
             render={({ field }) => (
-              <Field label={t('services.form.category')}>
+              <Field label={t('services.form.category')} required>
                 {() => (
                   <Select
                     ariaLabel={t('services.form.category')}
@@ -107,6 +110,32 @@ export function ServiceForm({ service, onSaved, onCancel }: { service?: Service;
               )}
             />
           )}
+        </div>
+      </section>
+
+      <section className={SECTION}>
+        <div>
+          <h2 className="text-sm font-semibold">{t('services.form.iconTitle')}</h2>
+          <p className="text-xs text-muted-foreground">{t('services.form.iconDescription')}</p>
+        </div>
+        <div className="max-w-48">
+          <Controller
+            control={control}
+            name="icon_url"
+            render={({ field }) => (
+              <BannerImage
+                value={field.value}
+                onChange={(url, saved) => {
+                  field.onChange(url);
+                  f.form.setValue('icon_media_id', url ? (saved?.id ?? f.form.getValues('icon_media_id')) : '', { shouldDirty: true });
+                }}
+                title={f.form.getValues('name')}
+                folder="services"
+                ratio={{ width: 1, height: 1 }}
+                onUploadingChange={setUploading}
+              />
+            )}
+          />
         </div>
       </section>
 
@@ -152,7 +181,7 @@ export function ServiceForm({ service, onSaved, onCancel }: { service?: Service;
             control={control}
             name="tax_type"
             render={({ field }) => (
-              <Field label={t('services.form.taxType')}>
+              <Field label={t('services.form.taxType')} required>
                 {() => <Select ariaLabel={t('services.form.taxType')} className="w-full" value={field.value} onChange={field.onChange} options={TAX_TYPES.map((x) => ({ value: x, label: taxLabel(x) }))} />}
               </Field>
             )}
@@ -187,7 +216,7 @@ export function ServiceForm({ service, onSaved, onCancel }: { service?: Service;
       </section>
 
       <div className="flex flex-wrap items-center gap-3">
-        <Button type="submit" variant="primary" disabled={f.saving}>{service ? t('common.save') : t('common.create')}</Button>
+        <Button type="submit" variant="primary" disabled={f.saving || uploading}>{service ? t('common.save') : t('common.create')}</Button>
         <Button onClick={onCancel}>{t('common.cancel')}</Button>
         {message && <p role="alert" className="text-sm text-destructive">{message}</p>}
         <ErrorText error={f.error} />

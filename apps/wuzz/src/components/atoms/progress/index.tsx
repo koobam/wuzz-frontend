@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { Box, HStack, VStack } from '@wuzz/ui';
+import { Box, HStack, VStack } from '@wuzz/native/components';
 import theme from '../theme';
 import Text from '../text';
 import { StyleSheet } from 'react-native';

@@ -1,5 +1,5 @@
 import { Ref } from "react";
-import { StackProps } from "@wuzz/ui";
+import { StackProps } from "@wuzz/native/components";
 import { ViewStyle } from "react-native";
 
 type GesturePressableContainer = Omit<StackProps, 'as'>;

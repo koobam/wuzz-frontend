@@ -1,6 +1,138 @@
 {
     "category": {
         "title": "Cepat, Bersih, dan Aman!",
-        "description": "Kiloan hingga premium, semua tersedia untukmu."
+        "description": "Kiloan hingga premium, semua tersedia untukmu.",
+        "error": {
+            "noConnection": "Tidak ada koneksi internet",
+            "loadFailed": "Gagal memuat layanan",
+            "checkConnection": "Periksa koneksi internetmu lalu coba lagi.",
+            "generic": "Terjadi kesalahan. Coba lagi nanti.",
+            "reload": "Muat ulang",
+            "settings": "Pengaturan",
+            "needHelp": "Perlu Bantuan ?",
+            "loadFailedDescription": "Terjadi kesalahan saat memuat layanan. Silakan coba lagi nanti.",
+            "retry": "Coba Lagi",
+            "help": "Bantuan"
+        },
+        "empty": {
+            "title": "Belum ada layanan",
+            "description": "Kategori layanan belum tersedia saat ini."
+        }
+    },
+    "quickActions": {
+        "scan": "Scan QR",
+        "likes": "Likes",
+        "search": "Cari layanan atau menu"
+    },
+    "header": {
+        "location": "Your Location",
+        "login": "Masuk / Daftar",
+        "points": "{{points}} pts"
+    },
+    "mood": {
+        "title": "Mood Today",
+        "subtitle": "How are you feeling today?",
+        "loadFailed": "Gagal memuat mood"
+    },
+    "memberCard": {
+        "loginTitle": "Masuk untuk melihat member card",
+        "loginDescription": "Poin, voucher, level, dan saldo wallet kamu",
+        "login": "Masuk",
+        "errorTitle": "Gagal memuat member card",
+        "errorDescription": "Terjadi kesalahan. Coba lagi.",
+        "retry": "Coba lagi",
+        "greeting": "Hi, {{name}}",
+        "xpToNext": "{{xp}} XP lagi untuk ke {{level}}",
+        "league": "{{name}} League",
+        "voucher": "Voucher",
+        "friends": "Teman",
+        "balance": "Wuzz Balance"
+    },
+    "ongoingOrders": {
+        "title": "Diproses oleh Wuzz!",
+        "subtitle": "Pesananmu yang masih berjalan",
+        "seeAll": "Lihat Semua",
+        "itemTotal": "{{count}} Item · {{price}}",
+        "status": {
+            "wuzzerOnTheWay": "Wuzzer Menuju Lokasimu",
+            "processing": "Cucianmu Sedang Diproses"
+        }
+    },
+    "wuzzerNearby": {
+        "title": "Cari Wuzzer Terdekat Yuk!",
+        "description": "Wuzzer kami datang ke rumahmu. Kalau lagi dekat, bisa langsung kamu panggil.",
+        "seeAll": "Lihat Semua Wuzzer",
+        "empty": "Belum ada Wuzzer di dekatmu",
+        "enableLocation": "Aktifkan lokasi untuk melihat Wuzzer terdekat",
+        "locating": "Mencari lokasimu…",
+        "locationUnavailable": "Lokasi tidak tersedia",
+        "distance": "{{distance}} dari kamu",
+        "order": "Pesan"
+    },
+    "service": {
+        "title": "Service yang kami berikan!",
+        "regular": {
+            "title": "Reguler",
+            "description": "Cuci hanya 1 - 2 hari praktis dan nyaman di kantong."
+        },
+        "expressOrder": {
+            "title": "Express Order",
+            "description": "Laundry Super Cepat."
+        },
+        "kilat": {
+            "title": "Kilat",
+            "duration": "3 - 6 Jam"
+        },
+        "express": {
+            "title": "Express",
+            "duration": "6 - 12 Jam"
+        }
+    },
+    "termsAndPrivacy": {
+        "title": "Ketentuan & Privasi",
+        "description": "Satu mesin satu customer. Cucianmu aman dan privasi terjaga.",
+        "oneMachine": {
+            "title": "1 Mesin 1 Customer",
+            "description": "Pesanan tidak dicampur dengan pelanggan lain. Proses terpisah dan peralatan dibersihkan."
+        },
+        "privacy": {
+            "title": "Privasi Terjaga",
+            "description": "Data dan barang kamu hanya ditangani tim terpilih, tidak dibagikan ke pihak lain."
+        }
+    },
+    "terms": {
+        "title": "Ketentuan Layanan",
+        "description": "Satu mesin satu customer. Pesanan kamu diproses terpisah dan aman.",
+        "oneMachine": {
+            "title": "1 Mesin 1 Customer",
+            "description": "Satu mesin cuci khusus untuk pesanan kamu—tidak dicampur dengan pelanggan lain."
+        },
+        "separate": {
+            "title": "Proses Terpisah",
+            "description": "Peralatan dan area kerja dibersihkan sebelum menangani pesanan kamu."
+        }
+    },
+    "privacy": {
+        "title": "Privasi Cucianmu Aman 100%",
+        "description": "Kami Jaga Privasimu, Seperti Jaga Pakaian Sendiri.",
+        "separate": {
+            "title": "Cucian Diproses Terpisah",
+            "description": "Pesanan tidak dicampur dengan pelanggan lain."
+        },
+        "protected": {
+            "title": "Privasi Terjaga",
+            "description": "Staff khusus yang menangani pakaianmu, memastikan privasi tetap terjaga."
+        }
+    },
+    "business": {
+        "description": "Cuci dalam jumlah besar untuk kos, salon, atau usahamu?",
+        "contact": "Kontak kami"
+    },
+    "selfService": {
+        "title": "Self Service",
+        "subtitle": "Ketemu outlet self service? Pilih layanan, lalu scan QR di mesin."
+    },
+    "banner": {
+        "slide": "Slide {{current}} of {{count}}"
     }
 }

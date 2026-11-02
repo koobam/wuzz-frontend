@@ -3,6 +3,7 @@ import { ActivityIndicator, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import theme, { navigationTheme } from '@components/atoms/theme';
+import { toastConfig, TOAST_DURATION_MS } from '@components/atoms/toast';
 import { AuthProvider } from '@services/contexts/auth/auth.context';
 import { Routes } from '@navigation/navigation.types';
 import { RootStackParamList } from './root.types';
@@ -76,7 +77,11 @@ export const Root = React.memo(() => {
           </Stack.Navigator>
         </Suspense>
       </NavigationContainer>
-      <Toast topOffset={top + theme.spacing.standard} />
+      <Toast
+        config={toastConfig}
+        topOffset={top + theme.spacing.standard}
+        visibilityTime={TOAST_DURATION_MS}
+      />
     </AuthProvider>
   );
 });

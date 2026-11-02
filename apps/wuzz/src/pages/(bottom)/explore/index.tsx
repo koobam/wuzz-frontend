@@ -17,6 +17,7 @@ import {
   useAnimatedStyle,
   withTiming,
   useAnimatedReaction,
+  useAnimatedScrollHandler,
   SharedValue,
 } from 'react-native-reanimated';
 import Animated from 'react-native-reanimated';
@@ -26,6 +27,7 @@ import { useScrollRef } from '@services/hooks/utils';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Dimensions, RefreshControl, StyleSheet, View } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
+import { AnimatedFlashList } from '@components/atoms/animated-flash-list';
 import MaskedView from '@react-native-masked-view/masked-view';
 import LinearGradient from 'react-native-linear-gradient';
 import Image from '@components/atoms/image';
@@ -95,14 +97,14 @@ const TrendingScreen = memo(() => {
     }
   }, [navigation, triggerHaptic]);
 
-  const handleScroll = useCallback(
-    (event: any) => {
-      const offsetY = event.nativeEvent.contentOffset.y;
-      if (scrollContext) {
-        scrollContext.scrollY.value = offsetY;
+  // Runs on the UI thread: the header animation follows the scroll without a round trip through JS.
+  const scrollYValue = scrollContext?.scrollY;
+  const handleScroll = useAnimatedScrollHandler(
+    (event) => {
+      if (scrollYValue) {
+        scrollYValue.value = event.contentOffset.y;
       }
-    },
-    [scrollContext],
+    }
   );
 
   const ListHeaderComponent = useCallback(() => {
@@ -213,7 +215,7 @@ const TrendingScreen = memo(() => {
   }, []);
 
   return (
-    <FlashList
+    <AnimatedFlashList
       ref={scrollRef}
       data={[
         {

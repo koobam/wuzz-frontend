@@ -1,4 +1,5 @@
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { EmptyStatePlaceholder } from '@components/molecules';
 import { Error500 } from '@assets/index';
 import { useNavigation } from '@react-navigation/native';
@@ -10,6 +11,7 @@ import type { CategoryGridErrorProps } from './category-grid-error.types';
 type Nav = NativeStackNavigationProp<RootStackParamList>;
 
 export const CategoryGridError = memo(({ message, onRetry }: CategoryGridErrorProps) => {
+  const { t } = useTranslation('home');
   const navigation = useNavigation<Nav>();
 
   const handleHelp = useCallback(() => {
@@ -21,9 +23,9 @@ export const CategoryGridError = memo(({ message, onRetry }: CategoryGridErrorPr
       icon={<Error500 />}
       iconSize={150}
       title={message}
-      description="Terjadi kesalahan saat memuat layanan. Silakan coba lagi nanti."
-      primaryButton={onRetry ? { label: 'Coba Lagi', onPress: onRetry } : undefined}
-      secondaryButton={{ label: 'Bantuan', onPress: handleHelp }}
+      description={t('category.error.loadFailedDescription')}
+      primaryButton={onRetry ? { label: t('category.error.retry'), onPress: onRetry } : undefined}
+      secondaryButton={{ label: t('category.error.help'), onPress: handleHelp }}
     />
   );
 });

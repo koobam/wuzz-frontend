@@ -8,3 +8,4 @@
 //
 
 #import <NitroFetch/NitroAutoPrefetcher.h>
+#import <React/RCTLinkingManager.h>

@@ -10,18 +10,22 @@ import { Shimmer } from '@components/atoms/shimmer';
 import { useUsernameSuggestions } from '@hooks/apis/username';
 import { ActivityIndicator } from 'react-native';
 import { useDebounce } from '@hooks/utils/useDebounce';
-import { TickCircle, CloseCircle } from 'iconsax-react-native';
+import { TickCircle, CloseCircle, Warning2 } from 'iconsax-react-native';
+import { useTranslation } from 'react-i18next';
 
 type UsernameInputProps = React.ComponentProps<typeof Input> & {
   value: string;
   isUsernameAvailable?: boolean;
   isUsernameChecking?: boolean;
+  /** The availability request failed: no answer from the server, so neither a tick nor a cross can be shown. */
+  isUsernameCheckFailed?: boolean;
 };
 
 const UsernameInput = memo(({
   value,
   isUsernameAvailable,
   isUsernameChecking,
+  isUsernameCheckFailed,
   ...props
 }: UsernameInputProps) => {
   const rightIcon = (() => {
@@ -29,6 +33,7 @@ const UsernameInput = memo(({
     if (isUsernameChecking) return <ActivityIndicator size="small" color={theme.pallate.neutral['04']} />;
     if (isUsernameAvailable === true) return <TickCircle size={20} variant="Bold" color={theme.pallate.success['03']} />;
     if (isUsernameAvailable === false) return <CloseCircle size={20} variant="Bold" color={theme.pallate.danger['03']} />;
+    if (isUsernameCheckFailed) return <Warning2 size={20} variant="Bold" color={theme.pallate.warning['03']} />;
     return undefined;
   })();
 
@@ -112,10 +117,13 @@ export const StepForm = memo(
     isLoading,
     isUsernameAvailable,
     isCheckingUsername,
+    isUsernameCheckFailed,
     verificationMethod,
     isActive,
     dateInputRef,
+    hideTitle,
   }: StepFormProps) => {
+    const { t } = useTranslation('register');
     const inputRef = useRef<TextInput>(null);
 
     useEffect(() => {
@@ -146,9 +154,11 @@ export const StepForm = memo(
         <VStack padding={{
           paddingHorizontal: theme.spacing.large,
         }} gap={theme.spacing.tiny}>
-          <Text type="s1" weight="medium" color={theme.pallate.neutral['05']}>
-            {item.title}
-          </Text>
+          {hideTitle ? null : (
+            <Text type="s1" weight="medium" color={theme.pallate.neutral['05']}>
+              {item.title}
+            </Text>
+          )}
           <Text type="l1" color={theme.pallate.neutral['04']}>
             {item.subtitle}
           </Text>
@@ -171,6 +181,13 @@ export const StepForm = memo(
                     : errorFn;
                 return fieldState.error?.message ?? customError;
               }
+              // A username the server could not check says so, in place of nothing at all.
+              if (item.id === 'username' && isUsernameCheckFailed && !isCheckingUsername) {
+                return t('username.checkFailed');
+              }
+              if (item.id === 'username' && isUsernameAvailable === false && !isCheckingUsername) {
+                return fieldState.error?.message ?? t('username.taken');
+              }
               return fieldState.error?.message;
             })();
 
@@ -185,6 +202,7 @@ export const StepForm = memo(
               return (
                 <DateInput
                   ref={dateInputRef}
+                  defaultOpen
                   value={dateValue}
                   onChange={(date: Date) => {
                     const y = date.getFullYear();
@@ -230,6 +248,7 @@ export const StepForm = memo(
                     }}
                     isUsernameAvailable={item.id === 'username' ? isUsernameAvailable : undefined}
                     isUsernameChecking={item.id === 'username' ? isCheckingUsername : undefined}
+                    isUsernameCheckFailed={item.id === 'username' ? isUsernameCheckFailed : undefined}
                     {...(restFieldConfig as object)}
                     error={errorMessage}
                   />

@@ -164,8 +164,8 @@ export function OutletLocationPicker({
 
       <div className="grid gap-4 p-5 sm:grid-cols-2">
         <TextField fieldClassName="sm:col-span-2" label={t('outlets.address')} placeholder={t('outlets.form.addressPlaceholder')} error={errors.address?.message} {...register('address')} />
-        <TextField label={t('outlets.latitude')} placeholder={t('outlets.form.latPlaceholder')} type="number" step="any" min={-90} max={90} error={errors.latitude?.message} {...register('latitude', { valueAsNumber: true })} />
-        <TextField label={t('outlets.longitude')} placeholder={t('outlets.form.lngPlaceholder')} type="number" step="any" min={-180} max={180} error={errors.longitude?.message} {...register('longitude', { valueAsNumber: true })} />
+        <TextField label={t('outlets.latitude')} required placeholder={t('outlets.form.latPlaceholder')} type="number" step="any" min={-90} max={90} error={errors.latitude?.message} {...register('latitude', { valueAsNumber: true })} />
+        <TextField label={t('outlets.longitude')} required placeholder={t('outlets.form.lngPlaceholder')} type="number" step="any" min={-180} max={180} error={errors.longitude?.message} {...register('longitude', { valueAsNumber: true })} />
       </div>
     </section>
   );

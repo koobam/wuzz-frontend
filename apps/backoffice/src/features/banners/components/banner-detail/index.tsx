@@ -46,6 +46,7 @@ export function BannerDetail({ banner, targetName }: { banner: Banner; targetNam
         <Row label={t('banners.columns.status')}>
           <Badge tone={banner.status === 'active' ? 'good' : 'warn'}>{banner.status === 'active' ? t('status.record.active') : t('status.record.inactive')}</Badge>
         </Row>
+        <Row label={t('banners.columns.placement')}>{t(`banners.form.placement${banner.placement === 'login' ? 'Login' : 'Home'}`)}</Row>
         <Row label={t('banners.columns.live')}>
           <Badge tone={LIVE_TONE[state]}>{t(`banners.live.${state}`)}</Badge>
         </Row>

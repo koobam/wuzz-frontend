@@ -35,6 +35,9 @@ export type Service = {
   /** The category it is listed under (0 = none), and the name of the icon it is drawn with. */
   category_id: number;
   icon: string;
+  /** The icon as an uploaded picture (its media id and address); both empty when the app draws `icon` from its own set. */
+  icon_media_id: string;
+  icon_url: string;
   description: string;
   /** The variant groups (pick one option each; the option's price is added) and the modifier groups (add-ons, with a min and a max) this service uses, in order. */
   variant_groups: VariantGroup[];
@@ -43,7 +46,12 @@ export type Service = {
 
 export type ServiceCategory = { id: number; name: string; icon: string };
 
-export type ServiceBody = Pick<Service, 'name' | 'unit' | 'price_before_tax' | 'category_id' | 'tax_type' | 'internal_notes' | 'discount_type' | 'discount_value'> & { variant_group_ids?: number[]; modifier_group_ids?: number[] };
+export type ServiceBody = Pick<Service, 'name' | 'unit' | 'price_before_tax' | 'category_id' | 'tax_type' | 'internal_notes' | 'discount_type' | 'discount_value'> & {
+  variant_group_ids?: number[];
+  modifier_group_ids?: number[];
+  /** The icon picture's media id (from an upload to the services folder); "" removes it. */
+  icon_media_id?: string;
+};
 
 /** What the services list asks the server for: a search, a category, a unit, whether it is on sale, an order and a page. */
 export type ServicesParams = { q?: string; category_id?: number; unit?: ServiceUnit | ''; active?: 'true' | 'false' | ''; sort_by?: string; sort_dir?: 'asc' | 'desc'; limit: number; offset: number };

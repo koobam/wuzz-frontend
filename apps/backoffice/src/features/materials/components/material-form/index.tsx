@@ -23,7 +23,7 @@ export function MaterialForm({ material, onSaved, onCancel }: { material?: Mater
           control={control}
           name="category"
           render={({ field }) => (
-            <Field label={t('materials.form.category')}>
+            <Field label={t('materials.form.category')} required>
               {(id) => <Select inputId={id} shape="field" ariaLabel={t('materials.form.category')} className="w-full" value={field.value} onChange={field.onChange} options={MATERIAL_CATEGORIES.map((c) => ({ value: c, label: t(`materials.category.${c}`) }))} />}
             </Field>
           )}
@@ -32,7 +32,7 @@ export function MaterialForm({ material, onSaved, onCancel }: { material?: Mater
           control={control}
           name="unit"
           render={({ field }) => (
-            <Field label={t('materials.form.unit')}>
+            <Field label={t('materials.form.unit')} required>
               {(id) => <Select inputId={id} shape="field" ariaLabel={t('materials.form.unit')} className="w-full" value={field.value} onChange={field.onChange} options={MATERIAL_UNITS.map((u) => ({ value: u, label: t(`materials.unit.${u}`) }))} />}
             </Field>
           )}

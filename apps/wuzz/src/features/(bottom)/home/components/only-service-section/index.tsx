@@ -3,8 +3,9 @@ import {
   Box,
   Flex,
   HStack,
-  Icon,
   Pressable,
+  ServiceIcon,
+  Shimmer,
   Text,
   theme,
   VStack,
@@ -25,7 +26,8 @@ const OnlyServiceCard = memo(({ item, onPress }: OnlyServiceCardProps) => (
     padding={theme.spacing.medium}
     backgroundColor={theme.pallate.neutral['02']}
   >
-    <Icon
+    <ServiceIcon
+      uri={item.iconUrl}
       icon={item.icon ?? 'bag'}
       size={45}
       color={theme.pallate.neutral['04']}
@@ -67,8 +69,22 @@ const OnlyServiceCard = memo(({ item, onPress }: OnlyServiceCardProps) => (
 
 OnlyServiceCard.displayName = 'OnlyServiceCard';
 
+/** Same height and radius as the card, so the section keeps its size while the services load. */
+const OnlyServiceCardSkeleton = memo(() => (
+  <Shimmer width="100%" height={150} borderRadius={14} />
+));
+OnlyServiceCardSkeleton.displayName = 'OnlyServiceCardSkeleton';
+
+const SKELETON_CARDS = 2;
+
 export const OnlyServiceSection = memo(
-  ({ title, subtitle, onServicePress, items }: OnlyServiceSectionProps) => {
+  ({
+    title,
+    subtitle,
+    onServicePress,
+    items,
+    isLoading = false,
+  }: OnlyServiceSectionProps) => {
     return (
       <VStack
         gap={theme.spacing.standard}
@@ -83,6 +99,13 @@ export const OnlyServiceSection = memo(
           </Text>
         </VStack>
         <HStack items="stretch" gap={theme.spacing.small}>
+          {isLoading && (items?.length ?? 0) === 0
+            ? Array.from({ length: SKELETON_CARDS }, (_, index) => (
+                <Flex key={`skeleton-${index}`} fill>
+                  <OnlyServiceCardSkeleton />
+                </Flex>
+              ))
+            : null}
           {items?.map(item => (
             <Flex key={item.id} fill>
               <OnlyServiceCard

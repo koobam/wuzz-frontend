@@ -1,7 +1,7 @@
 export { BannerDot } from './banner-dot';
 export { BusinessCard } from './business-card';
 export { CategoryGrid } from './category-grid';
-export { HomeBanner } from './home-banner';
+export { HomeBanner, LoginBanner } from './home-banner';
 export { HomeHeader } from './home-header';
 export { MoodSection } from './mood-section';
 export { OngoingOrdersSection } from './ongoing-orders-section';

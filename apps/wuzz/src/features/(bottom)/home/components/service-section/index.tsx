@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Flex,
   HStack,
@@ -13,6 +14,7 @@ import { Dimensions } from 'react-native';
 import type { ServiceSectionProps } from './service-section.types';
 
 export const ServiceSection = memo(({ onServicePress }: ServiceSectionProps) => {
+  const { t } = useTranslation('home');
   const screenWidth = Dimensions.get('screen').width;
   const cardWidth =
     (screenWidth - theme.spacing.large * 2 - theme.spacing.small / 2) / 2;
@@ -26,7 +28,7 @@ export const ServiceSection = memo(({ onServicePress }: ServiceSectionProps) => 
       }}
     >
       <Text type="s2" weight="semibold">
-        Service yang kami berikan!
+        {t('service.title')}
       </Text>
       <HStack gap={theme.spacing.small}>
         <Pressable
@@ -55,10 +57,10 @@ export const ServiceSection = memo(({ onServicePress }: ServiceSectionProps) => 
             />
           </Flex>
           <Text width="100%" weight="semibold" type="b2">
-            Reguler
+            {t('service.regular.title')}
           </Text>
           <Text width="100%" type="l2">
-            Cuci hanya 1 - 2 hari praktis dan nyaman di kantong.
+            {t('service.regular.description')}
           </Text>
         </Pressable>
         <VStack width={cardWidth} gap={theme.spacing.small}>
@@ -70,10 +72,10 @@ export const ServiceSection = memo(({ onServicePress }: ServiceSectionProps) => 
             />
             <VStack fill>
               <Text weight="semibold" type="b2">
-                Express Order
+                {t('service.expressOrder.title')}
               </Text>
               <Text width="100%" type="l2">
-                Laundry Super Cepat.
+                {t('service.expressOrder.description')}
               </Text>
             </VStack>
           </HStack>
@@ -103,9 +105,9 @@ export const ServiceSection = memo(({ onServicePress }: ServiceSectionProps) => 
             </Flex>
             <VStack>
               <Text weight="semibold" type="b2">
-                Kilat
+                {t('service.kilat.title')}
               </Text>
-              <Text type="l1">3 - 6 Jam</Text>
+              <Text type="l1">{t('service.kilat.duration')}</Text>
             </VStack>
           </Pressable>
           <Pressable
@@ -134,9 +136,9 @@ export const ServiceSection = memo(({ onServicePress }: ServiceSectionProps) => 
             </Flex>
             <VStack>
               <Text weight="semibold" type="b2">
-                Express
+                {t('service.express.title')}
               </Text>
-              <Text type="l1">6 - 12 Jam</Text>
+              <Text type="l1">{t('service.express.duration')}</Text>
             </VStack>
           </Pressable>
         </VStack>

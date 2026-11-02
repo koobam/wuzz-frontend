@@ -1,4 +1,4 @@
-import React, { useState, useCallback, forwardRef, useImperativeHandle } from 'react';
+import React, { useState, useCallback, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { Text } from '../text';
 import { Input, InputProps } from './index';
@@ -27,6 +27,11 @@ export interface DateInputProps extends Omit<InputProps, 'value' | 'onChangeText
   value?: Date | null;
   onChange?: (date: Date) => void;
   placeholder?: string;
+  /**
+   * Opens on the wheel picker straight away, with no field to tap first. The date it shows counts as chosen: when there is
+   * no value yet, it is reported through `onChange` so the form holds what the picker shows.
+   */
+  defaultOpen?: boolean;
 }
 
 export const DateInput = forwardRef<DateInputRef, DateInputProps>(({
@@ -36,13 +41,23 @@ export const DateInput = forwardRef<DateInputRef, DateInputProps>(({
   label,
   error,
   disabled,
+  defaultOpen = false,
   ...rest
 }, ref) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(defaultOpen);
   const [internalDate, setInternalDate] = useState<Date>(value ?? DEFAULT_DATE);
 
+  useEffect(() => {
+    if (defaultOpen && !value) onChange?.(internalDate);
+    // Once, on opening: after that the picker's own changes are reported.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useImperativeHandle(ref, () => ({
-    close: () => setIsEditing(false),
+    // With `defaultOpen` the picker is the only face this has: there is no field to fall back to.
+    close: () => {
+      if (!defaultOpen) setIsEditing(false);
+    },
   }));
 
   const handlePress = useCallback(() => {
@@ -59,12 +74,19 @@ export const DateInput = forwardRef<DateInputRef, DateInputProps>(({
     setInternalDate(value ?? DEFAULT_DATE);
   }, [value]);
 
-  if (isEditing) {
+  if (isEditing || defaultOpen) {
     return (
+      <View>
         <DateWheelPicker
           value={internalDate}
           onChange={handleChange}
         />
+        {defaultOpen && error ? (
+          <Text type="l1" color={theme.pallate.danger['03']} style={styles.error}>
+            {error}
+          </Text>
+        ) : null}
+      </View>
     );
   }
 
@@ -88,6 +110,10 @@ export const DateInput = forwardRef<DateInputRef, DateInputProps>(({
 DateInput.displayName = 'DateInput';
 
 const styles = StyleSheet.create({
+  error: {
+    textAlign: 'center',
+    paddingHorizontal: theme.spacing.large,
+  },
   actions: {
     flexDirection: 'row',
     justifyContent: 'flex-start',

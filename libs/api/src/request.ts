@@ -8,7 +8,7 @@ import {
   getUserAgent,
 } from 'react-native-device-info';
 import { NetworkInfo } from 'react-native-network-info';
-import { ACCESS_TOKEN_STORAGE, REFRESH_TOKEN_STORAGE, storage } from '@wuzz/native';
+import { ACCESS_TOKEN_STORAGE, REFRESH_TOKEN_STORAGE, storage } from '@wuzz/native/storage';
 import apiUrl, { API_V1 } from './url';
 
 type RequestOptions = {

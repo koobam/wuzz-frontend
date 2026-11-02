@@ -1,4 +1,4 @@
-export * from '@wuzz/ui';
+export * from '@wuzz/native/components';
 export * from './pressable';
 export * from './text';
 export * from './theme';
@@ -10,3 +10,4 @@ export * from './progress';
 export * from './shimmer';
 export { default as MarkerPin } from './marker-pin';
 export * from './glass';
+export * from './toast';

@@ -52,7 +52,7 @@ export function useMenuSearchAnimation(
   const cardWrapperStyle = useAnimatedStyle(() => {
     'worklet';
     return { opacity: searchProgress.value };
-  }, []);
+  });
 
   const searchBarAnimatedStyle = useAnimatedStyle(() => {
     'worklet';
@@ -61,7 +61,7 @@ export function useMenuSearchAnimation(
         { translateY: -SEARCH_SLIDE_OFFSET * (1 - searchProgress.value) },
       ],
     };
-  }, []);
+  });
 
   return {
     searchProgress,

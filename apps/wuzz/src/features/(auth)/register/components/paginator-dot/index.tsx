@@ -2,12 +2,16 @@ import React, { memo } from 'react';
 import Animated, {
   useAnimatedStyle,
   interpolate,
+  interpolateColor,
 } from 'react-native-reanimated';
 import { Dimensions, StyleSheet } from 'react-native';
 import { theme } from '@components/atoms';
 import type { PaginatorDotProps } from './paginator-dot.types';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
+
+/** The dots not on this step: a solid grey that shows on the page's near-white, which a faded blue did not. */
+const INACTIVE_COLOR = '#C7C7CC';
 
 const styles = StyleSheet.create({
   paginatorDot: {
@@ -28,13 +32,13 @@ export const PaginatorDot = memo(
       ];
 
       const width = interpolate(scrollXValue.value, inputRange, [8, 24, 8]);
-      const opacity = interpolate(
+      const backgroundColor = interpolateColor(
         scrollXValue.value,
         inputRange,
-        [0.3, 1, 0.3],
+        [INACTIVE_COLOR, theme.pallate.primary['03'], INACTIVE_COLOR],
       );
 
-      return { width, opacity };
+      return { width, backgroundColor };
     });
 
     return <Animated.View style={[styles.paginatorDot, animatedStyle]} />;

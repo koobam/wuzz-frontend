@@ -10,3 +10,4 @@ export {
   setDeeplinkAuthenticated,
 } from './resolve';
 export { DeeplinkAuthSync } from './auth-sync';
+export { APP_SCHEME, SCHEME_PREFIX } from './scheme';

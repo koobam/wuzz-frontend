@@ -1,6 +1,6 @@
 import { Linking } from 'react-native';
 import { navigationRef } from '@navigation/service';
-import { storage } from '@wuzz/native';
+import { storage } from '@wuzz/native/storage';
 import { parseDeeplink, SCREEN_KEYS } from '../parse';
 import {
   clearPendingDeeplink,
@@ -12,7 +12,8 @@ import {
 } from '../resolve';
 
 jest.mock('react-native', () => ({ Linking: { openURL: jest.fn() } }), { virtual: true });
-jest.mock('@wuzz/native', () => ({
+jest.mock('react-native-config', () => ({ __esModule: true, default: { APP_URL_SCHEME: 'wuzz' } }));
+jest.mock('@wuzz/native/storage', () => ({
   ACCESS_TOKEN_STORAGE: 'user.accessToken',
   storage: { getString: jest.fn() },
 }));
@@ -163,5 +164,31 @@ describe('openDeeplink', () => {
     expect(openDeeplink('wuzz://screen/profile')).toBe(true);
     expect(navigate).toHaveBeenCalledWith('bottom', { screen: 'profile' });
     expect(getPendingDeeplink()).toBeNull();
+  });
+});
+
+describe('the scheme of the build', () => {
+  const parseWith = (scheme: string | undefined, url: string) => {
+    jest.resetModules();
+    jest.doMock('react-native-config', () => ({ __esModule: true, default: { APP_URL_SCHEME: scheme } }));
+    let result: unknown;
+    jest.isolateModules(() => {
+      result = require('../parse').parseDeeplink(url);
+    });
+    return result;
+  };
+
+  it('a staging build reads wuzz-stg:// and refuses the production scheme', () => {
+    expect(parseWith('wuzz-stg', 'wuzz-stg://service/13')).toEqual({ kind: 'service', serviceId: '13' });
+    expect(parseWith('wuzz-stg', 'wuzz://service/13')).toBeNull();
+  });
+
+  it('a production build reads wuzz:// and refuses the staging scheme', () => {
+    expect(parseWith('wuzz', 'wuzz://service/13')).toEqual({ kind: 'service', serviceId: '13' });
+    expect(parseWith('wuzz', 'wuzz-stg://service/13')).toBeNull();
+  });
+
+  it('a build without APP_URL_SCHEME answers to wuzz://, as the native defaults do', () => {
+    expect(parseWith(undefined, 'wuzz://outlet/3')).toEqual({ kind: 'outlet', outletId: '3' });
   });
 });

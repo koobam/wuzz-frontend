@@ -47,6 +47,8 @@ export interface LaundryService {
   discount: number;
   discount_type: string;
   icon: string;
+  /** The icon as a picture uploaded in the back office; when set, it is drawn instead of `icon`. */
+  icon_url?: string;
   image?: string;
   created_at?: string;
   updated_at?: string;

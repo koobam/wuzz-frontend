@@ -1,7 +1,7 @@
-import { Ban, Boxes, ExternalLink, Globe, Power, PowerOff, Smartphone, Store } from 'lucide-react';
+import { Ban, Boxes, ExternalLink, Globe, Home, LogIn, Power, PowerOff, Smartphone, Store } from 'lucide-react';
 import { Controller, useWatch } from 'react-hook-form';
 import { Badge, Button, ChoiceCard, DateTimeField, ErrorText, Field, MultiSelect, Textarea, TextField } from '@wuzz/web-ui';
-import type { Banner, BannerTargetType } from '@/core/api';
+import type { Banner, BannerPlacement, BannerTargetType } from '@/core/api';
 import { firstError } from '@/core/utils/form';
 import { useTranslation } from '@/core/utils/i18n';
 import { usePublishFormActions } from '@/features/shell/components/form-header-actions';
@@ -14,6 +14,8 @@ import { BannerTargetField } from '../banner-target-field';
 const SECTION = 'space-y-4 rounded-3xl border border-border bg-card p-5';
 const TARGET_ICONS: Record<BannerTargetType, typeof Ban> = { none: Ban, service: Boxes, outlet: Store, screen: Smartphone, external: ExternalLink };
 const TARGETS: BannerTargetType[] = ['none', 'service', 'outlet', 'screen', 'external'];
+const PLACEMENT_ICONS: Record<BannerPlacement, typeof Ban> = { home: Home, login: LogIn };
+const PLACEMENTS: BannerPlacement[] = ['home', 'login'];
 
 /** The form of the create / edit page that makes or edits a banner: its text, picture, where a tap goes, when it shows, at which outlets, and whether it is published. */
 export function BannerForm({ banner, onSaved, onCancel }: { banner?: Banner; onSaved: (saved: Banner) => void; onCancel: () => void }) {
@@ -31,6 +33,7 @@ export function BannerForm({ banner, onSaved, onCancel }: { banner?: Banner; onS
   const startsAt = useWatch({ control, name: 'starts_at' });
   const endsAt = useWatch({ control, name: 'ends_at' });
   const status = useWatch({ control, name: 'status' });
+  const placement = useWatch({ control, name: 'placement' });
   const scope = useWatch({ control, name: 'scope' });
 
   const startIso = fromLocalInput(startsAt);
@@ -101,6 +104,29 @@ export function BannerForm({ banner, onSaved, onCancel }: { banner?: Banner; onS
 
         <section className={SECTION}>
           <div className="space-y-0.5">
+            <h2 className="text-sm font-semibold">{t('banners.form.sectionPlacement')}</h2>
+            <p className="text-xs text-muted-foreground">{t('banners.form.placementDescription')}</p>
+          </div>
+          <div role="radiogroup" aria-label={t('banners.form.sectionPlacement')} className="grid gap-3 sm:grid-cols-2">
+            {PLACEMENTS.map((kind) => {
+              const Icon = PLACEMENT_ICONS[kind];
+              return (
+                <ChoiceCard
+                  key={kind}
+                  type="radio"
+                  checked={placement === kind}
+                  onChange={() => setValue('placement', kind, { shouldDirty: true })}
+                  icon={<Icon className="size-5" aria-hidden />}
+                  title={t(`banners.form.placement${kind === 'home' ? 'Home' : 'Login'}`)}
+                  description={t(`banners.form.placement${kind === 'home' ? 'Home' : 'Login'}Description`)}
+                />
+              );
+            })}
+          </div>
+        </section>
+
+        <section className={SECTION}>
+          <div className="space-y-0.5">
             <h2 className="text-sm font-semibold">{t('banners.form.sectionSchedule')}</h2>
             <p className="text-xs text-muted-foreground">{t('banners.form.scheduleDescription', { zone: zoneName() })}</p>
           </div>
@@ -141,7 +167,7 @@ export function BannerForm({ banner, onSaved, onCancel }: { banner?: Banner; onS
               control={control}
               name="outlet_ids"
               render={({ field }) => (
-                <Field label={t('banners.form.outletsPick')} error={errors.outlet_ids?.message}>
+                <Field label={t('banners.form.outletsPick')} required error={errors.outlet_ids?.message}>
                   {(id) => (
                     <MultiSelect
                       inputId={id}
@@ -164,7 +190,7 @@ export function BannerForm({ banner, onSaved, onCancel }: { banner?: Banner; onS
       <div className="min-w-0 space-y-5 lg:sticky lg:top-24">
         <section className={SECTION}>
           <div className="space-y-0.5">
-            <h2 className="text-sm font-semibold">{t('banners.form.sectionImage')}</h2>
+            <h2 className="text-sm font-semibold">{t('banners.form.sectionImage')}<span className="ml-0.5 text-destructive" aria-hidden>*</span></h2>
             <p className="text-xs text-muted-foreground">{t('banners.form.imageDescription')}</p>
           </div>
           <Controller

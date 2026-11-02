@@ -62,10 +62,13 @@ const TabItem = (props: TabItemProps) => {
 
   useAnimatedReaction(
     () => activeIndex.value,
-    (value) => {
-      runOnJS(setIsActive)(Math.abs(value - currentIndex) < 0.5);
-    },
-    [currentIndex],
+    (value, previous) => {
+      const active = Math.abs(value - currentIndex) < 0.5;
+      // activeIndex moves every frame of a swipe; JS only needs to hear when this tab flips.
+      if (previous === null || active !== Math.abs(previous - currentIndex) < 0.5) {
+        runOnJS(setIsActive)(active);
+      }
+    }
   );
 
   const textAnimatedStyle = useAnimatedStyle(() => {

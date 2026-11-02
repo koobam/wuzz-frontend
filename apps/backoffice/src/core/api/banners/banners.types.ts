@@ -4,6 +4,9 @@ export type BannerTargetType = 'none' | 'service' | 'outlet' | 'screen' | 'exter
 /** Whether staff published the banner. Whether it shows right now also depends on its schedule (see `is_live`). */
 export type BannerStatus = 'active' | 'inactive';
 
+/** Where the customer app draws the banner: the home carousel, or the login screen's own. */
+export type BannerPlacement = 'home' | 'login';
+
 export type BannerOutlet = { id: number; name: string };
 
 export type Banner = {
@@ -19,6 +22,7 @@ export type Banner = {
   /** The link the app opens, built by the server from the target (`wuzz://laundry/12`, `https://…`); empty for `none`. */
   deeplink: string;
   status: BannerStatus;
+  placement: BannerPlacement;
   /** Its place in the carousel (set on the order page, never by the form). */
   sort_index: number;
   /** When it starts and stops showing; null at either end means no limit there. */
@@ -50,7 +54,7 @@ export type BannersParams = {
 };
 
 /** What a banner is created or updated with: what staff set (the id, the deeplink, the order, `is_live` and the outlets' names are the server's). */
-export type BannerBody = Pick<Banner, 'title' | 'internal_notes' | 'image_url' | 'target_type' | 'target_value' | 'status'> & {
+export type BannerBody = Pick<Banner, 'title' | 'internal_notes' | 'image_url' | 'target_type' | 'target_value' | 'status' | 'placement'> & {
   starts_at: string | null;
   ends_at: string | null;
   outlet_ids: number[];

@@ -1,5 +1,5 @@
 import React from 'react';
-import { VStack } from '@wuzz/ui';
+import { VStack } from '@wuzz/native/components';
 import { Text } from 'react-native';
 import { useTranslation } from '@core/i18n';
 

@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   ScrollView,
   StyleSheet,
@@ -11,13 +12,14 @@ import { OngoingOrderCard, type OngoingOrder } from './ongoing-order-card';
 
 /**
  * PLACEHOLDER orders. There is no orders endpoint yet, so these stand in to
- * design the strip with; replace with the real query (the same one History's
+ * design the strip with (`title` holds a translation key, resolved when
+ * rendered); replace with the real query (the same one History's
  * "Sedang Diproses" tab will use) and delete this list.
  */
 const PLACEHOLDER_ORDERS: OngoingOrder[] = [
   {
     id: 'TRX-20251009-8F3A9C2B',
-    title: 'Wuzzer Menuju Lokasimu',
+    title: 'ongoingOrders.status.wuzzerOnTheWay',
     dateLabel: '9 Okt 2025',
     code: 'TRX-20251009-8F3A9C2B',
     stepIndex: 0,
@@ -28,7 +30,7 @@ const PLACEHOLDER_ORDERS: OngoingOrder[] = [
   },
   {
     id: 'TRX-20251008-2B7D41AA',
-    title: 'Cucianmu Sedang Diproses',
+    title: 'ongoingOrders.status.processing',
     dateLabel: '8 Okt 2025',
     code: 'TRX-20251008-2B7D41AA',
     stepIndex: 2,
@@ -56,6 +58,7 @@ export interface OngoingOrdersSectionProps {
  */
 export const OngoingOrdersSection = memo(
   ({ onOrderPress, onSeeAllPress }: OngoingOrdersSectionProps) => {
+    const { t } = useTranslation('home');
     const { width: windowWidth } = useWindowDimensions();
     const cardWidth = windowWidth - theme.spacing.large * 2 - CARD_PEEK;
 
@@ -70,14 +73,14 @@ export const OngoingOrdersSection = memo(
               button off the row. */}
           <VStack fill style={styles.heading}>
             <Text type="s2" weight="semibold" numberOfLines={1}>
-              Diproses oleh Wuzz!
+              {t('ongoingOrders.title')}
             </Text>
             <Text
               type="l1"
               color={theme.pallate.neutral['04']}
               numberOfLines={1}
             >
-              Pesananmu yang masih berjalan
+              {t('ongoingOrders.subtitle')}
             </Text>
           </VStack>
           <Button
@@ -94,7 +97,7 @@ export const OngoingOrdersSection = memo(
               weight="semibold"
               color={theme.pallate.neutral['01']}
             >
-              Lihat Semua
+              {t('ongoingOrders.seeAll')}
             </Text>
             <ArrowRight2 size={16} color={theme.pallate.neutral['01']} />
           </Button>
@@ -107,7 +110,10 @@ export const OngoingOrdersSection = memo(
           {PLACEHOLDER_ORDERS.map(order => (
             <View key={order.id} style={{ width: cardWidth }}>
               <OngoingOrderCard
-                order={order}
+                order={{
+                  ...order,
+                  title: t(order.title as 'ongoingOrders.status.processing'),
+                }}
                 onPress={() => onOrderPress(order.id)}
               />
             </View>

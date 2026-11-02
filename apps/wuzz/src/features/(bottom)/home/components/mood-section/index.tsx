@@ -10,6 +10,7 @@ import {
 import { FlashList } from '@shopify/flash-list';
 import { Sun1 } from 'iconsax-react-native';
 import { memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Dimensions, StyleSheet } from 'react-native';
 import { MoodItemSeparator } from '../mood-item-separator';
 import { MoodSectionError } from './mood-section-error';
@@ -86,6 +87,7 @@ const MoodItem = memo((props: MoodItemProps) => {
 MoodItem.displayName = 'MoodItem';
 
 export const MoodSection = memo((props: MoodSectionProps) => {
+  const { t } = useTranslation('home');
   const { moods, isLoading = false, isError = false, error } = props;
   const data = useMemo(() => mapMoodsToDisplay(moods ?? null), [moods]);
 
@@ -94,9 +96,9 @@ export const MoodSection = memo((props: MoodSectionProps) => {
     if (typeof error === 'object' && error !== null && 'message' in error) {
       return String((error as { message?: string }).message);
     }
-    if (isError) return 'Gagal memuat mood';
+    if (isError) return t('mood.loadFailed');
     return null;
-  }, [error, isError]);
+  }, [error, isError, t]);
 
   const renderItem = useCallback(
     ({ item, index }: { item: MoodDisplayItem; index: number }) => (
@@ -124,12 +126,12 @@ export const MoodSection = memo((props: MoodSectionProps) => {
           backgroundColor={theme.pallate.primary['03']}
         >
           <Text type="b2" weight="bold" color={theme.pallate.neutral['01']}>
-            Mood Today
+            {t('mood.title')}
           </Text>
           <Sun1 variant="Bulk" size={24} color={theme.pallate.neutral['01']} />
         </HStack>
         <Text type="s2" color={theme.pallate.neutral['05']} weight="semibold">
-          How are you feeling today?
+          {t('mood.subtitle')}
         </Text>
       </Flex>
       {isLoading ? (

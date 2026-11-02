@@ -9,6 +9,8 @@ export const usernameQueries = createQueryKeys('username', {
   }),
   availability: (username: string) => ({
     queryKey: ['checkUsernameAvailability', username],
+    // The server always answers a check with a 200 and the verdict in the body (free, taken, or not a valid name), so any
+    // error here means the check itself could not be made (offline, a timeout, a server error) and the screen can say so.
     queryFn: () => checkUsernameAvailability(username),
   }),
 });

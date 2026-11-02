@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, useWindowDimensions, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Animated, {
@@ -164,6 +165,7 @@ type LevelPillProps = {
 
 /** "Silver League": a white pill with the level's small rank icon. */
 const LevelPill = memo(({ name, tone, onPress }: LevelPillProps) => {
+  const { t } = useTranslation('home');
   const RankIcon = LEVEL_ICONS[name.toLowerCase()];
   return (
     <Pressable
@@ -187,7 +189,7 @@ const LevelPill = memo(({ name, tone, onPress }: LevelPillProps) => {
         color={theme.pallate.neutral['05']}
         numberOfLines={1}
       >
-        {`${name} League`}
+        {t('memberCard.league', { name })}
       </Text>
       <IconChevronRight size={16} color={theme.pallate.neutral['05']} />
     </Pressable>
@@ -224,12 +226,10 @@ const StripMessages = memo(
     const hasSecond = second != null;
 
     const firstStyle = useAnimatedStyle(
-      () => ({ opacity: hasSecond ? fadeLoop(true) : 1 }),
-      [hasSecond],
+      () => ({ opacity: hasSecond ? fadeLoop(true) : 1 })
     );
     const secondStyle = useAnimatedStyle(
-      () => ({ opacity: fadeLoop(false) }),
-      [],
+      () => ({ opacity: fadeLoop(false) })
     );
 
     return (
@@ -288,8 +288,7 @@ const Sheen = memo(() => {
         },
         { rotate: `${SHEEN_TILT_DEG}deg` },
       ],
-    }),
-    [width],
+    })
   );
   return (
     <Animated.View pointerEvents="none" style={[styles.sheen, style]}>
@@ -405,16 +404,18 @@ export const MemberCard = memo(
     onLoginPress,
     onPress,
   }: MemberCardProps) => {
+    const { t } = useTranslation('home');
+
     if (!isAuthenticated) {
       return (
         <Frame>
           <HStack items="center" gap={theme.spacing.standard}>
             <VStack fill>
               <Text type="l1" weight="semibold">
-                Masuk untuk melihat member card
+                {t('memberCard.loginTitle')}
               </Text>
               <Text type="l2" color={theme.pallate.neutral['04']}>
-                Poin, voucher, level, dan saldo wallet kamu
+                {t('memberCard.loginDescription')}
               </Text>
             </VStack>
             <Pressable
@@ -431,7 +432,7 @@ export const MemberCard = memo(
                 weight="semibold"
                 color={theme.pallate.neutral['01']}
               >
-                Masuk
+                {t('memberCard.login')}
               </Text>
             </Pressable>
           </HStack>
@@ -460,10 +461,10 @@ export const MemberCard = memo(
           <HStack items="center" gap={theme.spacing.standard}>
             <VStack fill>
               <Text type="l1" weight="semibold">
-                Gagal memuat member card
+                {t('memberCard.errorTitle')}
               </Text>
               <Text type="l2" color={theme.pallate.neutral['04']}>
-                Terjadi kesalahan. Coba lagi.
+                {t('memberCard.errorDescription')}
               </Text>
             </VStack>
             {onRetry != null && (
@@ -481,7 +482,7 @@ export const MemberCard = memo(
                   weight="semibold"
                   color={theme.pallate.primary['03']}
                 >
-                  Coba lagi
+                  {t('memberCard.retry')}
                 </Text>
               </Pressable>
             )}
@@ -498,10 +499,13 @@ export const MemberCard = memo(
     const WatermarkIcon =
       level != null ? LEVEL_ICONS[level.name.toLowerCase()] : undefined;
     // The strip greets, then (when there is a next level) says how far it is.
-    const messages = [`Hi, ${summary.name}`];
+    const messages = [t('memberCard.greeting', { name: summary.name })];
     if (toNext != null && level?.next_level != null) {
       messages.push(
-        `${formatNumber(toNext)} XP lagi untuk ke ${level.next_level}`,
+        t('memberCard.xpToNext', {
+          xp: formatNumber(toNext),
+          level: level.next_level,
+        }),
       );
     }
 
@@ -529,7 +533,7 @@ export const MemberCard = memo(
       >
         <HStack items="center" gap={theme.spacing.large}>
           <Stat
-            label="Voucher"
+            label={t('memberCard.voucher')}
             value={formatNumber(summary.voucher_count)}
             icon={
               <StatTile color={theme.pallate.danger['03']}>
@@ -542,7 +546,7 @@ export const MemberCard = memo(
             }
           />
           <Stat
-            label="Teman"
+            label={t('memberCard.friends')}
             value={formatNumber(summary.friend_count)}
             icon={
               <StatTile color={theme.pallate.secondary['03']}>
@@ -556,7 +560,7 @@ export const MemberCard = memo(
           />
           <Stat
             fill
-            label="Wuzz Balance"
+            label={t('memberCard.balance')}
             value={formatRupiah(summary.wallet_balance)}
             icon={
               <StatTile color={theme.pallate.primary['03']}>

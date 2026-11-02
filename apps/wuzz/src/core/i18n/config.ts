@@ -10,7 +10,7 @@ export const SUPPORTED_LANGUAGES = [
 
 export type LanguageCode = typeof SUPPORTED_LANGUAGES[number]['code'];
 
-export const NAMESPACES = ['common', 'home', 'profile', 'outlet', 'history'] as const;
+export const NAMESPACES = ['common', 'home', 'profile', 'outlet', 'history', 'login', 'register'] as const;
 export type Namespace = typeof NAMESPACES[number];
 
 export const DEFAULT_LANGUAGE: LanguageCode = 'en';

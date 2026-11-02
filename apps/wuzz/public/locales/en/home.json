@@ -1,6 +1,138 @@
 {
     "category": {
         "title": "Fast, Clean, and Safe!",
-        "description": "From regular to premium, all available for you."
+        "description": "From regular to premium, all available for you.",
+        "error": {
+            "noConnection": "No internet connection",
+            "loadFailed": "Failed to load services",
+            "checkConnection": "Check your internet connection and try again.",
+            "generic": "Something went wrong. Please try again later.",
+            "reload": "Reload",
+            "settings": "Settings",
+            "needHelp": "Need help?",
+            "loadFailedDescription": "Something went wrong while loading services. Please try again later.",
+            "retry": "Try Again",
+            "help": "Help"
+        },
+        "empty": {
+            "title": "No services yet",
+            "description": "Service categories are not available right now."
+        }
+    },
+    "quickActions": {
+        "scan": "Scan QR",
+        "likes": "Likes",
+        "search": "Search services or menu"
+    },
+    "header": {
+        "location": "Your Location",
+        "login": "Sign In / Sign Up",
+        "points": "{{points}} pts"
+    },
+    "mood": {
+        "title": "Mood Today",
+        "subtitle": "How are you feeling today?",
+        "loadFailed": "Failed to load moods"
+    },
+    "memberCard": {
+        "loginTitle": "Sign in to see your member card",
+        "loginDescription": "Your points, vouchers, level, and wallet balance",
+        "login": "Sign In",
+        "errorTitle": "Failed to load member card",
+        "errorDescription": "Something went wrong. Please try again.",
+        "retry": "Try again",
+        "greeting": "Hi, {{name}}",
+        "xpToNext": "{{xp}} XP to {{level}}",
+        "league": "{{name}} League",
+        "voucher": "Voucher",
+        "friends": "Friends",
+        "balance": "Wuzz Balance"
+    },
+    "ongoingOrders": {
+        "title": "Handled by Wuzz!",
+        "subtitle": "Your orders in progress",
+        "seeAll": "See All",
+        "itemTotal": "{{count}} Items · {{price}}",
+        "status": {
+            "wuzzerOnTheWay": "Wuzzer Is On the Way",
+            "processing": "Your Laundry Is Being Processed"
+        }
+    },
+    "wuzzerNearby": {
+        "title": "Find the Nearest Wuzzer!",
+        "description": "Our Wuzzers come to your door. If one is nearby, you can call them right away.",
+        "seeAll": "See All Wuzzers",
+        "empty": "No Wuzzers near you yet",
+        "enableLocation": "Enable location to see nearby Wuzzers",
+        "locating": "Finding your location…",
+        "locationUnavailable": "Location unavailable",
+        "distance": "{{distance}} from you",
+        "order": "Order"
+    },
+    "service": {
+        "title": "Services we offer!",
+        "regular": {
+            "title": "Regular",
+            "description": "Wash in just 1 - 2 days, practical and pocket-friendly."
+        },
+        "expressOrder": {
+            "title": "Express Order",
+            "description": "Super Fast Laundry."
+        },
+        "kilat": {
+            "title": "Flash",
+            "duration": "3 - 6 Hours"
+        },
+        "express": {
+            "title": "Express",
+            "duration": "6 - 12 Hours"
+        }
+    },
+    "termsAndPrivacy": {
+        "title": "Terms & Privacy",
+        "description": "One machine, one customer. Your laundry is safe and your privacy is protected.",
+        "oneMachine": {
+            "title": "1 Machine 1 Customer",
+            "description": "Orders are never mixed with other customers'. Processed separately with cleaned equipment."
+        },
+        "privacy": {
+            "title": "Privacy Protected",
+            "description": "Your data and belongings are handled only by a selected team and never shared with anyone else."
+        }
+    },
+    "terms": {
+        "title": "Terms of Service",
+        "description": "One machine, one customer. Your order is processed separately and safely.",
+        "oneMachine": {
+            "title": "1 Machine 1 Customer",
+            "description": "A washing machine just for your order—never mixed with other customers'."
+        },
+        "separate": {
+            "title": "Separate Process",
+            "description": "Equipment and work areas are cleaned before handling your order."
+        }
+    },
+    "privacy": {
+        "title": "Your Laundry Privacy Is 100% Safe",
+        "description": "We protect your privacy as if it were our own clothes.",
+        "separate": {
+            "title": "Laundry Processed Separately",
+            "description": "Orders are never mixed with other customers'."
+        },
+        "protected": {
+            "title": "Privacy Protected",
+            "description": "Dedicated staff handle your clothes, keeping your privacy protected."
+        }
+    },
+    "business": {
+        "description": "Washing in bulk for your boarding house, salon, or business?",
+        "contact": "Contact us"
+    },
+    "selfService": {
+        "title": "Self Service",
+        "subtitle": "Found a self-service outlet? Pick a service, then scan the QR on the machine."
+    },
+    "banner": {
+        "slide": "Slide {{current}} of {{count}}"
     }
 }

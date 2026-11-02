@@ -1,12 +1,14 @@
 import { Box, BoxAnimated, HStack, Pressable, theme } from '@components/atoms';
 import Image from '@components/atoms/image';
-import { FlashList, type FlashListRef } from '@shopify/flash-list';
+import { type FlashListRef } from '@shopify/flash-list';
+import { AnimatedFlashList } from '@components/atoms/animated-flash-list';
 import { memo, useCallback, useEffect, useRef } from 'react';
 import { NativeScrollEvent, NativeSyntheticEvent, StyleSheet } from 'react-native';
 import {
   Extrapolation,
   interpolate,
   interpolateColor,
+  useAnimatedScrollHandler,
   useAnimatedStyle,
   useSharedValue,
 } from 'react-native-reanimated';
@@ -73,7 +75,7 @@ const MenuBannerDot = memo(
         [colorInactive, colorActive, colorInactive],
       );
       return { width, backgroundColor };
-    }, [index, bannerWidth, colorInactive, colorActive]);
+    });
 
     return (
       <Pressable
@@ -117,11 +119,11 @@ export const MenuBanner = memo(({ width }: MenuBannerProps) => {
     };
   }, [resetAutoPlay]);
 
-  const handleScroll = useCallback(
-    (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-      scrollOffsetX.value = event.nativeEvent.contentOffset.x;
-    },
-    [scrollOffsetX],
+  // Runs on the UI thread, so the dots follow the swipe without a round trip through JS.
+  const handleScroll = useAnimatedScrollHandler(
+    (event) => {
+      scrollOffsetX.value = event.contentOffset.x;
+    }
   );
 
   const handleScrollEnd = useCallback(
@@ -155,7 +157,7 @@ export const MenuBanner = memo(({ width }: MenuBannerProps) => {
   return (
     <Box padding={{ paddingTop: theme.spacing.standard }}>
       <Box width={width} height={width / 2} style={styles.overflowHidden}>
-        <FlashList
+        <AnimatedFlashList
           ref={listRef}
           data={MENU_BANNER_IMAGES}
           horizontal

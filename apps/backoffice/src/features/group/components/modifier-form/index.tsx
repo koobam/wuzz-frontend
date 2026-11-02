@@ -25,11 +25,11 @@ export function ModifierForm({ group, onSaved, onCancel }: { group?: ModifierGro
       onCancel={onCancel}
     >
       <FormSection title={t('groups.sectionRule')} columns={2}>
-        <TextField label={t('groups.modifiers.min')} placeholder={t('groups.modifiers.minPlaceholder')} type="number" min={0} hint={t('groups.modifiers.minHint')} error={errors.min?.message} {...register('min', { valueAsNumber: true })} />
+        <TextField label={t('groups.modifiers.min')} required placeholder={t('groups.modifiers.minPlaceholder')} type="number" min={0} hint={t('groups.modifiers.minHint')} error={errors.min?.message} {...register('min', { valueAsNumber: true })} />
         <TextField label={t('groups.modifiers.max')} type="number" min={1} placeholder={t('groups.modifiers.maxPlaceholder')} hint={t('groups.modifiers.maxHint')} error={errors.max?.message} {...register('max')} />
       </FormSection>
 
-      <OptionList heads={[t('groups.optionName'), t('groups.modifiers.price'), t('groups.active')]} canAdd={f.canAdd} onAdd={f.add}>
+      <OptionList heads={[`${t('groups.optionName')} *`, `${t('groups.modifiers.price')} *`, t('groups.active')]} canAdd={f.canAdd} onAdd={f.add}>
         {f.rows.map((row, i) => (
           <div key={row.id} className={`grid items-start gap-2 sm:gap-3 ${optionRowGrid(false)}`}>
             <label className="min-w-0">

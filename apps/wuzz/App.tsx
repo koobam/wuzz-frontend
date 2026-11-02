@@ -5,8 +5,7 @@
  * @format
  */
 
-import { queryClient } from '@core/query-client';
-import { queryPersister } from '@core/query-persister';
+import { queryClient, queryPersister } from '@wuzz/native/query';
 import Root from '@navigation/root';
 import {
   AppState,
@@ -27,9 +26,15 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { HotUpdater } from '@hot-updater/react-native';
 import '@core/i18n';
+import Config from 'react-native-config';
+import { Probe } from './src/__bisect/probe';
 import { prefetchHomeData } from '@features/(bottom)/home/prefetch';
 
-require('./ReactotronConfig');
+// Reactotron only in dev builds, and only when REACTOTRON=true in the env file: while the desktop app is not
+// connected, reactotron-core-client keeps every message (network bodies, query cache dumps, logs) in an unbounded sendQueue.
+if (__DEV__ && Config.REACTOTRON === 'true') {
+  require('./ReactotronConfig');
+}
 
 prefetchHomeData();
 
@@ -59,7 +64,7 @@ function AppContent() {
           <SelectedOutletProvider>
             <DeliveryAddressProvider>
               <OrderDraftProvider>
-                <Root />
+                <Probe id="Root"><Root /></Probe>
               </OrderDraftProvider>
             </DeliveryAddressProvider>
           </SelectedOutletProvider>

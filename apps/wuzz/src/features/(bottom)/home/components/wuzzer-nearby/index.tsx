@@ -1,4 +1,5 @@
 import { memo, useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Linking, StyleSheet, View } from 'react-native';
 import { IconChevronDown } from 'tabler-icons-react-native';
 import MapView, { Marker } from 'react-native-maps';
@@ -41,49 +42,57 @@ type SeeAllCardProps = { onPress?: () => void };
 
 /** The last page: a way on to the full list. Takes a card's width, with the
  *  hairline that would otherwise sit between it and the card before. */
-const SeeAllCard = memo(({ onPress }: SeeAllCardProps) => (
-  <HStack height={WUZZER_CARD_HEIGHT}>
-    <Separator />
-    <Pressable
-      onPress={onPress}
-      direction="row"
-      items="center"
-      justify="center"
-      gap={theme.spacing.small}
-      width={WUZZER_CARD_WIDTH}
-    >
-      <Text type="b2" weight="bold" color={theme.pallate.primary['03']}>
-        Lihat Semua Wuzzer
-      </Text>
-      <ArrowRight2 size={18} color={theme.pallate.primary['03']} />
-    </Pressable>
-  </HStack>
-));
+const SeeAllCard = memo(({ onPress }: SeeAllCardProps) => {
+  const { t } = useTranslation('home');
+
+  return (
+    <HStack height={WUZZER_CARD_HEIGHT}>
+      <Separator />
+      <Pressable
+        onPress={onPress}
+        direction="row"
+        items="center"
+        justify="center"
+        gap={theme.spacing.small}
+        width={WUZZER_CARD_WIDTH}
+      >
+        <Text type="b2" weight="bold" color={theme.pallate.primary['03']}>
+          {t('wuzzerNearby.seeAll')}
+        </Text>
+        <ArrowRight2 size={18} color={theme.pallate.primary['03']} />
+      </Pressable>
+    </HStack>
+  );
+});
 SeeAllCard.displayName = 'SeeAllCard';
 
 /** A card counts as the current page once most of it is on screen. */
 const VIEWABILITY = { itemVisiblePercentThreshold: 60 };
 
 /** Stands where the cards would be while there is nobody to show. */
-const EmptyCard = memo(() => (
-  <HStack
-    width={WUZZER_CARD_WIDTH}
-    height={WUZZER_CARD_HEIGHT}
-    items="center"
-    justify="center"
-    gap={theme.spacing.small}
-    padding={theme.spacing.standard}
-  >
-    <SearchStatus
-      size={22}
-      variant="Bulk"
-      color={theme.pallate.neutral['04']}
-    />
-    <Text type="l1" weight="semibold" color={theme.pallate.neutral['05']}>
-      Belum ada Wuzzer di dekatmu
-    </Text>
-  </HStack>
-));
+const EmptyCard = memo(() => {
+  const { t } = useTranslation('home');
+
+  return (
+    <HStack
+      width={WUZZER_CARD_WIDTH}
+      height={WUZZER_CARD_HEIGHT}
+      items="center"
+      justify="center"
+      gap={theme.spacing.small}
+      padding={theme.spacing.standard}
+    >
+      <SearchStatus
+        size={22}
+        variant="Bulk"
+        color={theme.pallate.neutral['04']}
+      />
+      <Text type="l1" weight="semibold" color={theme.pallate.neutral['05']}>
+        {t('wuzzerNearby.empty')}
+      </Text>
+    </HStack>
+  );
+});
 EmptyCard.displayName = 'EmptyCard';
 
 /**
@@ -101,6 +110,7 @@ export const WuzzerNearby = memo(
     onCall,
     onSeeAll,
   }: WuzzerNearbyProps) => {
+    const { t } = useTranslation('home');
     // The list is paged one card at a time, and the card in view is the selected
     // Wuzzer on the map.
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -131,11 +141,10 @@ export const WuzzerNearby = memo(
       >
         <VStack>
           <Text type="s2" weight="semibold">
-            Cari Wuzzer Terdekat Yuk!
+            {t('wuzzerNearby.title')}
           </Text>
           <Text type="l1" color={theme.pallate.neutral['04']}>
-            Wuzzer kami datang ke rumahmu. Kalau lagi dekat, bisa langsung kamu
-            panggil.
+            {t('wuzzerNearby.description')}
           </Text>
         </VStack>
 
@@ -226,12 +235,14 @@ export const WuzzerNearby = memo(
                       weight="semibold"
                       color={theme.pallate.primary['03']}
                     >
-                      Aktifkan lokasi untuk melihat Wuzzer terdekat
+                      {t('wuzzerNearby.enableLocation')}
                     </Text>
                   </Pressable>
                 ) : (
                   <Text type="l1" color={theme.pallate.neutral['04']}>
-                    {isLocating ? 'Mencari lokasimu…' : 'Lokasi tidak tersedia'}
+                    {isLocating
+                      ? t('wuzzerNearby.locating')
+                      : t('wuzzerNearby.locationUnavailable')}
                   </Text>
                 )}
               </HStack>

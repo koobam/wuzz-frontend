@@ -1,4 +1,5 @@
 import type { Banner, BannerLiveState, BannerTargetType } from '@/core/api';
+import { env } from '@/config/env';
 
 type T = (key: string, options?: Record<string, unknown>) => string;
 
@@ -58,8 +59,8 @@ export function scheduleSentence(startsAt: string, endsAt: string, t: T, languag
 export function previewDeeplink(type: BannerTargetType, value: string): string {
   const v = value.trim();
   if (type === 'none' || !v) return '';
-  if (type === 'service') return `wuzz://service/${v}`;
-  if (type === 'outlet') return `wuzz://outlet/${v}`;
-  if (type === 'screen') return `wuzz://screen/${v}`;
+  if (type === 'service') return `${env.VITE_APP_SCHEME}://service/${v}`;
+  if (type === 'outlet') return `${env.VITE_APP_SCHEME}://outlet/${v}`;
+  if (type === 'screen') return `${env.VITE_APP_SCHEME}://screen/${v}`;
   return v;
 }

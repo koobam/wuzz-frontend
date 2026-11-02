@@ -76,14 +76,14 @@ export function useWeightEstimateSlider({
     const fillWidth =
       offset.value * (w - THUMB_SIZE) + THUMB_SIZE / 2;
     return { width: fillWidth };
-  }, []);
+  });
 
   const thumbStyle = useAnimatedStyle(() => {
     'worklet';
     const w = trackWidthSv.value;
     const x = w > 0 ? offset.value * (w - THUMB_SIZE) : 0;
     return { transform: [{ translateX: x }] };
-  }, []);
+  });
 
   const tooltipStyle = useAnimatedStyle(() => {
     'worklet';
@@ -93,7 +93,7 @@ export function useWeightEstimateSlider({
         ? offset.value * (w - THUMB_SIZE) + THUMB_SIZE / 2 - TOOLTIP_WIDTH / 2
         : 0;
     return { transform: [{ translateX: x }] };
-  }, []);
+  });
 
   return {
     valueKg,

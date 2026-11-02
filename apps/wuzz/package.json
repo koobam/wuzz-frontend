@@ -55,7 +55,6 @@
     "@tanstack/react-query-persist-client": "5.101.2",
     "@wuzz/api": "workspace:*",
     "@wuzz/native": "workspace:*",
-    "@wuzz/ui": "workspace:*",
     "babel-plugin-module-resolver": "5.0.3",
     "chroma-js": "^3.2.0",
     "deprecated-react-native-prop-types": "5.0.0",
@@ -75,6 +74,7 @@
     "react-native-device-info": "^15.0.2",
     "react-native-gesture-handler": "^3.2.1",
     "react-native-haptic-feedback": "^3.0.0",
+    "react-native-keychain": "10.0.0",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-localize": "^3.7.0",
     "react-native-maps": "^1.29.7",
@@ -137,5 +137,11 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "reanimated": {
+    "staticFeatureFlags": {
+      "IOS_SYNCHRONOUSLY_UPDATE_UI_PROPS": true,
+      "ANDROID_SYNCHRONOUSLY_UPDATE_UI_PROPS": true
+    }
   }
 }

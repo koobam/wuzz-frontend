@@ -1,9 +1,17 @@
 {
   "name": "wuzz-shimmer",
   "version": "1.0.0",
+  "private": true,
   "description": "Native shimmer view — CABasicAnimation on iOS, ValueAnimator on Android. Zero JS per frame.",
   "main": "src/index.ts",
-  "files": ["src", "ios", "android", "nitrogen", "WuzzShimmer.podspec", "nitro.json"],
+  "files": [
+    "src",
+    "ios",
+    "android",
+    "nitrogen",
+    "WuzzShimmer.podspec",
+    "nitro.json"
+  ],
   "peerDependencies": {
     "react": "*",
     "react-native": "*",

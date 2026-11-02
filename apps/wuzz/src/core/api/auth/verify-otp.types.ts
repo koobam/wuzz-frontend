@@ -11,6 +11,8 @@ export interface VerifyOtpUser {
     email?: string;
     phone?: string;
     username?: string;
+    /** False until the customer has set a PIN. */
+    has_pin?: boolean;
 }
 
 export interface VerifyOtpDataResponse {

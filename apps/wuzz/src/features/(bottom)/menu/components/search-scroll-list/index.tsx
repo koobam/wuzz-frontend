@@ -7,10 +7,10 @@ import {
 } from '@components/atoms';
 import { MenuEmptyPlaceholder } from '@assets/index';
 import type { MenuItem } from '../../types';
-import { FlashList } from '@shopify/flash-list';
+import { AnimatedFlashList } from '@components/atoms/animated-flash-list';
 import { memo, useCallback, useMemo } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
-import type { SharedValue } from 'react-native-reanimated';
+import { useAnimatedScrollHandler, type SharedValue } from 'react-native-reanimated';
 import { filteredMenuItems, formatSearchPrice } from '../../utils/search';
 import type { SearchScrollListProps } from './search-scroll-list.types';
 
@@ -40,11 +40,10 @@ export const SearchScrollList = memo((props: SearchScrollListProps) => {
 
   const items = useMemo(() => filteredMenuItems(query), [query]);
 
-  const handleScroll = useCallback(
-    (e: { nativeEvent: { contentOffset: { y: number } } }) => {
-      scrollY.value = e.nativeEvent.contentOffset.y;
-    },
-    [scrollY],
+  const handleScroll = useAnimatedScrollHandler(
+    (e) => {
+      scrollY.value = e.contentOffset.y;
+    }
   );
 
   const listHeader = useMemo(
@@ -136,7 +135,7 @@ export const SearchScrollList = memo((props: SearchScrollListProps) => {
   );
 
   return (
-    <FlashList
+    <AnimatedFlashList
       data={items}
       renderItem={renderItem}
       keyExtractor={keyExtractor}

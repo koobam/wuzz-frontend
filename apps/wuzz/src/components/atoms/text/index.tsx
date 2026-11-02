@@ -10,7 +10,7 @@ import {
   TextStyleType,
 } from './text.style';
 import { TextProps } from './text.types';
-import { getResponsiveValue } from '@wuzz/ui';
+import { getResponsiveValue } from '@wuzz/native/components';
 
 export const Text = React.memo((props: TextProps) => {
   const {

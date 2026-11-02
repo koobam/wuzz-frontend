@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { StyleSheet } from 'react-native';
-import { Box, Icon, Pressable, Text, theme } from '@components/atoms';
+import { Box, Pressable, ServiceIcon, Text, theme } from '@components/atoms';
 import type { CategoryCardProps } from './category-card.types';
 
 const ICON_SIZE = 46;
@@ -29,7 +29,8 @@ export const CategoryCard = memo(
         justify="center"
       >
         <Box style={styles.circle} />
-        <Icon
+        <ServiceIcon
+          uri={item.icon_url}
           icon={item.icon}
           size={ICON_SIZE}
           color={theme.pallate.neutral['01']}

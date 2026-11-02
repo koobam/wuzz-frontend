@@ -45,7 +45,7 @@ export function OutletScheduleFields({ form, timezone }: { form: UseFormReturn<O
           control={control}
           name="timezone"
           render={({ field }) => (
-            <Field label={t('outlets.schedule.timezone')} hint={timezone ? <OutletTimezoneHint timezone={timezone} /> : t('outlets.schedule.timezoneHint')}>
+            <Field label={t('outlets.schedule.timezone')} required hint={timezone ? <OutletTimezoneHint timezone={timezone} /> : t('outlets.schedule.timezoneHint')}>
               {() => (
                 <Select
                   ariaLabel={t('outlets.schedule.timezone')}
