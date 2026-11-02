@@ -19,7 +19,6 @@ import {
   Receipt,
 } from 'iconsax-react-native';
 import React from 'react';
-import { Probe } from '../../__bisect/probe';
 import { useTranslation } from 'react-i18next';
 
 const Tab = createBottomTabNavigator<BottomNavigationParamList>();
@@ -32,7 +31,7 @@ export const Bottom = React.memo((_: BottomTabsProps) => {
   const { t } = useTranslation();
   return (
     <Tab.Navigator
-      tabBar={(props: BottomTabBarProps) => <Probe id="TabBar"><BottomNavigationBar {...props} /></Probe>}
+      tabBar={(props: BottomTabBarProps) => <BottomNavigationBar {...props} />}
       screenOptions={{
         headerShown: false,
       }}

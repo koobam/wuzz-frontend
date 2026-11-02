@@ -17,7 +17,6 @@ import {
   TermsAndPrivacySection,
   WuzzerNearby,
 } from '@features/(bottom)/home/components';
-import { Probe } from '../../../__bisect/probe';
 import { useHomeController } from '@features/(bottom)/home/hooks';
 
 const styles = StyleSheet.create({
@@ -27,7 +26,7 @@ const styles = StyleSheet.create({
 /** Setiap kartu membawa onPress sendiri; ini hanya syarat tipe props section. */
 const noop = () => {};
 
-const HomeInner = memo((props: HomeType) => {
+export const Home = memo((props: HomeType) => {
   const { t } = useTranslation('home');
   const { navigation } = props;
   const {
@@ -169,8 +168,6 @@ const HomeInner = memo((props: HomeType) => {
   );
 });
 
-HomeInner.displayName = 'HomeInner';
-export const Home = memo((props: HomeType) => <Probe id="Home"><HomeInner {...props} /></Probe>);
 Home.displayName = 'Home';
 
 export type { HomeType } from '@features/(bottom)/home/types';

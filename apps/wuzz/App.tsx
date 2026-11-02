@@ -27,7 +27,6 @@ import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { HotUpdater } from '@hot-updater/react-native';
 import '@core/i18n';
 import Config from 'react-native-config';
-import { Probe } from './src/__bisect/probe';
 import { prefetchHomeData } from '@features/(bottom)/home/prefetch';
 
 // Reactotron only in dev builds, and only when REACTOTRON=true in the env file: while the desktop app is not
@@ -64,7 +63,7 @@ function AppContent() {
           <SelectedOutletProvider>
             <DeliveryAddressProvider>
               <OrderDraftProvider>
-                <Probe id="Root"><Root /></Probe>
+                <Root />
               </OrderDraftProvider>
             </DeliveryAddressProvider>
           </SelectedOutletProvider>
